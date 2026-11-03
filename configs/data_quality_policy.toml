@@ -1,0 +1,58 @@
+version = "2.0"
+name = "CIC-IDS2017 conservative analytical cleaning"
+
+[structural]
+header_action = "snake_case_and_suffix_normalized_collisions_by_source_position"
+add_provenance_columns = true
+preserve_original_label = true
+
+[missing]
+action = "canonicalize_to_nan_without_imputation"
+label_action = "quarantine_missing_or_blank"
+
+[infinity]
+action = "replace_positive_and_negative_infinity_with_nan"
+
+[numeric]
+action = "parse_numeric_and_audit_coercion_failures"
+
+[negative]
+action = "preserve_and_report"
+
+[duplicates]
+action = "preserve"
+
+[outliers]
+action = "preserve"
+
+[features]
+action = "retain_all"
+
+[rows]
+action = "exclude_missing_or_invalid_labels"
+
+[labels]
+action = "trim_whitespace_and_preserve_original"
+invalid_action = "quarantine"
+expected_values = [
+    "BENIGN",
+    "DoS Hulk",
+    "PortScan",
+    "DDoS",
+    "DoS GoldenEye",
+    "FTP-Patator",
+    "SSH-Patator",
+    "DoS slowloris",
+    "DoS Slowhttptest",
+    "Bot",
+    "Web Attack � Brute Force",
+    "Web Attack � XSS",
+    "Infiltration",
+    "Web Attack � Sql Injection",
+    "Heartbleed",
+]
+
+[column_roles]
+categorical = ["protocol"]
+datetime = ["timestamp"]
+identifiers = ["flow_id", "source_ip", "destination_ip"]

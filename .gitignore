@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.egg-info/
+build/
+dist/
+
+# Environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Test, coverage, and editor artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Notebook runtime artifacts
+.ipynb_checkpoints/
+
+# Local data and generated artifacts; retain directory markers only
+/data/raw/*
+!/data/raw/.gitkeep
+!/data/raw/CIC-IDS2017/
+/data/raw/CIC-IDS2017/*
+!/data/raw/CIC-IDS2017/.gitkeep
+/data/interim/*
+!/data/interim/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/models/*
+!/models/.gitkeep
+/reports/figures/*
+!/reports/figures/.gitkeep
+!/reports/figures/eda/
+!/reports/figures/eda/*.png
+/reports/evaluation/*
+!/reports/evaluation/.gitkeep
+/reports/ingestion/*
+!/reports/ingestion/.gitkeep
+*.parquet
+*.joblib
+*.pkl
+*.pickle
+*.onnx
+*.model
+*.log
+
+# Temporary output
+/tmp/
+/temp/

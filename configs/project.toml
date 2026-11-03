@@ -1,0 +1,38 @@
+[paths]
+raw_data = "data/raw"
+interim_data = "data/interim"
+processed_data = "data/processed"
+model_artifacts = "models"
+report_figures = "reports/figures"
+report_evaluation = "reports/evaluation"
+dataset_metadata = "data/interim/metadata"
+ingestion_reports = "reports/ingestion"
+eda_reports = "reports/eda"
+
+[dataset]
+name = "CIC-IDS2017"
+directory = "CIC-IDS2017"
+source_url = "https://www.unb.ca/cic/datasets/ids-2017.html"
+supported_extensions = [".csv"]
+label_candidates = ["Label"]
+recursive_discovery = true
+
+[ingestion]
+csv_encoding = "auto"
+chunk_size = 100000
+loading_strategy = "standard"
+
+[experiment]
+random_seed = 42
+
+[logging]
+level = "INFO"
+
+[database]
+# Keep credentials in NII_DATABASE_URL, supplied through the environment.
+url = ""
+
+[application]
+environment = "development"
+debug = false
+

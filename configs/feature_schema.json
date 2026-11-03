@@ -1,0 +1,1640 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_name": "CIC-IDS2017",
+  "source_cleaning_transformation_version": "2.0.0",
+  "target": {
+    "name": "label",
+    "type": "categorical",
+    "role": "target",
+    "included": false,
+    "exclusion_reason": "The target is returned separately as y and is never a predictive input.",
+    "allowed_values": [
+      "BENIGN",
+      "DoS Hulk",
+      "PortScan",
+      "DDoS",
+      "DoS GoldenEye",
+      "FTP-Patator",
+      "SSH-Patator",
+      "DoS slowloris",
+      "DoS Slowhttptest",
+      "Bot",
+      "Web Attack � Brute Force",
+      "Web Attack � XSS",
+      "Infiltration",
+      "Web Attack � Sql Injection",
+      "Heartbleed"
+    ],
+    "encoding": "No target encoding in Phase 05."
+  },
+  "features": [
+    {
+      "name": "destination_port",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Destination Port",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "flow_duration",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Flow Duration",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "total_fwd_packets",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Total Fwd Packets",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "total_backward_packets",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Total Backward Packets",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "total_length_of_fwd_packets",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Total Length of Fwd Packets",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "total_length_of_bwd_packets",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Total Length of Bwd Packets",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_packet_length_max",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd Packet Length Max",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_packet_length_min",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd Packet Length Min",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_packet_length_mean",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd Packet Length Mean",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_packet_length_std",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd Packet Length Std",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_packet_length_max",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Bwd Packet Length Max",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_packet_length_min",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd Packet Length Min",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_packet_length_mean",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd Packet Length Mean",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_packet_length_std",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd Packet Length Std",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "flow_bytes_s",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Flow Bytes/s",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "flow_packets_s",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Flow Packets/s",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "flow_iat_mean",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Flow IAT Mean",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "flow_iat_std",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Flow IAT Std",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "flow_iat_max",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Flow IAT Max",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "flow_iat_min",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Flow IAT Min",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_iat_total",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Fwd IAT Total",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_iat_mean",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd IAT Mean",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_iat_std",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd IAT Std",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_iat_max",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd IAT Max",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_iat_min",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd IAT Min",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_iat_total",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Bwd IAT Total",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_iat_mean",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd IAT Mean",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_iat_std",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd IAT Std",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_iat_max",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd IAT Max",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_iat_min",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd IAT Min",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_psh_flags",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Fwd PSH Flags",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_psh_flags",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd PSH Flags",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_urg_flags",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd URG Flags",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_urg_flags",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd URG Flags",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_header_length__source_col_35",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd Header Length",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_header_length",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd Header Length",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_packets_s",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Fwd Packets/s",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_packets_s",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd Packets/s",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "min_packet_length",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Min Packet Length",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "max_packet_length",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Max Packet Length",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "packet_length_mean",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Packet Length Mean",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "packet_length_std",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Packet Length Std",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "packet_length_variance",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Packet Length Variance",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fin_flag_count",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "FIN Flag Count",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "syn_flag_count",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " SYN Flag Count",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "rst_flag_count",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " RST Flag Count",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "psh_flag_count",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " PSH Flag Count",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "ack_flag_count",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " ACK Flag Count",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "urg_flag_count",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " URG Flag Count",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "cwe_flag_count",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " CWE Flag Count",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "ece_flag_count",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " ECE Flag Count",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "down_up_ratio",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Down/Up Ratio",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "average_packet_size",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Average Packet Size",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "avg_fwd_segment_size",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Avg Fwd Segment Size",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "avg_bwd_segment_size",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Avg Bwd Segment Size",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_header_length__source_col_56",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd Header Length",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_avg_bytes_bulk",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Fwd Avg Bytes/Bulk",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_avg_packets_bulk",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd Avg Packets/Bulk",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "fwd_avg_bulk_rate",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Fwd Avg Bulk Rate",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_avg_bytes_bulk",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd Avg Bytes/Bulk",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_avg_packets_bulk",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Bwd Avg Packets/Bulk",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "bwd_avg_bulk_rate",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Bwd Avg Bulk Rate",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "subflow_fwd_packets",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Subflow Fwd Packets",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "subflow_fwd_bytes",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Subflow Fwd Bytes",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "subflow_bwd_packets",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Subflow Bwd Packets",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "subflow_bwd_bytes",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Subflow Bwd Bytes",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "init_win_bytes_forward",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Init_Win_bytes_forward",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "init_win_bytes_backward",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Init_Win_bytes_backward",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "act_data_pkt_fwd",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " act_data_pkt_fwd",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "min_seg_size_forward",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " min_seg_size_forward",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "active_mean",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Active Mean",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "active_std",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Active Std",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "active_max",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Active Max",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "active_min",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Active Min",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "idle_mean",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": "Idle Mean",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "idle_std",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Idle Std",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "idle_max",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Idle Max",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    },
+    {
+      "name": "idle_min",
+      "type": "numeric",
+      "role": "predictive",
+      "included": true,
+      "optional": false,
+      "source_column": " Idle Min",
+      "transformation_requirements": [
+        "median_imputation",
+        "profile_scaling"
+      ]
+    }
+  ],
+  "leakage_policy": {
+    "metadata_fields": [
+      "__source_label",
+      "__source_file",
+      "__source_row_number",
+      "__record_id",
+      "flow_id",
+      "source_ip",
+      "destination_ip",
+      "timestamp",
+      "__processing_id"
+    ],
+    "excluded_fields": [],
+    "metadata_definitions": [
+      {
+        "name": "__source_label",
+        "type": "metadata",
+        "role": "provenance",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Provenance and investigation metadata; never a predictive input."
+      },
+      {
+        "name": "__source_file",
+        "type": "metadata",
+        "role": "provenance",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Provenance and investigation metadata; never a predictive input."
+      },
+      {
+        "name": "__source_row_number",
+        "type": "metadata",
+        "role": "provenance",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Provenance and investigation metadata; never a predictive input."
+      },
+      {
+        "name": "__record_id",
+        "type": "metadata",
+        "role": "provenance",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Provenance and investigation metadata; never a predictive input."
+      },
+      {
+        "name": "flow_id",
+        "type": "identifier_or_time",
+        "role": "metadata",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Not present in the current CIC-IDS2017 export; keep outside X if added later."
+      },
+      {
+        "name": "source_ip",
+        "type": "identifier_or_time",
+        "role": "metadata",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Not present in the current CIC-IDS2017 export; keep outside X if added later."
+      },
+      {
+        "name": "destination_ip",
+        "type": "identifier_or_time",
+        "role": "metadata",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Not present in the current CIC-IDS2017 export; keep outside X if added later."
+      },
+      {
+        "name": "timestamp",
+        "type": "identifier_or_time",
+        "role": "metadata",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Not present in the current CIC-IDS2017 export; keep outside X if added later."
+      },
+      {
+        "name": "__processing_id",
+        "type": "identifier_or_time",
+        "role": "metadata",
+        "included": false,
+        "optional": true,
+        "exclusion_reason": "Not present in the current CIC-IDS2017 export; keep outside X if added later."
+      }
+    ]
+  },
+  "unavailable_predictive_candidates": [
+    {
+      "name": "source_port",
+      "type": "numeric",
+      "role": "predictive_candidate",
+      "included": false,
+      "optional": true,
+      "exclusion_reason": "Not present in the current cleaned schema; update and review the contract before enabling."
+    },
+    {
+      "name": "protocol",
+      "type": "categorical",
+      "role": "predictive_candidate",
+      "included": false,
+      "optional": true,
+      "exclusion_reason": "Not present in the current cleaned schema; if added, treat protocol codes as categories."
+    }
+  ],
+  "derived_feature_candidates": [
+    "total_packets",
+    "total_bytes",
+    "forward_packet_proportion",
+    "forward_byte_proportion"
+  ],
+  "source_column_mapping": [
+    {
+      "source_position": 1,
+      "source_header": " Destination Port",
+      "normalized_base": "destination_port",
+      "cleaned_header": "destination_port",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 2,
+      "source_header": " Flow Duration",
+      "normalized_base": "flow_duration",
+      "cleaned_header": "flow_duration",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 3,
+      "source_header": " Total Fwd Packets",
+      "normalized_base": "total_fwd_packets",
+      "cleaned_header": "total_fwd_packets",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 4,
+      "source_header": " Total Backward Packets",
+      "normalized_base": "total_backward_packets",
+      "cleaned_header": "total_backward_packets",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 5,
+      "source_header": "Total Length of Fwd Packets",
+      "normalized_base": "total_length_of_fwd_packets",
+      "cleaned_header": "total_length_of_fwd_packets",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 6,
+      "source_header": " Total Length of Bwd Packets",
+      "normalized_base": "total_length_of_bwd_packets",
+      "cleaned_header": "total_length_of_bwd_packets",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 7,
+      "source_header": " Fwd Packet Length Max",
+      "normalized_base": "fwd_packet_length_max",
+      "cleaned_header": "fwd_packet_length_max",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 8,
+      "source_header": " Fwd Packet Length Min",
+      "normalized_base": "fwd_packet_length_min",
+      "cleaned_header": "fwd_packet_length_min",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 9,
+      "source_header": " Fwd Packet Length Mean",
+      "normalized_base": "fwd_packet_length_mean",
+      "cleaned_header": "fwd_packet_length_mean",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 10,
+      "source_header": " Fwd Packet Length Std",
+      "normalized_base": "fwd_packet_length_std",
+      "cleaned_header": "fwd_packet_length_std",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 11,
+      "source_header": "Bwd Packet Length Max",
+      "normalized_base": "bwd_packet_length_max",
+      "cleaned_header": "bwd_packet_length_max",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 12,
+      "source_header": " Bwd Packet Length Min",
+      "normalized_base": "bwd_packet_length_min",
+      "cleaned_header": "bwd_packet_length_min",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 13,
+      "source_header": " Bwd Packet Length Mean",
+      "normalized_base": "bwd_packet_length_mean",
+      "cleaned_header": "bwd_packet_length_mean",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 14,
+      "source_header": " Bwd Packet Length Std",
+      "normalized_base": "bwd_packet_length_std",
+      "cleaned_header": "bwd_packet_length_std",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 15,
+      "source_header": "Flow Bytes/s",
+      "normalized_base": "flow_bytes_s",
+      "cleaned_header": "flow_bytes_s",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 16,
+      "source_header": " Flow Packets/s",
+      "normalized_base": "flow_packets_s",
+      "cleaned_header": "flow_packets_s",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 17,
+      "source_header": " Flow IAT Mean",
+      "normalized_base": "flow_iat_mean",
+      "cleaned_header": "flow_iat_mean",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 18,
+      "source_header": " Flow IAT Std",
+      "normalized_base": "flow_iat_std",
+      "cleaned_header": "flow_iat_std",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 19,
+      "source_header": " Flow IAT Max",
+      "normalized_base": "flow_iat_max",
+      "cleaned_header": "flow_iat_max",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 20,
+      "source_header": " Flow IAT Min",
+      "normalized_base": "flow_iat_min",
+      "cleaned_header": "flow_iat_min",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 21,
+      "source_header": "Fwd IAT Total",
+      "normalized_base": "fwd_iat_total",
+      "cleaned_header": "fwd_iat_total",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 22,
+      "source_header": " Fwd IAT Mean",
+      "normalized_base": "fwd_iat_mean",
+      "cleaned_header": "fwd_iat_mean",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 23,
+      "source_header": " Fwd IAT Std",
+      "normalized_base": "fwd_iat_std",
+      "cleaned_header": "fwd_iat_std",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 24,
+      "source_header": " Fwd IAT Max",
+      "normalized_base": "fwd_iat_max",
+      "cleaned_header": "fwd_iat_max",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 25,
+      "source_header": " Fwd IAT Min",
+      "normalized_base": "fwd_iat_min",
+      "cleaned_header": "fwd_iat_min",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 26,
+      "source_header": "Bwd IAT Total",
+      "normalized_base": "bwd_iat_total",
+      "cleaned_header": "bwd_iat_total",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 27,
+      "source_header": " Bwd IAT Mean",
+      "normalized_base": "bwd_iat_mean",
+      "cleaned_header": "bwd_iat_mean",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 28,
+      "source_header": " Bwd IAT Std",
+      "normalized_base": "bwd_iat_std",
+      "cleaned_header": "bwd_iat_std",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 29,
+      "source_header": " Bwd IAT Max",
+      "normalized_base": "bwd_iat_max",
+      "cleaned_header": "bwd_iat_max",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 30,
+      "source_header": " Bwd IAT Min",
+      "normalized_base": "bwd_iat_min",
+      "cleaned_header": "bwd_iat_min",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 31,
+      "source_header": "Fwd PSH Flags",
+      "normalized_base": "fwd_psh_flags",
+      "cleaned_header": "fwd_psh_flags",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 32,
+      "source_header": " Bwd PSH Flags",
+      "normalized_base": "bwd_psh_flags",
+      "cleaned_header": "bwd_psh_flags",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 33,
+      "source_header": " Fwd URG Flags",
+      "normalized_base": "fwd_urg_flags",
+      "cleaned_header": "fwd_urg_flags",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 34,
+      "source_header": " Bwd URG Flags",
+      "normalized_base": "bwd_urg_flags",
+      "cleaned_header": "bwd_urg_flags",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 35,
+      "source_header": " Fwd Header Length",
+      "normalized_base": "fwd_header_length",
+      "cleaned_header": "fwd_header_length__source_col_35",
+      "normalized_collision": true
+    },
+    {
+      "source_position": 36,
+      "source_header": " Bwd Header Length",
+      "normalized_base": "bwd_header_length",
+      "cleaned_header": "bwd_header_length",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 37,
+      "source_header": "Fwd Packets/s",
+      "normalized_base": "fwd_packets_s",
+      "cleaned_header": "fwd_packets_s",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 38,
+      "source_header": " Bwd Packets/s",
+      "normalized_base": "bwd_packets_s",
+      "cleaned_header": "bwd_packets_s",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 39,
+      "source_header": " Min Packet Length",
+      "normalized_base": "min_packet_length",
+      "cleaned_header": "min_packet_length",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 40,
+      "source_header": " Max Packet Length",
+      "normalized_base": "max_packet_length",
+      "cleaned_header": "max_packet_length",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 41,
+      "source_header": " Packet Length Mean",
+      "normalized_base": "packet_length_mean",
+      "cleaned_header": "packet_length_mean",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 42,
+      "source_header": " Packet Length Std",
+      "normalized_base": "packet_length_std",
+      "cleaned_header": "packet_length_std",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 43,
+      "source_header": " Packet Length Variance",
+      "normalized_base": "packet_length_variance",
+      "cleaned_header": "packet_length_variance",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 44,
+      "source_header": "FIN Flag Count",
+      "normalized_base": "fin_flag_count",
+      "cleaned_header": "fin_flag_count",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 45,
+      "source_header": " SYN Flag Count",
+      "normalized_base": "syn_flag_count",
+      "cleaned_header": "syn_flag_count",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 46,
+      "source_header": " RST Flag Count",
+      "normalized_base": "rst_flag_count",
+      "cleaned_header": "rst_flag_count",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 47,
+      "source_header": " PSH Flag Count",
+      "normalized_base": "psh_flag_count",
+      "cleaned_header": "psh_flag_count",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 48,
+      "source_header": " ACK Flag Count",
+      "normalized_base": "ack_flag_count",
+      "cleaned_header": "ack_flag_count",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 49,
+      "source_header": " URG Flag Count",
+      "normalized_base": "urg_flag_count",
+      "cleaned_header": "urg_flag_count",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 50,
+      "source_header": " CWE Flag Count",
+      "normalized_base": "cwe_flag_count",
+      "cleaned_header": "cwe_flag_count",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 51,
+      "source_header": " ECE Flag Count",
+      "normalized_base": "ece_flag_count",
+      "cleaned_header": "ece_flag_count",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 52,
+      "source_header": " Down/Up Ratio",
+      "normalized_base": "down_up_ratio",
+      "cleaned_header": "down_up_ratio",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 53,
+      "source_header": " Average Packet Size",
+      "normalized_base": "average_packet_size",
+      "cleaned_header": "average_packet_size",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 54,
+      "source_header": " Avg Fwd Segment Size",
+      "normalized_base": "avg_fwd_segment_size",
+      "cleaned_header": "avg_fwd_segment_size",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 55,
+      "source_header": " Avg Bwd Segment Size",
+      "normalized_base": "avg_bwd_segment_size",
+      "cleaned_header": "avg_bwd_segment_size",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 56,
+      "source_header": " Fwd Header Length",
+      "normalized_base": "fwd_header_length",
+      "cleaned_header": "fwd_header_length__source_col_56",
+      "normalized_collision": true
+    },
+    {
+      "source_position": 57,
+      "source_header": "Fwd Avg Bytes/Bulk",
+      "normalized_base": "fwd_avg_bytes_bulk",
+      "cleaned_header": "fwd_avg_bytes_bulk",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 58,
+      "source_header": " Fwd Avg Packets/Bulk",
+      "normalized_base": "fwd_avg_packets_bulk",
+      "cleaned_header": "fwd_avg_packets_bulk",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 59,
+      "source_header": " Fwd Avg Bulk Rate",
+      "normalized_base": "fwd_avg_bulk_rate",
+      "cleaned_header": "fwd_avg_bulk_rate",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 60,
+      "source_header": " Bwd Avg Bytes/Bulk",
+      "normalized_base": "bwd_avg_bytes_bulk",
+      "cleaned_header": "bwd_avg_bytes_bulk",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 61,
+      "source_header": " Bwd Avg Packets/Bulk",
+      "normalized_base": "bwd_avg_packets_bulk",
+      "cleaned_header": "bwd_avg_packets_bulk",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 62,
+      "source_header": "Bwd Avg Bulk Rate",
+      "normalized_base": "bwd_avg_bulk_rate",
+      "cleaned_header": "bwd_avg_bulk_rate",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 63,
+      "source_header": "Subflow Fwd Packets",
+      "normalized_base": "subflow_fwd_packets",
+      "cleaned_header": "subflow_fwd_packets",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 64,
+      "source_header": " Subflow Fwd Bytes",
+      "normalized_base": "subflow_fwd_bytes",
+      "cleaned_header": "subflow_fwd_bytes",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 65,
+      "source_header": " Subflow Bwd Packets",
+      "normalized_base": "subflow_bwd_packets",
+      "cleaned_header": "subflow_bwd_packets",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 66,
+      "source_header": " Subflow Bwd Bytes",
+      "normalized_base": "subflow_bwd_bytes",
+      "cleaned_header": "subflow_bwd_bytes",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 67,
+      "source_header": "Init_Win_bytes_forward",
+      "normalized_base": "init_win_bytes_forward",
+      "cleaned_header": "init_win_bytes_forward",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 68,
+      "source_header": " Init_Win_bytes_backward",
+      "normalized_base": "init_win_bytes_backward",
+      "cleaned_header": "init_win_bytes_backward",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 69,
+      "source_header": " act_data_pkt_fwd",
+      "normalized_base": "act_data_pkt_fwd",
+      "cleaned_header": "act_data_pkt_fwd",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 70,
+      "source_header": " min_seg_size_forward",
+      "normalized_base": "min_seg_size_forward",
+      "cleaned_header": "min_seg_size_forward",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 71,
+      "source_header": "Active Mean",
+      "normalized_base": "active_mean",
+      "cleaned_header": "active_mean",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 72,
+      "source_header": " Active Std",
+      "normalized_base": "active_std",
+      "cleaned_header": "active_std",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 73,
+      "source_header": " Active Max",
+      "normalized_base": "active_max",
+      "cleaned_header": "active_max",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 74,
+      "source_header": " Active Min",
+      "normalized_base": "active_min",
+      "cleaned_header": "active_min",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 75,
+      "source_header": "Idle Mean",
+      "normalized_base": "idle_mean",
+      "cleaned_header": "idle_mean",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 76,
+      "source_header": " Idle Std",
+      "normalized_base": "idle_std",
+      "cleaned_header": "idle_std",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 77,
+      "source_header": " Idle Max",
+      "normalized_base": "idle_max",
+      "cleaned_header": "idle_max",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 78,
+      "source_header": " Idle Min",
+      "normalized_base": "idle_min",
+      "cleaned_header": "idle_min",
+      "normalized_collision": false
+    },
+    {
+      "source_position": 79,
+      "source_header": " Label",
+      "normalized_base": "label",
+      "cleaned_header": "label",
+      "normalized_collision": false
+    }
+  ],
+  "notes": [
+    "Current cleaned schema has 78 numeric predictive features and no categorical predictive fields.",
+    "destination_port is retained as a numeric candidate.",
+    "Do not add unseen input columns implicitly; revise this contract when the source schema changes."
+  ]
+}

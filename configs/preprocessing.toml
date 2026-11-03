@@ -1,0 +1,33 @@
+version = "1.0"
+random_seed = 42
+
+[imputation]
+numeric_strategy = "median"
+categorical_strategy = "constant"
+categorical_missing_value = "__MISSING__"
+add_numeric_indicators = false
+all_missing_numeric = "error"
+
+[encoding]
+strategy = "one_hot"
+handle_unknown = "ignore"
+sparse_output = true
+sparse_threshold = 1.0
+
+[profiles.linear]
+scaler = "standard"
+
+[profiles.tree]
+scaler = "none"
+
+[profiles.anomaly]
+scaler = "robust"
+
+[engineering]
+enabled = false
+features = []
+
+[feature_selection]
+enabled = false
+strategy = "variance_threshold"
+threshold = 0.0

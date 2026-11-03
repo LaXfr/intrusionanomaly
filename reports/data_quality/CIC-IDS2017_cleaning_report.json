@@ -1,0 +1,298 @@
+{
+  "report_version": "1.0",
+  "dataset_name": "CIC-IDS2017",
+  "generated_at_utc": "2026-11-03T08:03:35+00:00",
+  "status": "completed",
+  "transformation_version": "1.0.0",
+  "policy": {
+    "version": "1.0",
+    "name": "CIC-IDS2017 preservation-first policy",
+    "structural": {
+      "header_action": "preserve_source_headers_with_position_aliases",
+      "add_provenance_columns": true
+    },
+    "missing": {
+      "action": "preserve_source_text"
+    },
+    "infinity": {
+      "action": "preserve_source_text"
+    },
+    "negative": {
+      "action": "preserve"
+    },
+    "duplicates": {
+      "action": "preserve"
+    },
+    "outliers": {
+      "action": "preserve"
+    },
+    "features": {
+      "action": "retain_all"
+    },
+    "rows": {
+      "action": "exclude_none"
+    },
+    "labels": {
+      "action": "preserve_source_text"
+    }
+  },
+  "configuration": {
+    "chunk_size": 50000,
+    "sample_stride": 100,
+    "random_seed": 42,
+    "python_version": "3.13.2",
+    "pandas_version": "3.1.0",
+    "numpy_version": "2.5.4"
+  },
+  "records": {
+    "input": 2830743,
+    "output": 2830743,
+    "excluded": 0,
+    "label_counts_before": {
+      "BENIGN": 2273097,
+      "DoS Hulk": 231073,
+      "PortScan": 158930,
+      "DDoS": 128027,
+      "DoS GoldenEye": 10293,
+      "FTP-Patator": 7938,
+      "SSH-Patator": 5897,
+      "DoS slowloris": 5796,
+      "DoS Slowhttptest": 5499,
+      "Bot": 1966,
+      "Web Attack � Brute Force": 1507,
+      "Web Attack � XSS": 652,
+      "Infiltration": 36,
+      "Web Attack � Sql Injection": 21,
+      "Heartbleed": 11
+    },
+    "label_counts_after": {
+      "BENIGN": 2273097,
+      "DoS Hulk": 231073,
+      "PortScan": 158930,
+      "DDoS": 128027,
+      "DoS GoldenEye": 10293,
+      "FTP-Patator": 7938,
+      "SSH-Patator": 5897,
+      "DoS slowloris": 5796,
+      "DoS Slowhttptest": 5499,
+      "Bot": 1966,
+      "Web Attack � Brute Force": 1507,
+      "Web Attack � XSS": 652,
+      "Infiltration": 36,
+      "Web Attack � Sql Injection": 21,
+      "Heartbleed": 11
+    }
+  },
+  "transformations": {
+    "source_cells_changed": 0,
+    "provenance_columns": [
+      "__source_file",
+      "__source_row_number",
+      "__record_id"
+    ],
+    "rows_removed": 0,
+    "features_removed": 0,
+    "missing_values_imputed": 0,
+    "infinities_replaced": 0,
+    "negative_values_changed": 0,
+    "duplicates_removed": 0,
+    "outliers_removed": 0
+  },
+  "verification": {
+    "labels_preserved": true,
+    "source_values_preserved": true,
+    "feature_quality_counts_preserved": true,
+    "raw_files_unchanged": true,
+    "all_output_records_retained": true,
+    "record_ids_derived_from_label": false,
+    "records_removed": 0
+  },
+  "inputs": {
+    "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": {
+      "file_name": "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "size_bytes": 77123859,
+      "sha256": "6ff1580f5f81c0ae28a26f7631721018577f5f7c5e0feac28b795fcfe7b411ee",
+      "encoding": "utf-8",
+      "schema_fingerprint": "92582839f44736fce33ca98a2b1fd2bbcddaf18c0c39410ebea163c72feec2fe",
+      "rows": 225745,
+      "label_counts": {
+        "BENIGN": 97718,
+        "DDoS": 128027
+      },
+      "row_content_fingerprint_sha256": "3884b04ef10a25157ae36417b312e2659ded4def40754ce667c649d0cb06d9ff"
+    },
+    "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": {
+      "file_name": "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "size_bytes": 76906168,
+      "sha256": "ca1824c51bfbb7b3c72290a11be04366ba8815878c6a1cc5c44cb1cee269e99b",
+      "encoding": "utf-8",
+      "schema_fingerprint": "92582839f44736fce33ca98a2b1fd2bbcddaf18c0c39410ebea163c72feec2fe",
+      "rows": 286467,
+      "label_counts": {
+        "BENIGN": 127537,
+        "PortScan": 158930
+      },
+      "row_content_fingerprint_sha256": "db1e91c9bd6d061a495b9acd1cf05f73b6df4a281b9998ef0604b80192757db7"
+    },
+    "extracted/MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv": {
+      "file_name": "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "size_bytes": 58316725,
+      "sha256": "53a41c24d570ea83b7ac55b2e94df94e7a8216aeb80a2af0246b6bc8bb543000",
+      "encoding": "utf-8",
+      "schema_fingerprint": "92582839f44736fce33ca98a2b1fd2bbcddaf18c0c39410ebea163c72feec2fe",
+      "rows": 191033,
+      "label_counts": {
+        "BENIGN": 189067,
+        "Bot": 1966
+      },
+      "row_content_fingerprint_sha256": "3bf45843028157c3eb348ff610e6535794e24dc63789538fc41fe4f9f4384a31"
+    },
+    "extracted/MachineLearningCVE/Monday-WorkingHours.pcap_ISCX.csv": {
+      "file_name": "Monday-WorkingHours.pcap_ISCX.csv",
+      "size_bytes": 176927918,
+      "sha256": "852c4beb34eda186f32561fa79df7a0747e92e1a6535b01270820dd9ffe17f34",
+      "encoding": "utf-8",
+      "schema_fingerprint": "92582839f44736fce33ca98a2b1fd2bbcddaf18c0c39410ebea163c72feec2fe",
+      "rows": 529918,
+      "label_counts": {
+        "BENIGN": 529918
+      },
+      "row_content_fingerprint_sha256": "2705ed5efdb789885bf24efd28354245d5a7a4dc5c0297a97ebba13c747e1aec"
+    },
+    "extracted/MachineLearningCVE/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": {
+      "file_name": "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "size_bytes": 83102436,
+      "sha256": "6bcda3857c2504676034e3ea57762d38393cc734cb377a726bd5cb153961b1b5",
+      "encoding": "utf-8",
+      "schema_fingerprint": "92582839f44736fce33ca98a2b1fd2bbcddaf18c0c39410ebea163c72feec2fe",
+      "rows": 288602,
+      "label_counts": {
+        "BENIGN": 288566,
+        "Infiltration": 36
+      },
+      "row_content_fingerprint_sha256": "9aa6a4eeeff29fb86cc48181dbe007a22c25003f14d5b7f418fee7e4c68b60bc"
+    },
+    "extracted/MachineLearningCVE/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": {
+      "file_name": "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "size_bytes": 52023263,
+      "sha256": "d67066211fb1689c78406f1506f4c44704ecb92088353d5c96d96d6474eb819d",
+      "encoding": "utf-8",
+      "schema_fingerprint": "92582839f44736fce33ca98a2b1fd2bbcddaf18c0c39410ebea163c72feec2fe",
+      "rows": 170366,
+      "label_counts": {
+        "BENIGN": 168186,
+        "Web Attack � Brute Force": 1507,
+        "Web Attack � XSS": 652,
+        "Web Attack � Sql Injection": 21
+      },
+      "row_content_fingerprint_sha256": "46564ab6ab64a06e476523285825a734f0ff45dad1d7889789229a1eb1039ed4"
+    },
+    "extracted/MachineLearningCVE/Tuesday-WorkingHours.pcap_ISCX.csv": {
+      "file_name": "Tuesday-WorkingHours.pcap_ISCX.csv",
+      "size_bytes": 135078995,
+      "sha256": "52b8692ae8c7d2ed04671fe2b98335693c0a92c7ab157d8c8b534d6523080851",
+      "encoding": "utf-8",
+      "schema_fingerprint": "92582839f44736fce33ca98a2b1fd2bbcddaf18c0c39410ebea163c72feec2fe",
+      "rows": 445909,
+      "label_counts": {
+        "BENIGN": 432074,
+        "FTP-Patator": 7938,
+        "SSH-Patator": 5897
+      },
+      "row_content_fingerprint_sha256": "a84bc86df2da956656220f67c20998436cd45fb49949c39d2820c7eba755b6cf"
+    },
+    "extracted/MachineLearningCVE/Wednesday-workingHours.pcap_ISCX.csv": {
+      "file_name": "Wednesday-workingHours.pcap_ISCX.csv",
+      "size_bytes": 225166395,
+      "sha256": "893c27dc968bf7a8adef1689f90be55ca4a4dc3088fb63d6ff247ac56856df2a",
+      "encoding": "utf-8",
+      "schema_fingerprint": "92582839f44736fce33ca98a2b1fd2bbcddaf18c0c39410ebea163c72feec2fe",
+      "rows": 692703,
+      "label_counts": {
+        "BENIGN": 440031,
+        "DoS slowloris": 5796,
+        "DoS Hulk": 231073,
+        "DoS Slowhttptest": 5499,
+        "DoS GoldenEye": 10293,
+        "Heartbleed": 11
+      },
+      "row_content_fingerprint_sha256": "7f34cd838db1c3a533f08099d9dfe8db4a4f877c91a46199aefcd2f945882c59"
+    }
+  },
+  "outputs": [
+    {
+      "source_file": "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "source_sha256": "6ff1580f5f81c0ae28a26f7631721018577f5f7c5e0feac28b795fcfe7b411ee",
+      "path": "cleaned/extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "rows": 225745,
+      "sha256": "48ff794897637bbda2af58cf127cfb2981d22c33e9dd4f1f8f8fd8c511be72a3"
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "source_sha256": "ca1824c51bfbb7b3c72290a11be04366ba8815878c6a1cc5c44cb1cee269e99b",
+      "path": "cleaned/extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "rows": 286467,
+      "sha256": "829ee2c52b50a1cf908e3d906dc053f373164c6d0f5215ff879f4a21ff40f783"
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "source_sha256": "53a41c24d570ea83b7ac55b2e94df94e7a8216aeb80a2af0246b6bc8bb543000",
+      "path": "cleaned/extracted/MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "rows": 191033,
+      "sha256": "8c01667e4f3866badf2695684cce33c7d126933830227508aa953fb483412059"
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Monday-WorkingHours.pcap_ISCX.csv",
+      "source_sha256": "852c4beb34eda186f32561fa79df7a0747e92e1a6535b01270820dd9ffe17f34",
+      "path": "cleaned/extracted/MachineLearningCVE/Monday-WorkingHours.pcap_ISCX.csv",
+      "rows": 529918,
+      "sha256": "7ebf989ce8190c33dd3e3326be5a5514c42a965947e45a3224fc13a499db1cd1"
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "source_sha256": "6bcda3857c2504676034e3ea57762d38393cc734cb377a726bd5cb153961b1b5",
+      "path": "cleaned/extracted/MachineLearningCVE/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "rows": 288602,
+      "sha256": "4cd226805bf08430522be67302ccae399e7290ca3fc22521425e5e7fcd88cd7b"
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "source_sha256": "d67066211fb1689c78406f1506f4c44704ecb92088353d5c96d96d6474eb819d",
+      "path": "cleaned/extracted/MachineLearningCVE/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "rows": 170366,
+      "sha256": "3c5d8e0c02ab8e6355a852e2afd6a6eb43ecf16d67672438e3100753f3e768e3"
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Tuesday-WorkingHours.pcap_ISCX.csv",
+      "source_sha256": "52b8692ae8c7d2ed04671fe2b98335693c0a92c7ab157d8c8b534d6523080851",
+      "path": "cleaned/extracted/MachineLearningCVE/Tuesday-WorkingHours.pcap_ISCX.csv",
+      "rows": 445909,
+      "sha256": "b89ebdab0ed276276e3164ee1bc2535ce3ea3fce6f66e1f38a127ce05fde33c5"
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Wednesday-workingHours.pcap_ISCX.csv",
+      "source_sha256": "893c27dc968bf7a8adef1689f90be55ca4a4dc3088fb63d6ff247ac56856df2a",
+      "path": "cleaned/extracted/MachineLearningCVE/Wednesday-workingHours.pcap_ISCX.csv",
+      "rows": 692703,
+      "sha256": "f2fbfb62614e3bea9acbbeb0cc22b6081b8b994a0932e38fc647d682ee2de64a"
+    }
+  ],
+  "quality_reports": {
+    "before_json": "reports/data_quality/CIC-IDS2017_quality_report.json",
+    "before_markdown": "reports/data_quality/CIC-IDS2017_quality_report.md",
+    "after_json": "reports/data_quality/CIC-IDS2017_quality_report_after.json",
+    "after_markdown": "reports/data_quality/CIC-IDS2017_quality_report_after.md"
+  },
+  "limitations": [
+    "Processed CSV feature and label values are preserved as decoded source text; unresolved anomalies remain for a later, explicitly fitted modeling workflow.",
+    "The CICFlowMeter feature documentation establishes field semantics, but the CSV alone does not establish why each invalid-looking row was produced.",
+    "The deterministic record identifier is a 96-bit BLAKE2b digest of the source-relative path, input-file SHA-256, and 1-based source row; labels are not used."
+  ],
+  "artifacts": {
+    "manifest": "data/processed/CIC-IDS2017/metadata/manifest.json",
+    "transformation_history": "data/processed/CIC-IDS2017/metadata/transformation_history.json",
+    "cleaning_report_json": "reports/data_quality/CIC-IDS2017_cleaning_report.json",
+    "cleaning_report_markdown": "reports/data_quality/CIC-IDS2017_cleaning_report.md",
+    "processed_directory": "data/processed/CIC-IDS2017/cleaned"
+  }
+}

@@ -1,0 +1,3 @@
+# Dataset ingestion, EDA figures, and test dependencies. Add other stack
+# components through their optional extras when those project phases begin.
+-e .[data,dev,eda,parquet,preprocessing]

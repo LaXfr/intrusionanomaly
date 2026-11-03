@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "network-intrusion-intelligence"
+version = "0.1.0"
+description = "Offline network flow security analytics and research platform."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = []
+
+[project.optional-dependencies]
+data = [
+    "numpy>=1.26,<3",
+    "pandas>=2.2,<4",
+]
+parquet = ["pyarrow>=16,<25"]
+large-data = ["polars>=0.20,<2"]
+visualization = [
+    "matplotlib>=3.8,<4",
+    "seaborn>=0.13,<1",
+    "plotly>=5.20,<7",
+]
+eda = ["matplotlib>=3.8,<4"]
+ml = [
+    "scikit-learn>=1.4,<2",
+    "xgboost>=2,<4",
+    "shap>=0.45,<1",
+    "imbalanced-learn>=0.12,<1",
+]
+api = [
+    "fastapi>=0.110,<1",
+    "uvicorn[standard]>=0.29,<1",
+    "pydantic>=2.6,<3",
+]
+database = [
+    "sqlalchemy>=2,<3",
+    "psycopg[binary]>=3.1,<4",
+]
+dashboard = ["streamlit>=1.32,<2"]
+network = ["scapy>=2.5,<3"]
+dev = ["pytest>=8,<10"]
+preprocessing = [
+    "scikit-learn>=1.4,<2",
+    "joblib>=1.3,<2",
+]
+
+[project.scripts]
+intrusion-ingest = "intrusion_intelligence.ingestion.cli:main"
+intrusion-eda = "intrusion_intelligence.eda.cli:main"
+intrusion-preprocess = "intrusion_intelligence.preprocessing.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["intrusion_intelligence*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
