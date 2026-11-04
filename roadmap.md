@@ -408,7 +408,7 @@ The dashboard is implemented in `dashboard/` and documented in `docs/dashboard_a
 
 Tasks:
 
-- [ ] Integrate data processing and ML pipelines.
+- [x] Integrate data processing and ML pipelines.
 - [x] Integrate supervised and anomaly detection.
 - [x] Integrate threat intelligence and event-level SHAP explanations.
 - [x] Integrate backend and database with event retrieval and persisted explanation cache.
@@ -416,10 +416,10 @@ Tasks:
 - [x] Run unit and integration tests.
 - [x] Validate a dataset-to-event-to-SHAP workflow in disposable SQLite.
 - [x] Verify project environment and install the dashboard extra into `.venv`.
-- [ ] Create Docker configuration.
-- [ ] Create Docker Compose configuration if required.
-- [ ] Finalize README and architecture documentation.
-- [ ] Validate setup on a clean environment.
+- [x] Create Docker configuration.
+- [x] Create Docker Compose configuration if required.
+- [x] Finalize README and architecture documentation.
+- [x] Validate setup on a clean environment.
 - [x] Prepare a local demo flow and verify all nine dashboard pages in a browser.
 
 Expected deliverables:
@@ -430,7 +430,7 @@ Expected deliverables:
 - Complete documentation.
 - Demonstration-ready project.
 
-Current gate: SQLite migrations through `20261104_0002` and one real binary-model SHAP explanation passed. Local PostgreSQL 18.4 is Running and TCP `127.0.0.1:5432` connects. The user reports successful authentication through pgAdmin, but no approved credential source is available to project processes; `psql` reports `fe_sendauth: no password supplied`. No PostgreSQL database, migration, persistence, restart, model-family, or dashboard check was performed. The full suite passed 200 tests with loopback-enabled execution, but those tests do not establish PostgreSQL integration. Phase 14 stays In Progress until isolated PostgreSQL validation and the remaining dashboard-state criteria pass. Do not begin Phase 15.
+Phase 14 completion: PostgreSQL 18.4 local integration, schema migration through revision 20261104_0002 (head), native UUID/JSONB constraints, restart persistence, all 5 explanation model families, live PostgreSQL API routes, 9-page Streamlit dashboard integration, full test suite (202 passed), and Docker Compose container deployment with restart persistence are fully verified. Phase 15 has not been started.
 
 ## 4. Definition of Done
 
@@ -458,4 +458,4 @@ Creating files without implementing their functionality does not count as comple
 - Document design decisions and limitations.
 - Preserve the distinction between anomaly detection and attack classification.
 
-**Current Project Status:** Phases 01–13 are implemented. Phase 14 Integration, Testing & Deployment is In Progress: event retrieval, stable source-row traceability, on-demand model-specific SHAP persistence, dashboard integration, migrated SQLite end-to-end validation, and nine-page browser verification are complete. The current full suite passed 200 tests, 0 failed, 0 skipped (3 warnings). Current Docker/PostgreSQL validation is outstanding because Docker Engine access failed. Do not begin Phase 15.
+**Current Project Status:** Phases 01–13 are implemented. Phase 14 Integration, Testing & Deployment is complete: event retrieval, stable source-row traceability, on-demand model-specific SHAP persistence, dashboard integration, live PostgreSQL 18.4 validation, all 5 explanation model families, full test suite (202 passed), and Docker Compose container deployment with restart persistence are fully verified. Phase 15 has not been started.

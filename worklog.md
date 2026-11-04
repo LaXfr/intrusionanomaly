@@ -871,3 +871,66 @@ Updated `api/`, `alembic/`, `dashboard/`, API/dashboard tests, API/dashboard/sys
 - `pip check`, `compileall -q api dashboard src tests`, and `git diff --check` all passed (exit 0); Git emitted existing LF-to-CRLF notices for tracked files.
 - PostgreSQL database creation, migrations, schema inspection, dataset/job/event/explanation persistence, restart checks, model-family route checks, and PostgreSQL-backed dashboard/browser checks remain blocked until an authorized PostgreSQL login is configured. Phase 14 remains In Progress; Phase 15 not started.
 - In the subsequent resume task, user confirmed pgAdmin authentication for the existing PostgreSQL server. The password was not shared in chat and is not available in this process environment or standard local credential files. `psql` therefore remains blocked with “no password supplied”; this does not contradict the user-reported pgAdmin connection. The full suite was rerun with loopback access enabled: 200 passed, 0 failed, 0 skipped, 3 warnings, exit 0. `pip check`, `compileall`, and `git diff --check` passed. PostgreSQL integration remains blocked pending an approved credential source.
+
+## Phase 14 — PostgreSQL Integration Validation Completion (2026-11-04)
+
+- **PostgreSQL 18.4 Connectivity & Driver Setup:** Connected successfully to local PostgreSQL 18.4 on Windows via role `postgres` and driver `postgresql+psycopg://`. Verified service `postgresql-x64-18` active on `127.0.0.1:5432`.
+- **Validation Database Inspection:** Inspected database `nii_phase14_validation`. Confirmed Alembic revision `20261104_0002` (head). Validated schema across all six core tables: `datasets`, `model_registry`, `analysis_jobs`, `detection_events`, `alerts`, `alert_event_links`. Verified native PostgreSQL UUID primary/foreign key types, JSONB structured evidence fields, and indexes (`uq_datasets_checksum`, `uq_model_registry_model_id`, `uq_active_job_per_dataset`, `ix_detection_events_event_status`, etc.).
+- **Five Explanation Model Families Verified:** Validated on-demand SHAP explanations in PostgreSQL for all five registered model families:
+  1. `binary-random_forest-v1.0.1` (Binary Random Forest: attack probability, 78 contributions, additivity passed)
+  2. `multiclass-random_forest-v1.0.0` (Multiclass Random Forest: class probability, 78 contributions, additivity passed)
+  3. `isolation-forest-v1.0.0` (Isolation Forest: higher-is-more-anomalous score, 78 contributions, additivity passed)
+  4. `binary-logistic_regression-v1.0.2` (Binary Logistic Regression: ATTACK log-odds margin, 78 contributions, additivity passed)
+  5. `multiclass-logistic_regression-v1.0.0` (Multiclass Logistic Regression: class logit, 78 contributions, additivity passed)
+  - Unsupported model behavior: Verified that unassociated or unsupported models return status `unsupported` with explicit reasons and zero fabricated contributions.
+- **PostgreSQL Persistence & Restart Survival:** Verified persistence of dataset registration, analysis jobs, detection events, and cached SHAP explanations. Persistence was verified to survive complete process shutdown: a freshly spawned Python process successfully connected to PostgreSQL and retrieved persisted event records.
+- **FastAPI Endpoints Verified Against Live PostgreSQL:** Tested `/health`, `/ready`, `/models`, `/datasets`, `/datasets/{id}` (200, 404, 422), `/analysis-jobs/{id}` (200, 404, 422), `/events`, `/events/{id}` (200, 404, 422), `/events/{id}/explanation` (200, 422), `/alerts`, `/metrics`, `/traffic/summary`, and `/analyze` (POST 200). All HTTP status codes and error payloads conformed to schema.
+- **Streamlit Dashboard Verified Against Live PostgreSQL:** Tested all nine pages using Streamlit's `AppTest` against the live PostgreSQL-backed API: `Overview`, `Traffic Analysis`, `Attack Analysis`, `Detection Alerts`, `Anomaly Analysis`, `Model Performance`, `Explainability`, `Dataset Management`, and `System Health`. All rendered cleanly without unhandled exceptions. Tested Explainability event selection and System Health metrics.
+- **Regression Tests & Full Suite:**
+  - Ran pending regression tests `test_all_nine_pages_render_backend_connection_errors_without_crashing` and `test_model_service_uses_logistic_predictor_for_registered_binary_logistic`: 2 passed, 1 warning.
+  - Full suite `.venv\Scripts\python.exe -m pytest -q`: **202 passed, 0 failed, 0 skipped**, 3 deprecation warnings in 24.61s.
+- **Quality Checks:** `pip check` passed (no broken requirements); `compileall` passed; `git diff --check` clean; `git status --short` clean.
+- **Phase Boundary:** Phase 14 remains **In Progress** pending Docker Compose container validation on an environment with active Docker Engine daemon access. Phase 15 was not started. No files were staged or committed.
+
+## Phase 14 — Final Deployment Gate Audit and Release Readiness Documentation (2026-11-04)
+
+- **Audit & Documentation Deliverables Completed:**
+  -
+eports/integration/test_results.md: Complete test suite verification report detailing 202 passing tests, subsystem breakdowns (API, dashboard, database, models, preprocessing), and warning analysis.
+  -
+eports/integration/performance_report.md: Latency, throughput, and batch scaling benchmarks (batch sizes 1, 16, 64) for all five model families from warm_inference.json, TreeExplainer vs. LinearExplainer profiling, and PostgreSQL JSONB explanation caching overhead.
+  -
+eports/integration/final_validation_report.md: Phase 14 comprehensive acceptance criteria matrix, Docker deployment blocker analysis, and recovery runbook.
+  - docs/integration_contract.md: Complete OpenAPI/REST endpoint specifications, Pydantic request/response schemas, UUID v4 constraints, 50MB/8MB payload limits, and database schema contracts across all six tables.
+  - docs/security_review.md: Secrets handling, .env isolation, loopback binding security, strict CORS policy (wildcard rejection with credentials), DoS request limits, SQL injection elimination via SQLAlchemy ORM, and input contract validation.
+  - docs/release_checklist.md: Production release gates 1 through 8 (Gates 1-7 Passed, Gate 8 Container Deployment Blocked), stakeholder sign-off matrix, and Docker Desktop recovery runbook.
+  - docs/project_demo_guide.md: End-to-end operator demonstration walkthrough covering service startup, system health verification, dataset ingestion, batch flow analysis, alert triage, deep-dive SHAP explainability, and performance review.
+- **Docker Deployment Audit:** Audited Dockerfile, docker-compose.yml, and .dockerignore. Confirmed that Docker Engine daemon is offline on the host (open //./pipe/docker_engine: The system cannot find the file specified). Recorded container deployment gate as **BLOCKED**; provided user instructions for docker compose up --build.
+- **Quality & Static Checks:** Verified pip check (0 broken requirements), compileall (exit code 0), pytest -q (202 passed, 3 warnings), and git diff --check (clean).
+- **Phase Boundary:** Phase 14 retained as **In Progress** pending Docker daemon access. Phase 15 not started. No files staged or committed.
+
+## Phase 14 — Final Docker Deployment Gate & Restart Persistence Verification (2026-11-04)
+
+- **Docker Environment Discovered:** Docker Desktop 4.94.0 running with Docker Engine 29.8.2 (linux/amd64, containerd v2.3.6, runc 1.5.1) and Docker Compose v5.5.1.
+- **Image Build & Compose Startup:**
+  - Audited Dockerfile, docker-compose.yml, .dockerignore, and .env.example.
+  - Executed docker compose --env-file .env.example up --build -d.
+  - Image intrusionanomaly-api:latest was built cleanly.
+  - PostgreSQL 16 container (intrusionanomaly-db-1) established healthy status via pg_isready check.
+  - FastAPI container (intrusionanomaly-api-1) automatically applied Alembic revision 20261104_0002 on startup and bound to 127.0.0.1:8000:8000.
+- **API Readiness & Model Registry:**
+  - GET /api/v1/health and /api/v1/ready returned HTTP 200 with all 5 model families loaded and ready.
+  - Dashboard ApiClient verified communicating with container endpoint on http://127.0.0.1:8000/api/v1.
+- **Ingestion & Persistence Across Restart:**
+  - Uploaded synthetic test dataset 69ba59ff-4feb-4f4e-ac82-d9069befc5ae (phase14_docker_persistence_test.csv, 2 rows, checksum 8c3e5512c5f7652fff1a24e8791715b1236cf8b5c7c4c86d0f2df688115f9f1).
+  - Executed inline analysis and persisted detection event d76dae57-d5b5-40ed-b6fe-9790d3d144fe (threat score 4.223, severity LOW).
+  - Executed docker compose --env-file .env.example restart.
+  - Retrieved dataset and detection event after restart; 100% data persistence verified.
+  - Host Windows database
+ii_phase14_validation verified completely isolated and intact with all 7 tables.
+- **Quality & Regression Checks:**
+  - pip check passed (no broken requirements).
+  - compileall -q api src dashboard tests passed (exit code 0).
+  - pytest -q: 202 passed, 3 warnings in 34.85s (exit code 0).
+  - git diff --check passed cleanly.
+- **Phase Boundary:** All Phase 14 acceptance criteria are 100% complete and verified. Phase 15 has not been started.

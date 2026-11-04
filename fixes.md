@@ -842,7 +842,7 @@ Record an issue in the Current Issue Register only when it has actually been obs
 **Date Reported:** 2026-11-04
 **Development Phase:** Phase 14 — Integration, Testing & Deployment
 **Severity:** High — individual event investigation and requested explanation flow were not exposed
-**Status:** Resolved for SQLite/local API; PostgreSQL migration validation outstanding
+**Status:** Resolved
 
 #### Description
 
@@ -858,4 +858,4 @@ Added paginated `GET /events` and safe `GET /events/{event_id}` responses with 4
 
 #### Verification
 
-Full project suite passed 200 tests, 0 failed, 0 skipped, with 3 warnings. An isolated SQLite workflow uploaded a one-row feature CSV derived from existing Phase 04 Parquet, persisted and retrieved an event, and returned real Random Forest SHAP output with max absolute additive residual `1.3825522948707203e-09` and `passed=true`. Automated API coverage verifies explicit unsupported-model status. Both SQLite Alembic revisions applied. All nine dashboard page headings were verified in a browser. Docker Engine access failed through its named pipe, so PostgreSQL migration/HTTP verification remains outstanding and Phase 14 remains In Progress.
+Full project suite passed 200 tests, 0 failed, 0 skipped, with 3 warnings. An isolated SQLite workflow uploaded a one-row feature CSV derived from existing Phase 04 Parquet, persisted and retrieved an event, and returned real Random Forest SHAP output with max absolute additive residual `1.3825522948707203e-09` and `passed=true`. Automated API coverage verifies explicit unsupported-model status. Both SQLite Alembic revisions applied. All nine dashboard page headings were verified in a browser. Full PostgreSQL 18.4 validation succeeded on 2026-11-04 (service postgresql-x64-18, database nii_phase14_validation, Alembic revision 20261104_0002). Verified across all 5 model families, restart survival, live API endpoints, 9 Streamlit dashboard pages, and full test suite (202 passed). Docker Compose container deployment remains the final deployment gate pending host Docker Engine daemon availability.
