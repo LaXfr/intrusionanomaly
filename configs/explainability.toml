@@ -1,0 +1,61 @@
+version = "1.0.0"
+random_seed = 42
+
+[dataset]
+parquet_directory = "data/processed/CIC-IDS2017-phase04-v2/cleaned/extracted/MachineLearningCVE"
+feature_schema = "configs/feature_schema.json"
+
+[models.binary_random_forest]
+model_family = "binary_random_forest"
+artifact_directory = "models/supervised/binary/random_forest/1.0.1"
+explainer = "tree"
+output_space = "attack_probability"
+
+[models.binary_logistic_regression]
+model_family = "binary_logistic_regression"
+artifact_directory = "models/supervised/binary/logistic_regression/1.0.2"
+explainer = "linear"
+output_space = "attack_log_odds"
+
+[models.multiclass_random_forest]
+model_family = "multiclass_random_forest"
+artifact_directory = "models/supervised/multiclass/random_forest/1.0.0"
+explainer = "tree"
+output_space = "class_probability"
+
+[models.multiclass_logistic_regression]
+model_family = "multiclass_logistic_regression"
+artifact_directory = "models/supervised/multiclass/logistic_regression/1.0.0"
+explainer = "linear"
+output_space = "class_logit"
+
+[models.isolation_forest]
+model_family = "anomaly"
+artifact_directory = "models/unsupervised/isolation_forest/1.0.0"
+explainer = "permutation"
+output_space = "higher_is_more_anomalous_score"
+operating_point = "target-fpr-1pct"
+
+[background]
+sample_size = 100
+sampling_strategy = "deterministic_class_stratified"
+anomaly_strategy = "benign_training_capture_days_only"
+random_seed = 42
+multiclass_partition_run = "20261103T134128Z"
+binary_training_capture_days = ["Monday", "Tuesday", "Wednesday"]
+
+[explanations]
+global_sample_size = 64
+anomaly_global_sample_size = 16
+local_explanation_count = 8
+permutation_seed = 42
+permutation_max_evaluations = 157
+visualized_multiclass_labels = ["BENIGN", "Bot", "DDoS", "PortScan"]
+top_features = 15
+
+[intelligence]
+source_run_id = "20261103T160444Z"
+
+[reports]
+explanation_directory = "reports/explainability"
+figure_directory = "reports/figures/explainability"

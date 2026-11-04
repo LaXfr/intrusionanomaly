@@ -1,0 +1,76 @@
+# Dashboard User Guide
+
+## Installation
+
+Use the project environment from the repository root and install the dashboard extra:
+
+```powershell
+python -m pip install -e ".[dashboard]"
+```
+
+This installs Streamlit, Plotly, and HTTPX. The dashboard extra does not install or start the backend or database. To install a development environment with the backend dependencies too, use `python -m pip install -e ".[api,database,dashboard,dev]"`.
+
+## Backend and configuration
+
+The dashboard needs a running Phase 12 API and its configured database. For the documented PostgreSQL Compose setup, copy `.env.example` to the ignored `.env` file, replace the placeholder database password with a local value, and run:
+
+```powershell
+docker compose up --build
+```
+
+The API listens on `http://127.0.0.1:8000` by default. Apply database migrations with the documented startup procedure in [backend architecture](backend_architecture.md) when running the API outside Compose.
+
+Configure the dashboard before starting it:
+
+```powershell
+$env:NII_DASHBOARD_API_URL = "http://127.0.0.1:8000/api/v1"
+$env:NII_DASHBOARD_TIMEOUT = "10"
+```
+
+`NII_DASHBOARD_API_URL` defaults to `http://127.0.0.1:8000/api/v1` and must not contain credentials, query parameters, or fragments. `NII_DASHBOARD_TIMEOUT` is a positive number of seconds and defaults to 10. Keep API and dashboard bound to loopback; authentication is not implemented.
+
+## Start the dashboard
+
+From the project root, run:
+
+```powershell
+python -m streamlit run dashboard/app.py
+```
+
+Streamlit prints the local address, normally `http://localhost:8501`. The left navigation radio selects one of the nine page renderers. The project Streamlit config hides duplicate automatic multipage links.
+
+## Pages
+
+- **Overview:** persisted flow totals, detector signals, alert counts, and recent alerts.
+- **Traffic Analysis:** dataset-scoped persisted traffic aggregates and predicted categories.
+- **Attack Analysis:** attack category and detector summaries returned by the API.
+- **Detection Alerts:** filter alert rows by severity/status, inspect alert details, update supported lifecycle states, and download the current returned rows.
+- **Anomaly Analysis:** persisted anomaly summary and available anomaly-related aggregates.
+- **Model Performance:** available registry/evaluation metadata; missing evaluation records are shown as unavailable.
+- **Explainability:** select a persisted event and detector to request model-specific SHAP values. Values appear only when a dataset-backed source row and validated model are available; output units and additivity status are shown, and unavailable/unsupported reasons are explicit.
+- **Dataset Management:** register a feature-contract CSV, list validated datasets, select available detector models, submit an analysis job, and refresh its persisted status.
+- **System Health:** liveness, database/schema/model readiness, and model registry status.
+
+## Register and analyze a dataset
+
+1. Open **Dataset Management** and choose a CSV that follows `configs/feature_schema.json`. Uploads require all 78 predictive feature columns, allow only the contract's approved target/metadata fields, and are size-limited by backend configuration. The backend validates the file and stores it under a generated local filename; it does not modify the input file.
+2. After registration, choose a listed dataset and one or more available detectors. Click **Queue analysis**. The service validates the selected existing model IDs and starts a bounded in-process job.
+3. Click **Refresh job status** to fetch persisted progress. Jobs are not durable across backend restarts; an interrupted job is marked failed. The job processes feature data without using the optional target as a detector input.
+
+Avoid uploading raw packet captures or untrusted/oversized files. Use a CSV that contains only approved contract columns.
+
+## Filter and export alerts
+
+Open **Detection Alerts**, select severity/status filters, and use the visible alert list. The page retrieves alert details for a selected alert and can submit the API's valid lifecycle updates. **Export filtered alerts (CSV)** and **Export alerts (JSON)** serialize the alert rows currently returned by the backend. These are local browser downloads; no export API endpoint exists. If no alerts match, the page reports an empty state and presents no export controls. The serialization service itself returns a zero-byte CSV and `[]` JSON for empty lists.
+
+## Troubleshooting
+
+- **Connection error:** verify that the API is running, its host/port match `NII_DASHBOARD_API_URL`, and the URL ends in `/api/v1`.
+- **Timeout:** check backend/database health or raise `NII_DASHBOARD_TIMEOUT` for a bounded, long-running request.
+- **Readiness not ready:** open **System Health** and inspect database, feature-schema, model-registry, and upload-storage checks. Missing trained model artifacts are reported unavailable; no model is generated by the dashboard.
+- **Upload rejected:** verify CSV encoding/header, the 78 required feature columns, allowed metadata/label fields, non-empty data rows, and configured upload limit. The dashboard does not rewrite headers or drop extra columns.
+- **Job unavailable or failed:** check the backend logs and dataset validation status. Jobs use in-process background tasks and are marked failed on restart.
+- **No traffic or alerts:** these views report persisted API data. Uploading a dataset alone does not create detections; queue and complete a job first. A successful analysis can legitimately generate zero alerts.
+- **No SHAP explanation:** inline events do not retain source feature rows, and event rows can also lose their uploaded source file. Those cases return an explicit unavailable status; no attribution values are synthesized.
+
+For endpoint contracts and backend setup details, see [API reference](api_reference.md), [backend architecture](backend_architecture.md), and [database guide](database.md).

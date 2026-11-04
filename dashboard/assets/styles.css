@@ -1,0 +1,4 @@
+[data-testid="stAppViewContainer"] { background: #0b1220; color: #e5edf7; }
+[data-testid="stSidebar"] { background: #111b2d; }
+h1,h2,h3 { color: #eaf4ff; }
+div[data-testid="stMetric"] { background:#111b2d; border:1px solid #263852; padding:14px; border-radius:6px; }

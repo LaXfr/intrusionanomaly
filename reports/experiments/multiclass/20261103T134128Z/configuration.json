@@ -1,0 +1,55 @@
+{
+  "dataset": {
+    "parquet_directory": "C:\\DataScience\\python(projects)\\intrusionanomaly\\data\\processed\\CIC-IDS2017-phase04-v2\\cleaned\\extracted\\MachineLearningCVE",
+    "feature_schema": "C:\\DataScience\\python(projects)\\intrusionanomaly\\configs\\feature_schema.json"
+  },
+  "split": {
+    "strategy": "group_aware",
+    "train_fraction": 0.7,
+    "validation_fraction": 0.15,
+    "test_fraction": 0.15,
+    "allow_stratified_fallback": true,
+    "group_search_attempts": 24
+  },
+  "training": {
+    "random_seed": 42,
+    "max_training_rows": 80000,
+    "batch_size": 20000,
+    "retain_all_class_rows_below": 50,
+    "mapping_version": "1.0.0"
+  },
+  "models": {
+    "logistic_regression": {
+      "enabled": true,
+      "profile": "linear",
+      "solver": "lbfgs",
+      "regularization_c": 1.0,
+      "max_iterations": 160,
+      "class_weight": "balanced"
+    },
+    "random_forest": {
+      "enabled": true,
+      "profile": "tree",
+      "estimators": 40,
+      "max_depth": 18,
+      "min_samples_split": 2,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "class_weight": "balanced",
+      "n_jobs": 4
+    },
+    "xgboost": {
+      "enabled": false,
+      "reason": "XGBoost is not installed in the current environment."
+    }
+  },
+  "artifacts": {
+    "directory": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\supervised\\multiclass",
+    "version": "1.0.0"
+  },
+  "reports": {
+    "evaluation_directory": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\multiclass",
+    "figure_directory": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\multiclass",
+    "experiment_directory": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\experiments\\multiclass"
+  }
+}

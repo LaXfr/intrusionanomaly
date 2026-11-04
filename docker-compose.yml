@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-network_intrusion}
+      POSTGRES_USER: ${POSTGRES_USER:-nii}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - nii_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: .
+    restart: unless-stopped
+    environment:
+      NII_ENVIRONMENT: ${NII_ENVIRONMENT:-development}
+      NII_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-nii}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-network_intrusion}
+      NII_API_HOST: 0.0.0.0
+      NII_ALLOW_PUBLIC_BIND: "true"
+      NII_API_PORT: 8000
+      NII_UPLOAD_DIR: /app/data/uploads
+      NII_FEATURE_SCHEMA: configs/feature_schema.json
+      NII_INTELLIGENCE_CONFIG: configs/intelligence.toml
+      NII_EXPLAINABILITY_CONFIG: configs/explainability.toml
+      NII_MAX_UPLOAD_BYTES: ${NII_MAX_UPLOAD_BYTES:-52428800}
+      NII_MAX_REQUEST_BYTES: ${NII_MAX_REQUEST_BYTES:-8388608}
+      NII_MAX_ANALYSIS_RECORDS: ${NII_MAX_ANALYSIS_RECORDS:-100}
+      NII_MAX_JOB_ROWS: ${NII_MAX_JOB_ROWS:-100000}
+      NII_JOB_BATCH_SIZE: ${NII_JOB_BATCH_SIZE:-500}
+    ports:
+      - "127.0.0.1:${NII_API_PORT:-8000}:8000"
+    volumes:
+      - nii_uploads:/app/data/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["sh", "-c", "alembic upgrade head && uvicorn api.main:app --host 0.0.0.0 --port 8000"]
+
+volumes:
+  nii_postgres_data:
+  nii_uploads:

@@ -1,0 +1,28 @@
+version = "1.0.0"
+random_seed = 42
+
+[dataset]
+parquet_directory = "data/processed/CIC-IDS2017-phase04-v2/cleaned/extracted/MachineLearningCVE"
+feature_schema = "configs/feature_schema.json"
+
+[inputs]
+binary_rf_report = "reports/evaluation/binary/20261103T160232Z/binary_experiment.json"
+binary_logistic_directory = "reports/evaluation/binary_logistic/20261103T163706Z"
+multiclass_experiment = "reports/experiments/multiclass/20261103T134128Z/experiment_summary.json"
+anomaly_experiment = "reports/experiments/anomaly_detection/20261103T141439Z/experiment_summary.json"
+intelligence_summary = "reports/intelligence/20261103T160444Z/threat_intelligence_summary.json"
+explainability_report = "reports/explainability/20261103T182807Z/explainability_report.json"
+explainability_records = "reports/explainability/20261103T182807Z/explanations.jsonl"
+eda_report = "reports/eda/CIC-IDS2017_eda.json"
+
+[analysis]
+thresholds = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+calibration_bins = 10
+robustness_sample_size = 64
+benchmark_batch_sizes = [1, 16, 64]
+benchmark_repeats = 5
+
+[reports]
+directory = "reports/evaluation/comprehensive"
+figure_directory = "reports/figures/evaluation"
+benchmark_directory = "reports/benchmarks"

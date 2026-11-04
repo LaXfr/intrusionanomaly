@@ -1,0 +1,71 @@
+version = "1.0.0"
+random_seed = 42
+
+[dataset]
+parquet_directory = "data/processed/CIC-IDS2017-phase04-v2/cleaned/extracted/MachineLearningCVE"
+feature_schema = "configs/feature_schema.json"
+
+[detectors.binary]
+enabled = true
+artifact_directory = "models/supervised/binary/random_forest/1.0.1"
+experiment_run_id = "20261103T160232Z"
+
+[detectors.multiclass]
+enabled = true
+artifact_directory = "models/supervised/multiclass/random_forest/1.0.0"
+experiment_run_id = "20261103T134128Z"
+
+[detectors.anomaly]
+enabled = true
+artifact_directory = "models/unsupervised/isolation_forest/1.0.0"
+experiment_run_id = "20261103T141439Z"
+operating_point = "target-fpr-1pct"
+percentile_reference_day = "Thursday"
+
+[scoring]
+version = "1.0.0"
+weights = { binary = 0.30, multiclass = 0.25, anomaly = 0.45 }
+
+[severity]
+version = "1.0.0"
+bands = [
+  { name = "LOW", minimum = 0.0, maximum = 25.0 },
+  { name = "MEDIUM", minimum = 25.0, maximum = 50.0 },
+  { name = "HIGH", minimum = 50.0, maximum = 75.0 },
+  { name = "CRITICAL", minimum = 75.0, maximum = 100.0000001 },
+]
+
+[correlation]
+enabled = true
+enabled_rules = ["source_ip", "destination_ip", "destination_service", "attack_category", "repeated_flow_tuple", "temporal_activity"]
+allowed_windows_minutes = [1, 5, 15]
+window_minutes = 5
+minimum_events = 2
+
+[alerts]
+initial_status = "NEW"
+single_event_minimum_score = 50.0
+single_event_requires_positive_signal = true
+correlated_minimum_score = 25.0
+minimum_correlated_events = 2
+minimum_available_signals = 1
+investigation_steps = [
+  "Review the supporting source flow records and verify their provenance.",
+  "Compare detector predictions and anomaly evidence with the original network context.",
+  "Review additional events sharing the available correlation key and configured time window.",
+]
+known_limitations = [
+  "The threat score is a heuristic prioritization value, not a probability of compromise.",
+  "Supervised class outputs are uncalibrated and related; their evidence is not statistically independent.",
+  "CIC-IDS2017 Phase 04 output has no source/destination IP, protocol, source port, timestamp, or Flow ID.",
+  "Phase 06 binary classification is unavailable; its missing output is not treated as benign evidence.",
+]
+
+[sampling]
+rows_per_label_per_source_file = 500
+batch_size = 500
+reference_batch_size = 20000
+
+[reports]
+intelligence_directory = "reports/intelligence"
+figure_directory = "reports/figures/intelligence"

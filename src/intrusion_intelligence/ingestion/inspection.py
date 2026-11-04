@@ -24,6 +24,7 @@ def inspect_csv_file(
     *,
     dataset_directory: str | Path | None = None,
     label_candidates: Sequence[str] = ("Label",),
+    require_label: bool = True,
     encoding: str = "auto",
     compute_checksum: bool = True,
 ) -> FileInspection:
@@ -143,11 +144,13 @@ def inspect_csv_file(
             original_columns[position - 1]
             for position in label_column_positions
         )
-        if not label_columns:
+        if not label_columns and require_label:
             errors.append(
                 "No label column found; expected one of: "
                 + ", ".join(repr(candidate) for candidate in label_candidates)
             )
+        elif not label_columns:
+            warnings.append("No label column was found; labels are optional for this inspection.")
         elif len(label_columns) > 1:
             errors.append(
                 "Label column is ambiguous; matching headers are: "

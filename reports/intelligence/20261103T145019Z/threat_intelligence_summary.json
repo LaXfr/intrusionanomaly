@@ -1,0 +1,199 @@
+{
+  "processed_at_utc": "2026-11-03T14:50:17+00:00",
+  "pipeline_version": "1.0.0",
+  "scoring_config_version": "1.0.0",
+  "severity_policy_version": "1.0.0",
+  "feature_schema_version": "1.0.0",
+  "model_artifact_references": {
+    "multiclass": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\supervised\\multiclass\\random_forest\\1.0.0",
+    "anomaly": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\unsupervised\\isolation_forest\\1.0.0",
+    "binary": "unavailable: Phase 06 binary classification has not been implemented"
+  },
+  "heuristic_score_is_probability": false,
+  "total_analyzed_flows": 3000,
+  "flows_with_usable_detection_evidence": 3000,
+  "flow_events_by_status": {
+    "NORMAL": 2923,
+    "MALICIOUS_PREDICTION": 20,
+    "ANOMALOUS": 56,
+    "SUSPICIOUS": 1
+  },
+  "flow_events_by_severity": {
+    "MEDIUM": 540,
+    "HIGH": 1152,
+    "LOW": 1305,
+    "CRITICAL": 3
+  },
+  "generated_alert_count": 76,
+  "alerts_by_severity": {
+    "HIGH": 75,
+    "CRITICAL": 1
+  },
+  "alerts_by_predicted_attack_category": {
+    "Bot": 18,
+    "PortScan": 1,
+    "DoS Hulk": 1
+  },
+  "alerts_by_correlation_rule": {},
+  "detector_availability": {
+    "binary": {
+      "unavailable": 3000
+    },
+    "multiclass": {
+      "available": 3000
+    },
+    "anomaly": {
+      "available": 3000
+    }
+  },
+  "detector_disagreement_counts": {
+    "supervised_engine_predicts_attack_anomaly_is_normal": 20,
+    "anomaly_flags_flow_supervised_engine_predicts_benign": 56
+  },
+  "distinct_source_files": 3,
+  "unique_source_ip_count": 0,
+  "unique_destination_ip_count": 0,
+  "network_metadata_rows_present": {
+    "source_ip": 0,
+    "destination_ip": 0,
+    "source_port": 0,
+    "destination_port": 3000,
+    "protocol": 0
+  },
+  "correlated_group_count": 0,
+  "duplicate_alerts_suppressed": 0,
+  "deduplication_records": [],
+  "correlation_audit": {
+    "enabled_rules": [
+      "source_ip",
+      "destination_ip",
+      "destination_service",
+      "attack_category",
+      "repeated_activity"
+    ],
+    "window_minutes": 5,
+    "minimum_events": 2,
+    "suspicious_events_considered": 77,
+    "groups_by_rule": {
+      "source_ip": 0,
+      "destination_ip": 0,
+      "destination_service": 0,
+      "attack_category": 0,
+      "repeated_activity": 0
+    },
+    "events_skipped_by_rule": {
+      "source_ip": {
+        "missing_timestamp": 77,
+        "missing_key_fields": 0
+      },
+      "destination_ip": {
+        "missing_timestamp": 77,
+        "missing_key_fields": 0
+      },
+      "destination_service": {
+        "missing_timestamp": 77,
+        "missing_key_fields": 0
+      },
+      "attack_category": {
+        "missing_timestamp": 77,
+        "missing_key_fields": 0
+      },
+      "repeated_activity": {
+        "missing_timestamp": 77,
+        "missing_key_fields": 0
+      }
+    },
+    "temporal_correlation_supported": 0,
+    "temporal_correlation_skipped": 385,
+    "correlated_event_references": 0,
+    "unmatched_suspicious_events": 77
+  },
+  "weights": {
+    "binary": 0.3,
+    "multiclass": 0.25,
+    "anomaly": 0.45
+  },
+  "available_signals_are_renormalized_when_others_are_missing": true,
+  "note": "Threat scores are deterministic heuristic prioritization values, not probabilities of compromise or ground-truth labels.",
+  "experiment_run_id": "20261103T145019Z",
+  "input_dataset": "CIC-IDS2017 Phase 04 v2 cleaned Parquet",
+  "input_sample": {
+    "partition": "Friday capture-day test files",
+    "selection": "first 1000 source-order rows per Friday Parquet file, capped at file length",
+    "rows_by_source_file": {
+      "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet": 1000,
+      "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet": 1000,
+      "Friday-WorkingHours-Morning.pcap_ISCX.parquet": 1000
+    },
+    "total_rows": 3000,
+    "row_order_is_not_used_as_event_time": true,
+    "friday_ground_truth_labels_loaded": false,
+    "friday_ground_truth_labels_used_for_scoring_or_alerts": false
+  },
+  "detector_execution": {
+    "binary": {
+      "status": "unavailable",
+      "reason": "Phase 06 binary classification has not been implemented. The reusable pipeline accepts validated precomputed binary outputs."
+    },
+    "multiclass": {
+      "status": "loaded_once_and_batch_scored",
+      "model_id": "multiclass-random_forest-v1.0.0",
+      "experiment_run_id": "20261103T134128Z"
+    },
+    "anomaly": {
+      "status": "loaded_once_and_batch_scored",
+      "model_id": "isolation-forest-v1.0.0",
+      "experiment_run_id": "20261103T141439Z",
+      "operating_point": "target-fpr-1pct"
+    }
+  },
+  "artifact_compatibility": "passed: both detectors match the Phase 05 feature schema and exact feature ordering",
+  "anomaly_percentile_reference": {
+    "source": "BENIGN Thursday validation observations scored with the frozen Phase 08 model and preprocessor",
+    "target_handling": "Thursday target labels were used only to select BENIGN reference rows for the ECDF; they are not detector predictions or alert labels",
+    "rows": 456752,
+    "thresholds_recalibrated": false,
+    "model_retrained": false,
+    "scoring_seconds": 6.793520099992747
+  },
+  "actual_sample_inference_seconds": 0.9382632000051672,
+  "batch_size": 500,
+  "correlation_metadata_limitations": {
+    "available_export_metadata_columns": [
+      "__source_file",
+      "__source_row_number",
+      "__record_id"
+    ],
+    "ground_truth_columns_present_in_source_export": [
+      "label",
+      "__source_label"
+    ],
+    "ground_truth_columns_loaded_for_detection": [],
+    "available_correlation_fields": [
+      "destination_port"
+    ],
+    "missing_fields_in_phase04_export": [
+      "timestamp",
+      "source_ip",
+      "destination_ip",
+      "source_port",
+      "protocol",
+      "Flow ID"
+    ],
+    "temporal_correlation_used": false,
+    "correlation_is_not_inferred_from_source_row_order": true
+  },
+  "outputs": {
+    "flow_events_jsonl": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T145019Z\\flow_detection_events.jsonl",
+    "correlated_groups_json": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T145019Z\\correlated_event_groups.json",
+    "alerts_json": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T145019Z\\security_alerts.json",
+    "summary_json": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T145019Z\\threat_intelligence_summary.json",
+    "summary_markdown": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T145019Z\\threat_intelligence_report.md",
+    "flow_events_csv": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T145019Z\\flow_detection_events.csv",
+    "alerts_csv": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T145019Z\\security_alerts_summary.csv",
+    "score_distribution_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\intelligence\\20261103T145019Z\\threat_score_distribution.png",
+    "severity_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\intelligence\\20261103T145019Z\\alert_severity_distribution.png",
+    "agreement_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\intelligence\\20261103T145019Z\\detector_agreement.png",
+    "configuration": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T145019Z\\configuration.json"
+  }
+}

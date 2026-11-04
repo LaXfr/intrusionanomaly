@@ -1,0 +1,2585 @@
+{
+  "run_id": "20261103T141439Z",
+  "experiment_status": "completed",
+  "created_at_utc": "2026-11-03T14:14:40+00:00",
+  "dataset_rows": 2830743,
+  "class_counts": {
+    "DDoS": 128027,
+    "BENIGN": 2273097,
+    "PortScan": 158930,
+    "Bot": 1966,
+    "Infiltration": 36,
+    "Web Attack � Brute Force": 1507,
+    "Web Attack � XSS": 652,
+    "Web Attack � Sql Injection": 21,
+    "FTP-Patator": 7938,
+    "SSH-Patator": 5897,
+    "DoS Hulk": 231073,
+    "DoS GoldenEye": 10293,
+    "DoS slowloris": 5796,
+    "DoS Slowhttptest": 5499,
+    "Heartbleed": 11
+  },
+  "benign_training_rows": 1402023,
+  "training_sample_rows": 150000,
+  "benign_validation_rows": 456752,
+  "test_rows": 703245,
+  "test_benign_rows": 414322,
+  "test_attack_rows": 288923,
+  "feature_count": 78,
+  "feature_schema_version": "1.0.0",
+  "split": {
+    "strategy": "capture_day_holdout",
+    "random_seed": 42,
+    "partition_days": {
+      "train": [
+        "Monday",
+        "Tuesday",
+        "Wednesday"
+      ],
+      "validation": [
+        "Thursday"
+      ],
+      "test": [
+        "Friday"
+      ]
+    },
+    "partition_rows": {
+      "train": 1668530,
+      "validation": 458968,
+      "test": 703245
+    },
+    "partition_benign_rows": {
+      "train": 1402023,
+      "validation": 456752,
+      "test": 414322
+    },
+    "partition_attack_rows": {
+      "train": 266507,
+      "validation": 2216,
+      "test": 288923
+    },
+    "class_counts": {
+      "train": {
+        "BENIGN": 1402023,
+        "Bot": 0,
+        "DDoS": 0,
+        "DoS GoldenEye": 10293,
+        "DoS Hulk": 231073,
+        "DoS Slowhttptest": 5499,
+        "DoS slowloris": 5796,
+        "FTP-Patator": 7938,
+        "Heartbleed": 11,
+        "Infiltration": 0,
+        "PortScan": 0,
+        "SSH-Patator": 5897,
+        "Web Attack � Brute Force": 0,
+        "Web Attack � Sql Injection": 0,
+        "Web Attack � XSS": 0
+      },
+      "validation": {
+        "BENIGN": 456752,
+        "Bot": 0,
+        "DDoS": 0,
+        "DoS GoldenEye": 0,
+        "DoS Hulk": 0,
+        "DoS Slowhttptest": 0,
+        "DoS slowloris": 0,
+        "FTP-Patator": 0,
+        "Heartbleed": 0,
+        "Infiltration": 36,
+        "PortScan": 0,
+        "SSH-Patator": 0,
+        "Web Attack � Brute Force": 1507,
+        "Web Attack � Sql Injection": 21,
+        "Web Attack � XSS": 652
+      },
+      "test": {
+        "BENIGN": 414322,
+        "Bot": 1966,
+        "DDoS": 128027,
+        "DoS GoldenEye": 0,
+        "DoS Hulk": 0,
+        "DoS Slowhttptest": 0,
+        "DoS slowloris": 0,
+        "FTP-Patator": 0,
+        "Heartbleed": 0,
+        "Infiltration": 0,
+        "PortScan": 158930,
+        "SSH-Patator": 0,
+        "Web Attack � Brute Force": 0,
+        "Web Attack � Sql Injection": 0,
+        "Web Attack � XSS": 0
+      }
+    },
+    "unseen_attack_categories": {
+      "train": [
+        "Bot",
+        "DDoS",
+        "Infiltration",
+        "PortScan",
+        "Web Attack � Brute Force",
+        "Web Attack � Sql Injection",
+        "Web Attack � XSS"
+      ],
+      "validation": [
+        "Bot",
+        "DDoS",
+        "DoS GoldenEye",
+        "DoS Hulk",
+        "DoS Slowhttptest",
+        "DoS slowloris",
+        "FTP-Patator",
+        "Heartbleed",
+        "PortScan",
+        "SSH-Patator"
+      ],
+      "test": [
+        "DoS GoldenEye",
+        "DoS Hulk",
+        "DoS Slowhttptest",
+        "DoS slowloris",
+        "FTP-Patator",
+        "Heartbleed",
+        "Infiltration",
+        "SSH-Patator",
+        "Web Attack � Brute Force",
+        "Web Attack � Sql Injection",
+        "Web Attack � XSS"
+      ]
+    },
+    "capture_day_group_counts": {
+      "train": 3,
+      "validation": 1,
+      "test": 1
+    },
+    "capture_day_group_overlap": {
+      "train_validation": [],
+      "train_test": [],
+      "validation_test": []
+    },
+    "capture_day_groups_disjoint": true,
+    "source_file_counts": {
+      "train": [
+        "extracted/MachineLearningCVE/Monday-WorkingHours.pcap_ISCX.csv",
+        "extracted/MachineLearningCVE/Tuesday-WorkingHours.pcap_ISCX.csv",
+        "extracted/MachineLearningCVE/Wednesday-workingHours.pcap_ISCX.csv"
+      ],
+      "validation": [
+        "extracted/MachineLearningCVE/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+        "extracted/MachineLearningCVE/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv"
+      ],
+      "test": [
+        "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+        "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+        "extracted/MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv"
+      ]
+    },
+    "source_file_group_overlap": {
+      "train_validation": [],
+      "train_test": [],
+      "validation_test": []
+    },
+    "source_files_disjoint": true,
+    "source_file_class_counts": {
+      "train": {
+        "extracted/MachineLearningCVE/Monday-WorkingHours.pcap_ISCX.csv": {
+          "BENIGN": 529918
+        },
+        "extracted/MachineLearningCVE/Tuesday-WorkingHours.pcap_ISCX.csv": {
+          "BENIGN": 432074,
+          "FTP-Patator": 7938,
+          "SSH-Patator": 5897
+        },
+        "extracted/MachineLearningCVE/Wednesday-workingHours.pcap_ISCX.csv": {
+          "BENIGN": 440031,
+          "DoS Hulk": 231073,
+          "DoS GoldenEye": 10293,
+          "DoS slowloris": 5796,
+          "DoS Slowhttptest": 5499,
+          "Heartbleed": 11
+        }
+      },
+      "validation": {
+        "extracted/MachineLearningCVE/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv": {
+          "BENIGN": 288566,
+          "Infiltration": 36
+        },
+        "extracted/MachineLearningCVE/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv": {
+          "BENIGN": 168186,
+          "Web Attack � Brute Force": 1507,
+          "Web Attack � XSS": 652,
+          "Web Attack � Sql Injection": 21
+        }
+      },
+      "test": {
+        "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv": {
+          "DDoS": 128027,
+          "BENIGN": 97718
+        },
+        "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv": {
+          "PortScan": 158930,
+          "BENIGN": 127537
+        },
+        "extracted/MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv": {
+          "BENIGN": 189067,
+          "Bot": 1966
+        }
+      }
+    },
+    "total_benign_training_rows": 1402023,
+    "total_benign_validation_rows": 456752,
+    "total_benign_test_rows": 414322,
+    "malicious_test_rows": 288923,
+    "row_level_fallback_used": false,
+    "limitation": "Attack categories are tied to capture days; several categories are absent from the held-out Friday test partition. A separate duplicate-feature audit quantifies repeated feature vectors crossing day boundaries.",
+    "duplicate_feature_audit": {
+      "fingerprint_method": "paired independent 64-bit Pandas hashes over the 78 predictive features; labels and metadata excluded",
+      "hash_collision_risk": "negligible but non-zero, consistent with the Phase 04 audit",
+      "rows_hashed": 2830743,
+      "repeated_feature_vector_groups": 95479,
+      "repeated_feature_vector_groups_crossing_capture_days": 32266,
+      "repeated_feature_vector_groups_crossing_partitions": 28644,
+      "groups_crossing_partition_pairs": {
+        "train_validation": 14531,
+        "train_test": 15250,
+        "validation_test": 10975
+      },
+      "rows_in_groups_crossing_partitions": 132348,
+      "cross_partition_groups_with_different_original_labels": 633,
+      "duplicate_groups_disjoint": false,
+      "capture_days_connected_by_duplicate_feature_groups": [
+        [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ]
+      ],
+      "joint_capture_day_and_duplicate_disjoint_three_way_split_possible": false
+    }
+  },
+  "duplicate_audit": {
+    "fingerprint_method": "paired independent 64-bit Pandas hashes over the 78 predictive features; labels and metadata excluded",
+    "hash_collision_risk": "negligible but non-zero, consistent with the Phase 04 audit",
+    "rows_hashed": 2830743,
+    "repeated_feature_vector_groups": 95479,
+    "repeated_feature_vector_groups_crossing_capture_days": 32266,
+    "repeated_feature_vector_groups_crossing_partitions": 28644,
+    "groups_crossing_partition_pairs": {
+      "train_validation": 14531,
+      "train_test": 15250,
+      "validation_test": 10975
+    },
+    "rows_in_groups_crossing_partitions": 132348,
+    "cross_partition_groups_with_different_original_labels": 633,
+    "duplicate_groups_disjoint": false,
+    "capture_days_connected_by_duplicate_feature_groups": [
+      [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    ],
+    "joint_capture_day_and_duplicate_disjoint_three_way_split_possible": false
+  },
+  "preprocessing_profile": {
+    "profile": "anomaly",
+    "numeric_features": [
+      "destination_port",
+      "flow_duration",
+      "total_fwd_packets",
+      "total_backward_packets",
+      "total_length_of_fwd_packets",
+      "total_length_of_bwd_packets",
+      "fwd_packet_length_max",
+      "fwd_packet_length_min",
+      "fwd_packet_length_mean",
+      "fwd_packet_length_std",
+      "bwd_packet_length_max",
+      "bwd_packet_length_min",
+      "bwd_packet_length_mean",
+      "bwd_packet_length_std",
+      "flow_bytes_s",
+      "flow_packets_s",
+      "flow_iat_mean",
+      "flow_iat_std",
+      "flow_iat_max",
+      "flow_iat_min",
+      "fwd_iat_total",
+      "fwd_iat_mean",
+      "fwd_iat_std",
+      "fwd_iat_max",
+      "fwd_iat_min",
+      "bwd_iat_total",
+      "bwd_iat_mean",
+      "bwd_iat_std",
+      "bwd_iat_max",
+      "bwd_iat_min",
+      "fwd_psh_flags",
+      "bwd_psh_flags",
+      "fwd_urg_flags",
+      "bwd_urg_flags",
+      "fwd_header_length__source_col_35",
+      "bwd_header_length",
+      "fwd_packets_s",
+      "bwd_packets_s",
+      "min_packet_length",
+      "max_packet_length",
+      "packet_length_mean",
+      "packet_length_std",
+      "packet_length_variance",
+      "fin_flag_count",
+      "syn_flag_count",
+      "rst_flag_count",
+      "psh_flag_count",
+      "ack_flag_count",
+      "urg_flag_count",
+      "cwe_flag_count",
+      "ece_flag_count",
+      "down_up_ratio",
+      "average_packet_size",
+      "avg_fwd_segment_size",
+      "avg_bwd_segment_size",
+      "fwd_header_length__source_col_56",
+      "fwd_avg_bytes_bulk",
+      "fwd_avg_packets_bulk",
+      "fwd_avg_bulk_rate",
+      "bwd_avg_bytes_bulk",
+      "bwd_avg_packets_bulk",
+      "bwd_avg_bulk_rate",
+      "subflow_fwd_packets",
+      "subflow_fwd_bytes",
+      "subflow_bwd_packets",
+      "subflow_bwd_bytes",
+      "init_win_bytes_forward",
+      "init_win_bytes_backward",
+      "act_data_pkt_fwd",
+      "min_seg_size_forward",
+      "active_mean",
+      "active_std",
+      "active_max",
+      "active_min",
+      "idle_mean",
+      "idle_std",
+      "idle_max",
+      "idle_min"
+    ],
+    "categorical_features": [],
+    "imputation": {
+      "numeric_strategy": "median",
+      "categorical_strategy": "constant",
+      "categorical_missing_value": "__MISSING__",
+      "add_numeric_indicators": false,
+      "all_missing_numeric": "error"
+    },
+    "encoding": {
+      "strategy": "one_hot",
+      "handle_unknown": "ignore",
+      "sparse_output": true,
+      "sparse_threshold": 1.0
+    },
+    "scaling_strategy": "robust",
+    "feature_engineering": {
+      "enabled": false,
+      "derived_features": []
+    },
+    "feature_selection": {
+      "enabled": false,
+      "selected": [
+        "numeric__destination_port",
+        "numeric__flow_duration",
+        "numeric__total_fwd_packets",
+        "numeric__total_backward_packets",
+        "numeric__total_length_of_fwd_packets",
+        "numeric__total_length_of_bwd_packets",
+        "numeric__fwd_packet_length_max",
+        "numeric__fwd_packet_length_min",
+        "numeric__fwd_packet_length_mean",
+        "numeric__fwd_packet_length_std",
+        "numeric__bwd_packet_length_max",
+        "numeric__bwd_packet_length_min",
+        "numeric__bwd_packet_length_mean",
+        "numeric__bwd_packet_length_std",
+        "numeric__flow_bytes_s",
+        "numeric__flow_packets_s",
+        "numeric__flow_iat_mean",
+        "numeric__flow_iat_std",
+        "numeric__flow_iat_max",
+        "numeric__flow_iat_min",
+        "numeric__fwd_iat_total",
+        "numeric__fwd_iat_mean",
+        "numeric__fwd_iat_std",
+        "numeric__fwd_iat_max",
+        "numeric__fwd_iat_min",
+        "numeric__bwd_iat_total",
+        "numeric__bwd_iat_mean",
+        "numeric__bwd_iat_std",
+        "numeric__bwd_iat_max",
+        "numeric__bwd_iat_min",
+        "numeric__fwd_psh_flags",
+        "numeric__bwd_psh_flags",
+        "numeric__fwd_urg_flags",
+        "numeric__bwd_urg_flags",
+        "numeric__fwd_header_length__source_col_35",
+        "numeric__bwd_header_length",
+        "numeric__fwd_packets_s",
+        "numeric__bwd_packets_s",
+        "numeric__min_packet_length",
+        "numeric__max_packet_length",
+        "numeric__packet_length_mean",
+        "numeric__packet_length_std",
+        "numeric__packet_length_variance",
+        "numeric__fin_flag_count",
+        "numeric__syn_flag_count",
+        "numeric__rst_flag_count",
+        "numeric__psh_flag_count",
+        "numeric__ack_flag_count",
+        "numeric__urg_flag_count",
+        "numeric__cwe_flag_count",
+        "numeric__ece_flag_count",
+        "numeric__down_up_ratio",
+        "numeric__average_packet_size",
+        "numeric__avg_fwd_segment_size",
+        "numeric__avg_bwd_segment_size",
+        "numeric__fwd_header_length__source_col_56",
+        "numeric__fwd_avg_bytes_bulk",
+        "numeric__fwd_avg_packets_bulk",
+        "numeric__fwd_avg_bulk_rate",
+        "numeric__bwd_avg_bytes_bulk",
+        "numeric__bwd_avg_packets_bulk",
+        "numeric__bwd_avg_bulk_rate",
+        "numeric__subflow_fwd_packets",
+        "numeric__subflow_fwd_bytes",
+        "numeric__subflow_bwd_packets",
+        "numeric__subflow_bwd_bytes",
+        "numeric__init_win_bytes_forward",
+        "numeric__init_win_bytes_backward",
+        "numeric__act_data_pkt_fwd",
+        "numeric__min_seg_size_forward",
+        "numeric__active_mean",
+        "numeric__active_std",
+        "numeric__active_max",
+        "numeric__active_min",
+        "numeric__idle_mean",
+        "numeric__idle_std",
+        "numeric__idle_max",
+        "numeric__idle_min"
+      ],
+      "excluded": []
+    },
+    "output_feature_names": [
+      "numeric__destination_port",
+      "numeric__flow_duration",
+      "numeric__total_fwd_packets",
+      "numeric__total_backward_packets",
+      "numeric__total_length_of_fwd_packets",
+      "numeric__total_length_of_bwd_packets",
+      "numeric__fwd_packet_length_max",
+      "numeric__fwd_packet_length_min",
+      "numeric__fwd_packet_length_mean",
+      "numeric__fwd_packet_length_std",
+      "numeric__bwd_packet_length_max",
+      "numeric__bwd_packet_length_min",
+      "numeric__bwd_packet_length_mean",
+      "numeric__bwd_packet_length_std",
+      "numeric__flow_bytes_s",
+      "numeric__flow_packets_s",
+      "numeric__flow_iat_mean",
+      "numeric__flow_iat_std",
+      "numeric__flow_iat_max",
+      "numeric__flow_iat_min",
+      "numeric__fwd_iat_total",
+      "numeric__fwd_iat_mean",
+      "numeric__fwd_iat_std",
+      "numeric__fwd_iat_max",
+      "numeric__fwd_iat_min",
+      "numeric__bwd_iat_total",
+      "numeric__bwd_iat_mean",
+      "numeric__bwd_iat_std",
+      "numeric__bwd_iat_max",
+      "numeric__bwd_iat_min",
+      "numeric__fwd_psh_flags",
+      "numeric__bwd_psh_flags",
+      "numeric__fwd_urg_flags",
+      "numeric__bwd_urg_flags",
+      "numeric__fwd_header_length__source_col_35",
+      "numeric__bwd_header_length",
+      "numeric__fwd_packets_s",
+      "numeric__bwd_packets_s",
+      "numeric__min_packet_length",
+      "numeric__max_packet_length",
+      "numeric__packet_length_mean",
+      "numeric__packet_length_std",
+      "numeric__packet_length_variance",
+      "numeric__fin_flag_count",
+      "numeric__syn_flag_count",
+      "numeric__rst_flag_count",
+      "numeric__psh_flag_count",
+      "numeric__ack_flag_count",
+      "numeric__urg_flag_count",
+      "numeric__cwe_flag_count",
+      "numeric__ece_flag_count",
+      "numeric__down_up_ratio",
+      "numeric__average_packet_size",
+      "numeric__avg_fwd_segment_size",
+      "numeric__avg_bwd_segment_size",
+      "numeric__fwd_header_length__source_col_56",
+      "numeric__fwd_avg_bytes_bulk",
+      "numeric__fwd_avg_packets_bulk",
+      "numeric__fwd_avg_bulk_rate",
+      "numeric__bwd_avg_bytes_bulk",
+      "numeric__bwd_avg_packets_bulk",
+      "numeric__bwd_avg_bulk_rate",
+      "numeric__subflow_fwd_packets",
+      "numeric__subflow_fwd_bytes",
+      "numeric__subflow_bwd_packets",
+      "numeric__subflow_bwd_bytes",
+      "numeric__init_win_bytes_forward",
+      "numeric__init_win_bytes_backward",
+      "numeric__act_data_pkt_fwd",
+      "numeric__min_seg_size_forward",
+      "numeric__active_mean",
+      "numeric__active_std",
+      "numeric__active_max",
+      "numeric__active_min",
+      "numeric__idle_mean",
+      "numeric__idle_std",
+      "numeric__idle_max",
+      "numeric__idle_min"
+    ],
+    "training_schema_fingerprint": "1ca0edef7e42bf3c5a44af8b4377d777a2232691bcfe1c013b7f39f38b4a9f07",
+    "training_dtypes": {
+      "destination_port": "float64",
+      "flow_duration": "float64",
+      "total_fwd_packets": "float64",
+      "total_backward_packets": "float64",
+      "total_length_of_fwd_packets": "float64",
+      "total_length_of_bwd_packets": "float64",
+      "fwd_packet_length_max": "float64",
+      "fwd_packet_length_min": "float64",
+      "fwd_packet_length_mean": "float64",
+      "fwd_packet_length_std": "float64",
+      "bwd_packet_length_max": "float64",
+      "bwd_packet_length_min": "float64",
+      "bwd_packet_length_mean": "float64",
+      "bwd_packet_length_std": "float64",
+      "flow_bytes_s": "float64",
+      "flow_packets_s": "float64",
+      "flow_iat_mean": "float64",
+      "flow_iat_std": "float64",
+      "flow_iat_max": "float64",
+      "flow_iat_min": "float64",
+      "fwd_iat_total": "float64",
+      "fwd_iat_mean": "float64",
+      "fwd_iat_std": "float64",
+      "fwd_iat_max": "float64",
+      "fwd_iat_min": "float64",
+      "bwd_iat_total": "float64",
+      "bwd_iat_mean": "float64",
+      "bwd_iat_std": "float64",
+      "bwd_iat_max": "float64",
+      "bwd_iat_min": "float64",
+      "fwd_psh_flags": "float64",
+      "bwd_psh_flags": "float64",
+      "fwd_urg_flags": "float64",
+      "bwd_urg_flags": "float64",
+      "fwd_header_length__source_col_35": "float64",
+      "bwd_header_length": "float64",
+      "fwd_packets_s": "float64",
+      "bwd_packets_s": "float64",
+      "min_packet_length": "float64",
+      "max_packet_length": "float64",
+      "packet_length_mean": "float64",
+      "packet_length_std": "float64",
+      "packet_length_variance": "float64",
+      "fin_flag_count": "float64",
+      "syn_flag_count": "float64",
+      "rst_flag_count": "float64",
+      "psh_flag_count": "float64",
+      "ack_flag_count": "float64",
+      "urg_flag_count": "float64",
+      "cwe_flag_count": "float64",
+      "ece_flag_count": "float64",
+      "down_up_ratio": "float64",
+      "average_packet_size": "float64",
+      "avg_fwd_segment_size": "float64",
+      "avg_bwd_segment_size": "float64",
+      "fwd_header_length__source_col_56": "float64",
+      "fwd_avg_bytes_bulk": "float64",
+      "fwd_avg_packets_bulk": "float64",
+      "fwd_avg_bulk_rate": "float64",
+      "bwd_avg_bytes_bulk": "float64",
+      "bwd_avg_packets_bulk": "float64",
+      "bwd_avg_bulk_rate": "float64",
+      "subflow_fwd_packets": "float64",
+      "subflow_fwd_bytes": "float64",
+      "subflow_bwd_packets": "float64",
+      "subflow_bwd_bytes": "float64",
+      "init_win_bytes_forward": "float64",
+      "init_win_bytes_backward": "float64",
+      "act_data_pkt_fwd": "float64",
+      "min_seg_size_forward": "float64",
+      "active_mean": "float64",
+      "active_std": "float64",
+      "active_max": "float64",
+      "active_min": "float64",
+      "idle_mean": "float64",
+      "idle_std": "float64",
+      "idle_max": "float64",
+      "idle_min": "float64"
+    },
+    "learned_numeric_imputation_statistics": {
+      "destination_port": 80.0,
+      "flow_duration": 31226.0,
+      "total_fwd_packets": 2.0,
+      "total_backward_packets": 2.0,
+      "total_length_of_fwd_packets": 68.0,
+      "total_length_of_bwd_packets": 142.0,
+      "fwd_packet_length_max": 41.0,
+      "fwd_packet_length_min": 6.0,
+      "fwd_packet_length_mean": 38.0,
+      "fwd_packet_length_std": 0.0,
+      "bwd_packet_length_max": 90.0,
+      "bwd_packet_length_min": 6.0,
+      "bwd_packet_length_mean": 81.0,
+      "bwd_packet_length_std": 0.0,
+      "flow_bytes_s": 4456.6290528323,
+      "flow_packets_s": 110.28735992669999,
+      "flow_iat_mean": 11321.236024844751,
+      "flow_iat_std": 119.8012243,
+      "flow_iat_max": 30854.0,
+      "flow_iat_min": 4.0,
+      "fwd_iat_total": 4.0,
+      "fwd_iat_mean": 4.0,
+      "fwd_iat_std": 0.0,
+      "fwd_iat_max": 4.0,
+      "fwd_iat_min": 3.0,
+      "bwd_iat_total": 3.0,
+      "bwd_iat_mean": 3.0,
+      "bwd_iat_std": 0.0,
+      "bwd_iat_max": 3.0,
+      "bwd_iat_min": 2.0,
+      "fwd_psh_flags": 0.0,
+      "bwd_psh_flags": 0.0,
+      "fwd_urg_flags": 0.0,
+      "bwd_urg_flags": 0.0,
+      "fwd_header_length__source_col_35": 64.0,
+      "bwd_header_length": 40.0,
+      "fwd_packets_s": 62.4024497705,
+      "bwd_packets_s": 27.0322873648,
+      "min_packet_length": 6.0,
+      "max_packet_length": 94.0,
+      "packet_length_mean": 60.0,
+      "packet_length_std": 28.86751346,
+      "packet_length_variance": 833.3333333,
+      "fin_flag_count": 0.0,
+      "syn_flag_count": 0.0,
+      "rst_flag_count": 0.0,
+      "psh_flag_count": 0.0,
+      "ack_flag_count": 0.0,
+      "urg_flag_count": 0.0,
+      "cwe_flag_count": 0.0,
+      "ece_flag_count": 0.0,
+      "down_up_ratio": 1.0,
+      "average_packet_size": 76.4,
+      "avg_fwd_segment_size": 38.0,
+      "avg_bwd_segment_size": 81.0,
+      "fwd_header_length__source_col_56": 64.0,
+      "fwd_avg_bytes_bulk": 0.0,
+      "fwd_avg_packets_bulk": 0.0,
+      "fwd_avg_bulk_rate": 0.0,
+      "bwd_avg_bytes_bulk": 0.0,
+      "bwd_avg_packets_bulk": 0.0,
+      "bwd_avg_bulk_rate": 0.0,
+      "subflow_fwd_packets": 2.0,
+      "subflow_fwd_bytes": 68.0,
+      "subflow_bwd_packets": 2.0,
+      "subflow_bwd_bytes": 142.0,
+      "init_win_bytes_forward": 68.0,
+      "init_win_bytes_backward": -1.0,
+      "act_data_pkt_fwd": 1.0,
+      "min_seg_size_forward": 20.0,
+      "active_mean": 0.0,
+      "active_std": 0.0,
+      "active_max": 0.0,
+      "active_min": 0.0,
+      "idle_mean": 0.0,
+      "idle_std": 0.0,
+      "idle_max": 0.0,
+      "idle_min": 0.0
+    },
+    "learned_scaling_statistics": {
+      "destination_port": {
+        "center": 80.0,
+        "scale": 390.0
+      },
+      "flow_duration": {
+        "center": 31226.0,
+        "scale": 414612.25
+      },
+      "total_fwd_packets": {
+        "center": 2.0,
+        "scale": 2.0
+      },
+      "total_backward_packets": {
+        "center": 2.0,
+        "scale": 1.0
+      },
+      "total_length_of_fwd_packets": {
+        "center": 68.0,
+        "scale": 154.0
+      },
+      "total_length_of_bwd_packets": {
+        "center": 142.0,
+        "scale": 358.0
+      },
+      "fwd_packet_length_max": {
+        "center": 41.0,
+        "scale": 65.0
+      },
+      "fwd_packet_length_min": {
+        "center": 6.0,
+        "scale": 41.0
+      },
+      "fwd_packet_length_mean": {
+        "center": 38.0,
+        "scale": 45.5
+      },
+      "fwd_packet_length_std": {
+        "center": 0.0,
+        "scale": 24.248711306
+      },
+      "bwd_packet_length_max": {
+        "center": 90.0,
+        "scale": 199.0
+      },
+      "bwd_packet_length_min": {
+        "center": 6.0,
+        "scale": 96.0
+      },
+      "bwd_packet_length_mean": {
+        "center": 81.0,
+        "scale": 161.0
+      },
+      "bwd_packet_length_std": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "flow_bytes_s": {
+        "center": 4456.6290528323,
+        "scale": 202419.13297899967
+      },
+      "flow_packets_s": {
+        "center": 110.28735992669999,
+        "scale": 20288.92966264
+      },
+      "flow_iat_mean": {
+        "center": 11321.236024844751,
+        "scale": 102373.62719298246
+      },
+      "flow_iat_std": {
+        "center": 119.8012243,
+        "scale": 70169.20406533875
+      },
+      "flow_iat_max": {
+        "center": 30854.0,
+        "scale": 250860.0
+      },
+      "flow_iat_min": {
+        "center": 4.0,
+        "scale": 87.0
+      },
+      "fwd_iat_total": {
+        "center": 4.0,
+        "scale": 261724.75
+      },
+      "fwd_iat_mean": {
+        "center": 4.0,
+        "scale": 43305.642855
+      },
+      "fwd_iat_std": {
+        "center": 0.0,
+        "scale": 21072.749296933423
+      },
+      "fwd_iat_max": {
+        "center": 4.0,
+        "scale": 116032.0
+      },
+      "fwd_iat_min": {
+        "center": 3.0,
+        "scale": 49.0
+      },
+      "bwd_iat_total": {
+        "center": 3.0,
+        "scale": 50948.25
+      },
+      "bwd_iat_mean": {
+        "center": 3.0,
+        "scale": 8566.361111111124
+      },
+      "bwd_iat_std": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "bwd_iat_max": {
+        "center": 3.0,
+        "scale": 32170.5
+      },
+      "bwd_iat_min": {
+        "center": 2.0,
+        "scale": 4.0
+      },
+      "fwd_psh_flags": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "bwd_psh_flags": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "fwd_urg_flags": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "bwd_urg_flags": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "fwd_header_length__source_col_35": {
+        "center": 64.0,
+        "scale": 64.0
+      },
+      "bwd_header_length": {
+        "center": 40.0,
+        "scale": 60.0
+      },
+      "fwd_packets_s": {
+        "center": 62.4024497705,
+        "scale": 10574.11318297945
+      },
+      "bwd_packets_s": {
+        "center": 27.0322873648,
+        "scale": 5050.264478126525
+      },
+      "min_packet_length": {
+        "center": 6.0,
+        "scale": 40.0
+      },
+      "max_packet_length": {
+        "center": 94.0,
+        "scale": 210.0
+      },
+      "packet_length_mean": {
+        "center": 60.0,
+        "scale": 92.2
+      },
+      "packet_length_std": {
+        "center": 28.86751346,
+        "scale": 101.8763957
+      },
+      "packet_length_variance": {
+        "center": 833.3333333,
+        "scale": 10378.8
+      },
+      "fin_flag_count": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "syn_flag_count": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "rst_flag_count": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "psh_flag_count": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "ack_flag_count": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "urg_flag_count": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "cwe_flag_count": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "ece_flag_count": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "down_up_ratio": {
+        "center": 1.0,
+        "scale": 1.0
+      },
+      "average_packet_size": {
+        "center": 76.4,
+        "scale": 118.0
+      },
+      "avg_fwd_segment_size": {
+        "center": 38.0,
+        "scale": 45.5
+      },
+      "avg_bwd_segment_size": {
+        "center": 81.0,
+        "scale": 161.0
+      },
+      "fwd_header_length__source_col_56": {
+        "center": 64.0,
+        "scale": 64.0
+      },
+      "fwd_avg_bytes_bulk": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "fwd_avg_packets_bulk": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "fwd_avg_bulk_rate": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "bwd_avg_bytes_bulk": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "bwd_avg_packets_bulk": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "bwd_avg_bulk_rate": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "subflow_fwd_packets": {
+        "center": 2.0,
+        "scale": 2.0
+      },
+      "subflow_fwd_bytes": {
+        "center": 68.0,
+        "scale": 154.0
+      },
+      "subflow_bwd_packets": {
+        "center": 2.0,
+        "scale": 1.0
+      },
+      "subflow_bwd_bytes": {
+        "center": 142.0,
+        "scale": 358.0
+      },
+      "init_win_bytes_forward": {
+        "center": 68.0,
+        "scale": 8193.0
+      },
+      "init_win_bytes_backward": {
+        "center": -1.0,
+        "scale": 242.0
+      },
+      "act_data_pkt_fwd": {
+        "center": 1.0,
+        "scale": 2.0
+      },
+      "min_seg_size_forward": {
+        "center": 20.0,
+        "scale": 12.0
+      },
+      "active_mean": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "active_std": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "active_max": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "active_min": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "idle_mean": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "idle_std": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "idle_max": {
+        "center": 0.0,
+        "scale": 1.0
+      },
+      "idle_min": {
+        "center": 0.0,
+        "scale": 1.0
+      }
+    },
+    "scikit_learn_version": "1.8.0",
+    "random_seed": 42
+  },
+  "preprocessing_fit_seconds": 1.5110424000013154,
+  "model_configuration": {
+    "n_estimators": 200,
+    "max_samples": 4096,
+    "max_features": 1.0,
+    "contamination": "auto",
+    "bootstrap": false,
+    "random_state": 42,
+    "n_jobs": 4,
+    "max_samples_requested": 4096,
+    "max_samples_effective": 4096,
+    "training_rows": 150000,
+    "feature_count": 78
+  },
+  "training_time_seconds": 1.6790979000070365,
+  "validation_benign_scoring_seconds": 6.592163499997696,
+  "test_prediction_time_seconds": 9.739046399990912,
+  "model_size_bytes": 1756395,
+  "preprocessor_size_bytes": 6518,
+  "default_operating_point": "target-fpr-1pct",
+  "calibration": {
+    "score_orientation": "higher_is_more_anomalous",
+    "calibration_population": "BENIGN validation observations only",
+    "labels_used_for_threshold_selection": false,
+    "quantile_method": "higher",
+    "operating_points": {
+      "target-fpr-0_5pct": {
+        "operating_point": "target-fpr-0_5pct",
+        "target_fpr": 0.005,
+        "threshold": 0.5640913156339894,
+        "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+        "quantile": 0.995,
+        "quantile_method": "higher",
+        "benign_validation_observations": 456752,
+        "achieved_validation_fpr": 0.004998336077346131,
+        "threshold_tie_observations": 1,
+        "empirical_fpr_resolution": 2.189371912985603e-06,
+        "expected_tail_observations_at_target": 2283.76,
+        "resolution_status": "empirically_resolvable",
+        "score_summary": {
+          "minimum": 0.3120424258152902,
+          "median": 0.3291175602721432,
+          "mean": 0.3419438392900555,
+          "maximum": 0.7815786335352298
+        }
+      },
+      "target-fpr-1pct": {
+        "operating_point": "target-fpr-1pct",
+        "target_fpr": 0.01,
+        "threshold": 0.5282060252154797,
+        "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+        "quantile": 0.99,
+        "quantile_method": "higher",
+        "benign_validation_observations": 456752,
+        "achieved_validation_fpr": 0.009998861526605247,
+        "threshold_tie_observations": 1,
+        "empirical_fpr_resolution": 2.189371912985603e-06,
+        "expected_tail_observations_at_target": 4567.52,
+        "resolution_status": "empirically_resolvable",
+        "score_summary": {
+          "minimum": 0.3120424258152902,
+          "median": 0.3291175602721432,
+          "mean": 0.3419438392900555,
+          "maximum": 0.7815786335352298
+        }
+      },
+      "target-fpr-2pct": {
+        "operating_point": "target-fpr-2pct",
+        "target_fpr": 0.02,
+        "threshold": 0.48703315457496515,
+        "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+        "quantile": 0.98,
+        "quantile_method": "higher",
+        "benign_validation_observations": 456752,
+        "achieved_validation_fpr": 0.01999991242512348,
+        "threshold_tie_observations": 2,
+        "empirical_fpr_resolution": 2.189371912985603e-06,
+        "expected_tail_observations_at_target": 9135.04,
+        "resolution_status": "empirically_resolvable",
+        "score_summary": {
+          "minimum": 0.3120424258152902,
+          "median": 0.3291175602721432,
+          "mean": 0.3419438392900555,
+          "maximum": 0.7815786335352298
+        }
+      },
+      "target-fpr-5pct": {
+        "operating_point": "target-fpr-5pct",
+        "target_fpr": 0.05,
+        "threshold": 0.43209545263573046,
+        "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+        "quantile": 0.95,
+        "quantile_method": "higher",
+        "benign_validation_observations": 456752,
+        "achieved_validation_fpr": 0.04999868637685221,
+        "threshold_tie_observations": 1,
+        "empirical_fpr_resolution": 2.189371912985603e-06,
+        "expected_tail_observations_at_target": 22837.600000000002,
+        "resolution_status": "empirically_resolvable",
+        "score_summary": {
+          "minimum": 0.3120424258152902,
+          "median": 0.3291175602721432,
+          "mean": 0.3419438392900555,
+          "maximum": 0.7815786335352298
+        }
+      },
+      "target-fpr-10pct": {
+        "operating_point": "target-fpr-10pct",
+        "target_fpr": 0.1,
+        "threshold": 0.3839914598442561,
+        "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+        "quantile": 0.9,
+        "quantile_method": "higher",
+        "benign_validation_observations": 456752,
+        "achieved_validation_fpr": 0.0999995621256174,
+        "threshold_tie_observations": 1,
+        "empirical_fpr_resolution": 2.189371912985603e-06,
+        "expected_tail_observations_at_target": 45675.200000000004,
+        "resolution_status": "empirically_resolvable",
+        "score_summary": {
+          "minimum": 0.3120424258152902,
+          "median": 0.3291175602721432,
+          "mean": 0.3419438392900555,
+          "maximum": 0.7815786335352298
+        }
+      }
+    }
+  },
+  "test_metrics": {
+    "target-fpr-0_5pct": {
+      "threshold": 0.5640913156339894,
+      "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+      "observations": 703245,
+      "benign_support": 414322,
+      "attack_support": 288923,
+      "true_negative": 399963,
+      "false_positive": 14359,
+      "false_negative": 267226,
+      "true_positive": 21697,
+      "confusion_matrix_labels": [
+        "BENIGN",
+        "ATTACK"
+      ],
+      "confusion_matrix": [
+        [
+          399963,
+          14359
+        ],
+        [
+          267226,
+          21697
+        ]
+      ],
+      "attack_precision": 0.6017583758597737,
+      "attack_recall": 0.07509613287969459,
+      "attack_f1": 0.13352862800365561,
+      "false_positive_rate": 0.03465661973054774,
+      "false_negative_rate": 0.9249038671203054,
+      "specificity": 0.9653433802694522,
+      "balanced_accuracy": 0.5202197565745734,
+      "accuracy": 0.5995918918726759,
+      "roc_auc": 0.6940917436640868,
+      "average_precision": 0.5494087661425469,
+      "score_summary": {
+        "benign_mean": 0.3566223258001654,
+        "benign_median": 0.32781722113723777,
+        "attack_mean": 0.39611441158407795,
+        "attack_median": 0.3390676362754557
+      },
+      "undefined_metric_status": {
+        "roc_auc": null,
+        "average_precision": null,
+        "attack_recall": null,
+        "false_positive_rate": null
+      }
+    },
+    "target-fpr-1pct": {
+      "threshold": 0.5282060252154797,
+      "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+      "observations": 703245,
+      "benign_support": 414322,
+      "attack_support": 288923,
+      "true_negative": 393992,
+      "false_positive": 20330,
+      "false_negative": 243942,
+      "true_positive": 44981,
+      "confusion_matrix_labels": [
+        "BENIGN",
+        "ATTACK"
+      ],
+      "confusion_matrix": [
+        [
+          393992,
+          20330
+        ],
+        [
+          243942,
+          44981
+        ]
+      ],
+      "attack_precision": 0.68872012371576,
+      "attack_recall": 0.1556850787233969,
+      "attack_f1": 0.25396207026993456,
+      "false_positive_rate": 0.049068116102934434,
+      "false_negative_rate": 0.8443149212766031,
+      "specificity": 0.9509318838970656,
+      "balanced_accuracy": 0.5533084813102312,
+      "accuracy": 0.6242106236091263,
+      "roc_auc": 0.6940917436640868,
+      "average_precision": 0.5494087661425469,
+      "score_summary": {
+        "benign_mean": 0.3566223258001654,
+        "benign_median": 0.32781722113723777,
+        "attack_mean": 0.39611441158407795,
+        "attack_median": 0.3390676362754557
+      },
+      "undefined_metric_status": {
+        "roc_auc": null,
+        "average_precision": null,
+        "attack_recall": null,
+        "false_positive_rate": null
+      }
+    },
+    "target-fpr-2pct": {
+      "threshold": 0.48703315457496515,
+      "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+      "observations": 703245,
+      "benign_support": 414322,
+      "attack_support": 288923,
+      "true_negative": 387248,
+      "false_positive": 27074,
+      "false_negative": 213461,
+      "true_positive": 75462,
+      "confusion_matrix_labels": [
+        "BENIGN",
+        "ATTACK"
+      ],
+      "confusion_matrix": [
+        [
+          387248,
+          27074
+        ],
+        [
+          213461,
+          75462
+        ]
+      ],
+      "attack_precision": 0.735956151985644,
+      "attack_recall": 0.26118377560803396,
+      "attack_f1": 0.3855422917853466,
+      "false_positive_rate": 0.06534531113481784,
+      "false_negative_rate": 0.738816224391966,
+      "specificity": 0.9346546888651821,
+      "balanced_accuracy": 0.597919232236608,
+      "accuracy": 0.6579641518958542,
+      "roc_auc": 0.6940917436640868,
+      "average_precision": 0.5494087661425469,
+      "score_summary": {
+        "benign_mean": 0.3566223258001654,
+        "benign_median": 0.32781722113723777,
+        "attack_mean": 0.39611441158407795,
+        "attack_median": 0.3390676362754557
+      },
+      "undefined_metric_status": {
+        "roc_auc": null,
+        "average_precision": null,
+        "attack_recall": null,
+        "false_positive_rate": null
+      }
+    },
+    "target-fpr-5pct": {
+      "threshold": 0.43209545263573046,
+      "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+      "observations": 703245,
+      "benign_support": 414322,
+      "attack_support": 288923,
+      "true_negative": 367590,
+      "false_positive": 46732,
+      "false_negative": 207549,
+      "true_positive": 81374,
+      "confusion_matrix_labels": [
+        "BENIGN",
+        "ATTACK"
+      ],
+      "confusion_matrix": [
+        [
+          367590,
+          46732
+        ],
+        [
+          207549,
+          81374
+        ]
+      ],
+      "attack_precision": 0.6352083430908778,
+      "attack_recall": 0.28164597487912,
+      "attack_f1": 0.39025583352716475,
+      "false_positive_rate": 0.1127915003306607,
+      "false_negative_rate": 0.71835402512088,
+      "specificity": 0.8872084996693393,
+      "balanced_accuracy": 0.5844272372742296,
+      "accuracy": 0.6384176211704313,
+      "roc_auc": 0.6940917436640868,
+      "average_precision": 0.5494087661425469,
+      "score_summary": {
+        "benign_mean": 0.3566223258001654,
+        "benign_median": 0.32781722113723777,
+        "attack_mean": 0.39611441158407795,
+        "attack_median": 0.3390676362754557
+      },
+      "undefined_metric_status": {
+        "roc_auc": null,
+        "average_precision": null,
+        "attack_recall": null,
+        "false_positive_rate": null
+      }
+    },
+    "target-fpr-10pct": {
+      "threshold": 0.3839914598442561,
+      "comparison": "anomalous if anomaly_score > threshold; equality is NORMAL",
+      "observations": 703245,
+      "benign_support": 414322,
+      "attack_support": 288923,
+      "true_negative": 338229,
+      "false_positive": 76093,
+      "false_negative": 206024,
+      "true_positive": 82899,
+      "confusion_matrix_labels": [
+        "BENIGN",
+        "ATTACK"
+      ],
+      "confusion_matrix": [
+        [
+          338229,
+          76093
+        ],
+        [
+          206024,
+          82899
+        ]
+      ],
+      "attack_precision": 0.5214035926335916,
+      "attack_recall": 0.2869241977966448,
+      "attack_f1": 0.3701550517397274,
+      "false_positive_rate": 0.18365667282934528,
+      "false_negative_rate": 0.7130758022033552,
+      "specificity": 0.8163433271706547,
+      "balanced_accuracy": 0.5516337624836498,
+      "accuracy": 0.5988353987586119,
+      "roc_auc": 0.6940917436640868,
+      "average_precision": 0.5494087661425469,
+      "score_summary": {
+        "benign_mean": 0.3566223258001654,
+        "benign_median": 0.32781722113723777,
+        "attack_mean": 0.39611441158407795,
+        "attack_median": 0.3390676362754557
+      },
+      "undefined_metric_status": {
+        "roc_auc": null,
+        "average_precision": null,
+        "attack_recall": null,
+        "false_positive_rate": null
+      }
+    }
+  },
+  "per_attack_category": [
+    {
+      "original_label": "DoS Hulk",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "PortScan",
+      "test_support": 158930,
+      "detected_as_anomalous": 45,
+      "classified_as_normal": 158885,
+      "detection_recall": 0.00028314352230541747,
+      "mean_anomaly_score": 0.3364771765167485,
+      "median_anomaly_score": 0.33642134619045627,
+      "score_std": 0.010233014258706192,
+      "score_min": 0.31532847781599144,
+      "score_max": 0.6263307919123563,
+      "status": "evaluated"
+    },
+    {
+      "original_label": "DDoS",
+      "test_support": 128027,
+      "detected_as_anomalous": 44892,
+      "classified_as_normal": 83135,
+      "detection_recall": 0.3506447858654815,
+      "mean_anomaly_score": 0.47101359452898733,
+      "median_anomaly_score": 0.5048636733376803,
+      "score_std": 0.10595182503507453,
+      "score_min": 0.3184831807048514,
+      "score_max": 0.6797652065182823,
+      "status": "evaluated"
+    },
+    {
+      "original_label": "DoS GoldenEye",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "FTP-Patator",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "SSH-Patator",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "DoS slowloris",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "DoS Slowhttptest",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "Bot",
+      "test_support": 1966,
+      "detected_as_anomalous": 44,
+      "classified_as_normal": 1922,
+      "detection_recall": 0.022380467955239063,
+      "mean_anomaly_score": 0.3396688746373548,
+      "median_anomaly_score": 0.3326497232908002,
+      "score_std": 0.0423636511426813,
+      "score_min": 0.32008879595222384,
+      "score_max": 0.6615458813623674,
+      "status": "evaluated"
+    },
+    {
+      "original_label": "Web Attack � Brute Force",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "Web Attack � XSS",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "Infiltration",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "Web Attack � Sql Injection",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    },
+    {
+      "original_label": "Heartbleed",
+      "test_support": 0,
+      "detected_as_anomalous": 0,
+      "classified_as_normal": 0,
+      "detection_recall": null,
+      "mean_anomaly_score": null,
+      "median_anomaly_score": null,
+      "score_std": null,
+      "score_min": null,
+      "score_max": null,
+      "status": "not represented in held-out capture-day test"
+    }
+  ],
+  "false_positive_by_source_file": [
+    {
+      "source_file": "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "capture_day": "Friday",
+      "benign_test_rows": 97718,
+      "false_positives": 16306,
+      "false_positive_rate": 0.16686792607298553,
+      "median_benign_score": 0.34711792024348825,
+      "mean_benign_score": 0.4000365035122413,
+      "benign_rows_above_threshold": 16306
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "capture_day": "Friday",
+      "benign_test_rows": 127537,
+      "false_positives": 1398,
+      "false_positive_rate": 0.010961524890816,
+      "median_benign_score": 0.3247048535746594,
+      "mean_benign_score": 0.34279649188536493,
+      "benign_rows_above_threshold": 1398
+    },
+    {
+      "source_file": "extracted/MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "capture_day": "Friday",
+      "benign_test_rows": 189067,
+      "false_positives": 2626,
+      "false_positive_rate": 0.013889256189604742,
+      "median_benign_score": 0.3241423912522569,
+      "mean_benign_score": 0.34351035365443533,
+      "benign_rows_above_threshold": 2626
+    }
+  ],
+  "error_feature_medians": [
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "destination_port",
+      "median": 53819.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "flow_duration",
+      "median": 75581474.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "total_fwd_packets",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "total_backward_packets",
+      "median": 9.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "total_length_of_fwd_packets",
+      "median": 11607.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "total_length_of_bwd_packets",
+      "median": 62.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_packet_length_max",
+      "median": 5755.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_packet_length_min",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_packet_length_mean",
+      "median": 1659.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_packet_length_std",
+      "median": 2127.59774
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_packet_length_max",
+      "median": 20.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_packet_length_min",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_packet_length_mean",
+      "median": 6.888888889
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_packet_length_std",
+      "median": 5.30199124
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "flow_bytes_s",
+      "median": 158.34027705
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "flow_packets_s",
+      "median": 0.2414281475
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "flow_iat_mean",
+      "median": 4454627.6565000005
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "flow_iat_std",
+      "median": 15600000.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "flow_iat_max",
+      "median": 61400000.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "flow_iat_min",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_total",
+      "median": 75400000.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_mean",
+      "median": 8403311.9285
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_std",
+      "median": 3526043.125
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_max",
+      "median": 66500000.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_min",
+      "median": 7.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_total",
+      "median": 73600000.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_mean",
+      "median": 7820175.778000001
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_std",
+      "median": 4878878.854499999
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_max",
+      "median": 59000000.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_min",
+      "median": 2.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_psh_flags",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_psh_flags",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_urg_flags",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_urg_flags",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_header_length__source_col_35",
+      "median": 132.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_header_length",
+      "median": 192.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_packets_s",
+      "median": 0.0942758105
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_packets_s",
+      "median": 0.134796422
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "min_packet_length",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "max_packet_length",
+      "median": 5792.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "packet_length_mean",
+      "median": 729.6875
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "packet_length_std",
+      "median": 1548.96754
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "packet_length_variance",
+      "median": 2399300.441
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fin_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "syn_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "rst_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "psh_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "ack_flag_count",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "urg_flag_count",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "cwe_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "ece_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "down_up_ratio",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "average_packet_size",
+      "median": 777.9333333
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "avg_fwd_segment_size",
+      "median": 1659.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "avg_bwd_segment_size",
+      "median": 6.888888889
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_header_length__source_col_56",
+      "median": 132.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_avg_bytes_bulk",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_avg_packets_bulk",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "fwd_avg_bulk_rate",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_avg_bytes_bulk",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_avg_packets_bulk",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "bwd_avg_bulk_rate",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "subflow_fwd_packets",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "subflow_fwd_bytes",
+      "median": 11607.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "subflow_bwd_packets",
+      "median": 9.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "subflow_bwd_bytes",
+      "median": 62.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "init_win_bytes_forward",
+      "median": 229.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "init_win_bytes_backward",
+      "median": 256.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "act_data_pkt_fwd",
+      "median": 4.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "min_seg_size_forward",
+      "median": 20.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "active_mean",
+      "median": 30125.5
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "active_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "active_max",
+      "median": 30148.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "active_min",
+      "median": 28525.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "idle_mean",
+      "median": 37200000.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "idle_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "idle_max",
+      "median": 59550000.0
+    },
+    {
+      "error_type": "false_positive",
+      "sample_rows": 5000,
+      "feature": "idle_min",
+      "median": 9058864.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "destination_port",
+      "median": 1102.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "flow_duration",
+      "median": 63.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "total_fwd_packets",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "total_backward_packets",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "total_length_of_fwd_packets",
+      "median": 2.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "total_length_of_bwd_packets",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_packet_length_max",
+      "median": 2.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_packet_length_min",
+      "median": 2.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_packet_length_mean",
+      "median": 2.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_packet_length_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_packet_length_max",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_packet_length_min",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_packet_length_mean",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_packet_length_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "flow_bytes_s",
+      "median": 117647.0588
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "flow_packets_s",
+      "median": 31746.03175
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "flow_iat_mean",
+      "median": 63.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "flow_iat_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "flow_iat_max",
+      "median": 63.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "flow_iat_min",
+      "median": 43.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_total",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_mean",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_max",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_iat_min",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_total",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_mean",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_max",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_iat_min",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_psh_flags",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_psh_flags",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_urg_flags",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_urg_flags",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_header_length__source_col_35",
+      "median": 40.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_header_length",
+      "median": 20.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_packets_s",
+      "median": 15873.01587
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_packets_s",
+      "median": 15873.01587
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "min_packet_length",
+      "median": 2.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "max_packet_length",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "packet_length_mean",
+      "median": 3.333333333
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "packet_length_std",
+      "median": 2.309401077
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "packet_length_variance",
+      "median": 5.333333333
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fin_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "syn_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "rst_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "psh_flag_count",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "ack_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "urg_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "cwe_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "ece_flag_count",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "down_up_ratio",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "average_packet_size",
+      "median": 5.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "avg_fwd_segment_size",
+      "median": 2.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "avg_bwd_segment_size",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_header_length__source_col_56",
+      "median": 40.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_avg_bytes_bulk",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_avg_packets_bulk",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "fwd_avg_bulk_rate",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_avg_bytes_bulk",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_avg_packets_bulk",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "bwd_avg_bulk_rate",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "subflow_fwd_packets",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "subflow_fwd_bytes",
+      "median": 2.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "subflow_bwd_packets",
+      "median": 1.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "subflow_bwd_bytes",
+      "median": 6.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "init_win_bytes_forward",
+      "median": 1024.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "init_win_bytes_backward",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "act_data_pkt_fwd",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "min_seg_size_forward",
+      "median": 24.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "active_mean",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "active_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "active_max",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "active_min",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "idle_mean",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "idle_std",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "idle_max",
+      "median": 0.0
+    },
+    {
+      "error_type": "false_negative",
+      "sample_rows": 5000,
+      "feature": "idle_min",
+      "median": 0.0
+    }
+  ],
+  "artifacts": {
+    "model": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\unsupervised\\isolation_forest\\1.0.0",
+    "preprocessor": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\unsupervised\\preprocessing\\anomaly\\1.0.0",
+    "model_id": "isolation-forest-v1.0.0",
+    "preprocessor_version": "1.0.0"
+  },
+  "prediction_interface_smoke": {
+    "rows": 10,
+    "status": "passed",
+    "output": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\prediction_interface_smoke.json"
+  },
+  "library_versions": {
+    "scikit_learn": "1.8.0"
+  },
+  "outputs": {
+    "summary": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\anomaly_evaluation_summary.json",
+    "calibration": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\threshold_calibration.json",
+    "per_attack": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\per_attack_category.csv",
+    "sensitivity": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\threshold_sensitivity.csv",
+    "false_positive_groups": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\false_positive_by_source_file.csv",
+    "error_feature_medians": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\error_feature_medians.csv",
+    "model_comparison": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\model_comparison.csv",
+    "report": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\anomaly_detection_report.md",
+    "validation_scores_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\anomaly_detection\\20261103T141439Z\\benign_validation_scores_thresholds.png",
+    "sensitivity_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\anomaly_detection\\20261103T141439Z\\threshold_sensitivity.png",
+    "confusion_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\anomaly_detection\\20261103T141439Z\\held_out_test_confusion_matrix.png",
+    "roc_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\anomaly_detection\\20261103T141439Z\\held_out_test_roc_curve.png",
+    "pr_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\anomaly_detection\\20261103T141439Z\\held_out_test_precision_recall_curve.png",
+    "per_attack_recall_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\anomaly_detection\\20261103T141439Z\\per_attack_detection_recall.png",
+    "score_by_category_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\anomaly_detection\\20261103T141439Z\\test_score_by_original_category.png",
+    "false_negatives": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\false_negative_by_attack_category.csv",
+    "error_analysis": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\error_analysis.json",
+    "confusion_matrix": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\anomaly_detection\\20261103T141439Z\\test_confusion_matrix.csv"
+  }
+}

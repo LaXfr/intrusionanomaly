@@ -38,6 +38,7 @@ htmlcov/
 !/data/interim/.gitkeep
 /data/processed/*
 !/data/processed/.gitkeep
+/data/uploads/*
 /models/*
 !/models/.gitkeep
 /reports/figures/*
@@ -48,6 +49,10 @@ htmlcov/
 !/reports/evaluation/.gitkeep
 /reports/ingestion/*
 !/reports/ingestion/.gitkeep
+/reports/**/*.jsonl
+/reports/**/flow_detection_events.csv
+/reports/**/security_alerts.json
+/reports/**/phase09_alerts_with_explanations.json
 *.parquet
 *.joblib
 *.pkl
@@ -59,3 +64,5 @@ htmlcov/
 # Temporary output
 /tmp/
 /temp/
+/.tmp-*/
+*.tmp

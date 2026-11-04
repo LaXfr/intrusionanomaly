@@ -1,0 +1,214 @@
+{
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "scikit_learn": "1.8.0"
+  },
+  "models": [
+    {
+      "model_id": "binary-random_forest-v1.0.1",
+      "model_family": "binary_random_forest",
+      "artifact_size_bytes": 1161628,
+      "output_semantics": "attack probability",
+      "batch_measurements": [
+        {
+          "requested_batch_size": 1,
+          "actual_batch_size": 1,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.003249500001402339,
+          "median_prediction_seconds": 0.012243500001204666,
+          "median_total_seconds": 0.015493000002607005,
+          "throughput_rows_per_second": 64.54527850201576,
+          "latency_per_row_ms": 15.493000002607005,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 16,
+          "actual_batch_size": 16,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.0033624999996391125,
+          "median_prediction_seconds": 0.012538599999970756,
+          "median_total_seconds": 0.01590109999960987,
+          "throughput_rows_per_second": 1006.2196955174521,
+          "latency_per_row_ms": 0.9938187499756168,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 64,
+          "actual_batch_size": 64,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.00407939999786322,
+          "median_prediction_seconds": 0.012923499998578336,
+          "median_total_seconds": 0.017002899996441556,
+          "throughput_rows_per_second": 3764.063778143388,
+          "latency_per_row_ms": 0.2656703124443993,
+          "cold_start_included": false
+        }
+      ]
+    },
+    {
+      "model_id": "binary-logistic_regression-v1.0.2",
+      "model_family": "binary_logistic_regression",
+      "artifact_size_bytes": 61456,
+      "output_semantics": "ATTACK log-odds margin",
+      "batch_measurements": [
+        {
+          "requested_batch_size": 1,
+          "actual_batch_size": 1,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.0036099999997531995,
+          "median_prediction_seconds": 8.270000034826808e-05,
+          "median_total_seconds": 0.0036927000001014676,
+          "throughput_rows_per_second": 270.8045603413551,
+          "latency_per_row_ms": 3.6927000001014676,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 16,
+          "actual_batch_size": 16,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.003967399999964982,
+          "median_prediction_seconds": 9.470000077271834e-05,
+          "median_total_seconds": 0.004062100000737701,
+          "throughput_rows_per_second": 3938.8493629143322,
+          "latency_per_row_ms": 0.2538812500461063,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 64,
+          "actual_batch_size": 64,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.0035267999992356636,
+          "median_prediction_seconds": 7.850000110920519e-05,
+          "median_total_seconds": 0.0036053000003448687,
+          "throughput_rows_per_second": 17751.64341216487,
+          "latency_per_row_ms": 0.056332812505388574,
+          "cold_start_included": false
+        }
+      ]
+    },
+    {
+      "model_id": "multiclass-random_forest-v1.0.0",
+      "model_family": "multiclass_random_forest",
+      "artifact_size_bytes": 1263626,
+      "output_semantics": "class probability",
+      "batch_measurements": [
+        {
+          "requested_batch_size": 1,
+          "actual_batch_size": 1,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.0038741999997000676,
+          "median_prediction_seconds": 0.01309410000249045,
+          "median_total_seconds": 0.016968300002190517,
+          "throughput_rows_per_second": 58.93342290452817,
+          "latency_per_row_ms": 16.968300002190517,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 16,
+          "actual_batch_size": 16,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.004042799999297131,
+          "median_prediction_seconds": 0.01300239999909536,
+          "median_total_seconds": 0.01704519999839249,
+          "throughput_rows_per_second": 938.6806843867446,
+          "latency_per_row_ms": 1.0653249998995307,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 64,
+          "actual_batch_size": 64,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.004205799999908777,
+          "median_prediction_seconds": 0.013269999999465654,
+          "median_total_seconds": 0.01747579999937443,
+          "throughput_rows_per_second": 3662.2071666127426,
+          "latency_per_row_ms": 0.2730593749902255,
+          "cold_start_included": false
+        }
+      ]
+    },
+    {
+      "model_id": "multiclass-logistic_regression-v1.0.0",
+      "model_family": "multiclass_logistic_regression",
+      "artifact_size_bytes": 32576,
+      "output_semantics": "class logit",
+      "batch_measurements": [
+        {
+          "requested_batch_size": 1,
+          "actual_batch_size": 1,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.003751100000954466,
+          "median_prediction_seconds": 8.119999984046444e-05,
+          "median_total_seconds": 0.0038323000007949304,
+          "throughput_rows_per_second": 260.93990548562766,
+          "latency_per_row_ms": 3.8323000007949304,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 16,
+          "actual_batch_size": 16,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.004123499998968327,
+          "median_prediction_seconds": 9.73999995039776e-05,
+          "median_total_seconds": 0.004220899998472305,
+          "throughput_rows_per_second": 3790.6607609256257,
+          "latency_per_row_ms": 0.26380624990451906,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 64,
+          "actual_batch_size": 64,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.003962499999033753,
+          "median_prediction_seconds": 0.00011409999933675863,
+          "median_total_seconds": 0.0040765999983705115,
+          "throughput_rows_per_second": 15699.35731383553,
+          "latency_per_row_ms": 0.06369687497453924,
+          "cold_start_included": false
+        }
+      ]
+    },
+    {
+      "model_id": "isolation-forest-v1.0.0",
+      "model_family": "anomaly",
+      "artifact_size_bytes": 1771801,
+      "output_semantics": "higher-is-more-anomalous score",
+      "batch_measurements": [
+        {
+          "requested_batch_size": 1,
+          "actual_batch_size": 1,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.003966299998864997,
+          "median_prediction_seconds": 0.00646960000085528,
+          "median_total_seconds": 0.010435899999720277,
+          "throughput_rows_per_second": 95.82307228191185,
+          "latency_per_row_ms": 10.435899999720277,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 16,
+          "actual_batch_size": 16,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.003941099999792641,
+          "median_prediction_seconds": 0.00667319999774918,
+          "median_total_seconds": 0.01061429999754182,
+          "throughput_rows_per_second": 1507.4003941574538,
+          "latency_per_row_ms": 0.6633937498463638,
+          "cold_start_included": false
+        },
+        {
+          "requested_batch_size": 64,
+          "actual_batch_size": 64,
+          "repeats": 5,
+          "median_preprocessing_seconds": 0.0035671000005095266,
+          "median_prediction_seconds": 0.0065744000021368265,
+          "median_total_seconds": 0.010141500002646353,
+          "throughput_rows_per_second": 6310.703543193773,
+          "latency_per_row_ms": 0.15846093754134927,
+          "cold_start_included": false
+        }
+      ]
+    }
+  ]
+}

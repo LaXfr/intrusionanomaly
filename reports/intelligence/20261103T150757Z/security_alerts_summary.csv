@@ -1,0 +1,4 @@
+alert_id,alert_type,status,severity,threat_score,mean_threat_score,related_event_count,related_flow_count,attack_categories,correlation_rules,first_observed_utc,last_observed_utc,supporting_event_ids,title
+alt_13a13189e4ec93c772b8bfb8,SINGLE_FLOW_SUSPICION,NEW,HIGH,65.4533053331784,65.4533053331784,1,1,DoS Hulk,,,,evt_c36d83cf1df2b451f6b2f7e3,DoS Hulk signal on flow 43d393d0cfa56acc90317631
+alt_3aa51fb0a0d6972905d60903,SINGLE_FLOW_SUSPICION,NEW,HIGH,55.01659185087752,55.01659185087752,1,1,,,,,evt_11df4970abe5046faf7c0e01,anomaly or detector disagreement signal on flow aeb7d12bb4b70f1b3095bf0d
+alt_bdacce78c6ab645c50c5312c,SINGLE_FLOW_SUSPICION,NEW,HIGH,51.4341896496486,51.4341896496486,1,1,,,,,evt_b7530cbe4c17495dbd5f5d0d,anomaly or detector disagreement signal on flow 4e3ff021c1a6dbbbb774dea8

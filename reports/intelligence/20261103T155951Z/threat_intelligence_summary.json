@@ -1,0 +1,560 @@
+{
+  "processed_at_utc": "2026-11-03T15:59:50+00:00",
+  "pipeline_version": "1.0.0",
+  "scoring_config_version": "1.0.0",
+  "severity_policy_version": "1.0.0",
+  "feature_schema_version": "1.0.0",
+  "model_artifact_references": {
+    "binary": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\supervised\\binary\\random_forest\\1.0.0",
+    "multiclass": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\supervised\\multiclass\\random_forest\\1.0.0",
+    "anomaly": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\unsupervised\\isolation_forest\\1.0.0"
+  },
+  "heuristic_score_is_probability": false,
+  "total_analyzed_flows": 3000,
+  "flows_with_usable_detection_evidence": 3000,
+  "flow_events_by_status": {
+    "NORMAL": 1593,
+    "ANOMALOUS": 110,
+    "SUSPICIOUS": 327,
+    "MALICIOUS_PREDICTION": 970
+  },
+  "flow_events_by_severity": {
+    "LOW": 761,
+    "MEDIUM": 1368,
+    "CRITICAL": 319,
+    "HIGH": 552
+  },
+  "generated_alert_count": 871,
+  "alerts_by_severity": {
+    "CRITICAL": 319,
+    "HIGH": 552
+  },
+  "alerts_by_predicted_attack_category": {
+    "DDoS": 480,
+    "PortScan": 366,
+    "Bot": 14,
+    "DoS Hulk": 1,
+    "DoS GoldenEye": 1
+  },
+  "alerts_by_correlation_rule": {},
+  "detector_availability": {
+    "binary": {
+      "available": 3000
+    },
+    "multiclass": {
+      "available": 3000
+    },
+    "anomaly": {
+      "available": 3000
+    }
+  },
+  "detector_disagreement_counts": {
+    "anomaly_flags_flow_supervised_engine_predicts_benign": 116,
+    "supervised_engine_predicts_attack_anomaly_is_normal": 1125,
+    "all_available_detection_families_indicate_suspicious_activity": 166,
+    "binary_predicts_benign_multiclass_predicts_attack": 976
+  },
+  "distinct_source_files": 3,
+  "unique_source_ip_count": 0,
+  "unique_destination_ip_count": 0,
+  "network_metadata_rows_present": {
+    "source_ip": 0,
+    "destination_ip": 0,
+    "source_port": 0,
+    "destination_port": 3000,
+    "protocol": 0
+  },
+  "correlated_group_count": 0,
+  "duplicate_alerts_suppressed": 0,
+  "deduplication_records": [],
+  "correlation_audit": {
+    "enabled_rules": [
+      "source_ip",
+      "destination_ip",
+      "destination_service",
+      "attack_category",
+      "repeated_flow_tuple",
+      "temporal_activity"
+    ],
+    "window_minutes": 5,
+    "minimum_events": 2,
+    "suspicious_events_considered": 1407,
+    "duplicate_suspicious_event_inputs_suppressed": 0,
+    "rule_definitions": {
+      "source_ip": {
+        "required_fields": [
+          "source_ip"
+        ],
+        "eligibility": "suspicious event with all required non-empty values and timezone-aware timestamp",
+        "key_definition": "exact string values of required fields; attack_category also requires both endpoint identities",
+        "window_minutes": 5,
+        "minimum_group_size": 2,
+        "missing_field_behavior": "skip event for this rule and count reason"
+      },
+      "destination_ip": {
+        "required_fields": [
+          "destination_ip"
+        ],
+        "eligibility": "suspicious event with all required non-empty values and timezone-aware timestamp",
+        "key_definition": "exact string values of required fields; attack_category also requires both endpoint identities",
+        "window_minutes": 5,
+        "minimum_group_size": 2,
+        "missing_field_behavior": "skip event for this rule and count reason"
+      },
+      "destination_service": {
+        "required_fields": [
+          "destination_ip",
+          "destination_port",
+          "protocol"
+        ],
+        "eligibility": "suspicious event with all required non-empty values and timezone-aware timestamp",
+        "key_definition": "exact string values of required fields; attack_category also requires both endpoint identities",
+        "window_minutes": 5,
+        "minimum_group_size": 2,
+        "missing_field_behavior": "skip event for this rule and count reason"
+      },
+      "attack_category": {
+        "required_fields": [
+          "source_ip",
+          "destination_ip",
+          "predicted_attack_category"
+        ],
+        "eligibility": "suspicious event with all required non-empty values and timezone-aware timestamp",
+        "key_definition": "exact string values of required fields; attack_category also requires both endpoint identities",
+        "window_minutes": 5,
+        "minimum_group_size": 2,
+        "missing_field_behavior": "skip event for this rule and count reason"
+      },
+      "repeated_flow_tuple": {
+        "required_fields": [
+          "source_ip",
+          "destination_ip",
+          "source_port",
+          "destination_port",
+          "protocol"
+        ],
+        "eligibility": "suspicious event with all required non-empty values and timezone-aware timestamp",
+        "key_definition": "exact string values of required fields; attack_category also requires both endpoint identities",
+        "window_minutes": 5,
+        "minimum_group_size": 2,
+        "missing_field_behavior": "skip event for this rule and count reason"
+      },
+      "temporal_activity": {
+        "required_fields": [
+          "source_ip",
+          "destination_ip"
+        ],
+        "eligibility": "suspicious event with all required non-empty values and timezone-aware timestamp",
+        "key_definition": "exact string values of required fields; attack_category also requires both endpoint identities",
+        "window_minutes": 5,
+        "minimum_group_size": 2,
+        "missing_field_behavior": "skip event for this rule and count reason"
+      }
+    },
+    "groups_by_rule": {
+      "source_ip": 0,
+      "destination_ip": 0,
+      "destination_service": 0,
+      "attack_category": 0,
+      "repeated_flow_tuple": 0,
+      "temporal_activity": 0
+    },
+    "eligible_events_by_rule": {
+      "source_ip": 0,
+      "destination_ip": 0,
+      "destination_service": 0,
+      "attack_category": 0,
+      "repeated_flow_tuple": 0,
+      "temporal_activity": 0
+    },
+    "events_in_groups_by_rule": {
+      "source_ip": 0,
+      "destination_ip": 0,
+      "destination_service": 0,
+      "attack_category": 0,
+      "repeated_flow_tuple": 0,
+      "temporal_activity": 0
+    },
+    "eligible_events_without_group_by_rule": {
+      "source_ip": 0,
+      "destination_ip": 0,
+      "destination_service": 0,
+      "attack_category": 0,
+      "repeated_flow_tuple": 0,
+      "temporal_activity": 0
+    },
+    "events_skipped_by_rule": {
+      "source_ip": {
+        "missing_timestamp": 1407,
+        "invalid_or_naive_timestamp": 0,
+        "missing_key_fields": 0
+      },
+      "destination_ip": {
+        "missing_timestamp": 1407,
+        "invalid_or_naive_timestamp": 0,
+        "missing_key_fields": 0
+      },
+      "destination_service": {
+        "missing_timestamp": 1407,
+        "invalid_or_naive_timestamp": 0,
+        "missing_key_fields": 0
+      },
+      "attack_category": {
+        "missing_timestamp": 1407,
+        "invalid_or_naive_timestamp": 0,
+        "missing_key_fields": 0
+      },
+      "repeated_flow_tuple": {
+        "missing_timestamp": 1407,
+        "invalid_or_naive_timestamp": 0,
+        "missing_key_fields": 0
+      },
+      "temporal_activity": {
+        "missing_timestamp": 1407,
+        "invalid_or_naive_timestamp": 0,
+        "missing_key_fields": 0
+      }
+    },
+    "temporal_correlation_supported": 0,
+    "temporal_correlation_skipped": 8442,
+    "correlated_event_references": 0,
+    "unmatched_suspicious_events": 1407
+  },
+  "weights": {
+    "binary": 0.3,
+    "multiclass": 0.25,
+    "anomaly": 0.45
+  },
+  "available_signals_are_renormalized_when_others_are_missing": true,
+  "note": "Threat scores are deterministic heuristic prioritization values, not probabilities of compromise or ground-truth labels.",
+  "ground_truth_evaluation": {
+    "status": "offline_held_out_label_evaluation",
+    "labels_are_isolated_from_inference_scoring_events_and_alerts": true,
+    "evaluated_rows": 3000,
+    "binary_detector": {
+      "support": {
+        "BENIGN": 1500,
+        "ATTACK": 1500
+      },
+      "accuracy": 0.6063333333333333,
+      "balanced_accuracy": 0.6063333333333333,
+      "precision_attack": 0.9968847352024922,
+      "recall_attack": 0.21333333333333335,
+      "f1_attack": 0.3514552443712246,
+      "false_positive_rate": 0.0006666666666666666,
+      "confusion_matrix_labels": [
+        "BENIGN",
+        "ATTACK"
+      ],
+      "confusion_matrix": [
+        [
+          1499,
+          1
+        ],
+        [
+          1180,
+          320
+        ]
+      ]
+    },
+    "alert_level_detection": {
+      "support": {
+        "BENIGN": 1500,
+        "ATTACK": 1500
+      },
+      "accuracy": 0.785,
+      "balanced_accuracy": 0.785,
+      "precision_attack": 0.9908151549942594,
+      "recall_attack": 0.5753333333333334,
+      "f1_attack": 0.7279628848587094,
+      "false_positive_rate": 0.005333333333333333,
+      "confusion_matrix_labels": [
+        "BENIGN",
+        "ATTACK"
+      ],
+      "confusion_matrix": [
+        [
+          1492,
+          8
+        ],
+        [
+          637,
+          863
+        ]
+      ]
+    },
+    "per_attack_category_multiclass": {
+      "Bot": {
+        "support": 500,
+        "predicted_support": 298,
+        "precision": 0.9865771812080537,
+        "recall": 0.588,
+        "false_positive_rate": 0.0016,
+        "confusion_matrix": [
+          [
+            2496,
+            4
+          ],
+          [
+            206,
+            294
+          ]
+        ]
+      },
+      "DDoS": {
+        "support": 500,
+        "predicted_support": 499,
+        "precision": 1.0,
+        "recall": 0.998,
+        "false_positive_rate": 0.0,
+        "confusion_matrix": [
+          [
+            2500,
+            0
+          ],
+          [
+            1,
+            499
+          ]
+        ]
+      },
+      "PortScan": {
+        "support": 500,
+        "predicted_support": 498,
+        "precision": 1.0,
+        "recall": 0.996,
+        "false_positive_rate": 0.0,
+        "confusion_matrix": [
+          [
+            2500,
+            0
+          ],
+          [
+            2,
+            498
+          ]
+        ]
+      }
+    },
+    "score_weight_sensitivity_at_fixed_50_cutoff": {
+      "configured_default": {
+        "weights": {
+          "binary": 0.3,
+          "multiclass": 0.25,
+          "anomaly": 0.45
+        },
+        "fixed_score_cutoff": 50.0,
+        "metrics": {
+          "support": {
+            "BENIGN": 1500,
+            "ATTACK": 1500
+          },
+          "accuracy": 0.785,
+          "balanced_accuracy": 0.785,
+          "precision_attack": 0.9908151549942594,
+          "recall_attack": 0.5753333333333334,
+          "f1_attack": 0.7279628848587094,
+          "false_positive_rate": 0.005333333333333333,
+          "confusion_matrix_labels": [
+            "BENIGN",
+            "ATTACK"
+          ],
+          "confusion_matrix": [
+            [
+              1492,
+              8
+            ],
+            [
+              637,
+              863
+            ]
+          ]
+        }
+      },
+      "equal_weights": {
+        "weights": {
+          "binary": 0.3333333333333333,
+          "multiclass": 0.3333333333333333,
+          "anomaly": 0.3333333333333333
+        },
+        "fixed_score_cutoff": 50.0,
+        "metrics": {
+          "support": {
+            "BENIGN": 1500,
+            "ATTACK": 1500
+          },
+          "accuracy": 0.852,
+          "balanced_accuracy": 0.852,
+          "precision_attack": 0.999054820415879,
+          "recall_attack": 0.7046666666666667,
+          "f1_attack": 0.8264268960125097,
+          "false_positive_rate": 0.0006666666666666666,
+          "confusion_matrix_labels": [
+            "BENIGN",
+            "ATTACK"
+          ],
+          "confusion_matrix": [
+            [
+              1499,
+              1
+            ],
+            [
+              443,
+              1057
+            ]
+          ]
+        }
+      },
+      "supervised_heavier": {
+        "weights": {
+          "binary": 0.4,
+          "multiclass": 0.35,
+          "anomaly": 0.25
+        },
+        "fixed_score_cutoff": 50.0,
+        "metrics": {
+          "support": {
+            "BENIGN": 1500,
+            "ATTACK": 1500
+          },
+          "accuracy": 0.7693333333333333,
+          "balanced_accuracy": 0.7693333333333333,
+          "precision_attack": 0.9987654320987654,
+          "recall_attack": 0.5393333333333333,
+          "f1_attack": 0.7004329004329004,
+          "false_positive_rate": 0.0006666666666666666,
+          "confusion_matrix_labels": [
+            "BENIGN",
+            "ATTACK"
+          ],
+          "confusion_matrix": [
+            [
+              1499,
+              1
+            ],
+            [
+              691,
+              809
+            ]
+          ]
+        }
+      }
+    },
+    "severity_cutoffs_empirical_status": "not calibrated; this bounded sample reports distribution and sensitivity only",
+    "severity_distribution": {
+      "LOW": 0,
+      "MEDIUM": 0,
+      "HIGH": 552,
+      "CRITICAL": 319
+    },
+    "unscored_event_rate": 0.0,
+    "correlation_coverage_rate": 0.0,
+    "interpretation": "Bounded 1,000-row-per-Friday-source-file sample; research evaluation only, not deployment validation or confirmed incidents."
+  },
+  "experiment_run_id": "20261103T155951Z",
+  "input_dataset": "CIC-IDS2017 Phase 04 v2 cleaned Parquet",
+  "input_sample": {
+    "partition": "Friday capture-day test files",
+    "selection": "deterministic evenly spaced sample of up to 500 rows per original label per Friday source file; labels are used only for offline evaluation sample construction and are excluded from inference inputs",
+    "rows_by_source_file": {
+      "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet": 1000,
+      "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet": 1000,
+      "Friday-WorkingHours-Morning.pcap_ISCX.parquet": 1000
+    },
+    "label_selection_audit": {
+      "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet": {
+        "source_label_counts": {
+          "BENIGN": 97718,
+          "DDoS": 128027
+        },
+        "selected_rows": 1000
+      },
+      "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet": {
+        "source_label_counts": {
+          "BENIGN": 127537,
+          "PortScan": 158930
+        },
+        "selected_rows": 1000
+      },
+      "Friday-WorkingHours-Morning.pcap_ISCX.parquet": {
+        "source_label_counts": {
+          "BENIGN": 189067,
+          "Bot": 1966
+        },
+        "selected_rows": 1000
+      }
+    },
+    "total_rows": 3000,
+    "row_order_is_not_used_as_event_time": true,
+    "friday_ground_truth_labels_loaded_for_offline_evaluation_only": true,
+    "ground_truth_labels_passed_to_detectors_scoring_events_or_alert_rules": false
+  },
+  "detector_execution": {
+    "binary": {
+      "status": "loaded_once_and_batch_scored",
+      "model_id": "binary-random_forest-v1.0.0",
+      "experiment_run_id": "20261103T150438Z"
+    },
+    "multiclass": {
+      "status": "loaded_once_and_batch_scored",
+      "model_id": "multiclass-random_forest-v1.0.0",
+      "experiment_run_id": "20261103T134128Z"
+    },
+    "anomaly": {
+      "status": "loaded_once_and_batch_scored",
+      "model_id": "isolation-forest-v1.0.0",
+      "experiment_run_id": "20261103T141439Z",
+      "operating_point": "target-fpr-1pct"
+    }
+  },
+  "artifact_compatibility": "passed: both detectors match the Phase 05 feature schema and exact feature ordering",
+  "anomaly_percentile_reference": {
+    "source": "BENIGN Thursday validation observations scored with the frozen Phase 08 model and preprocessor",
+    "target_handling": "Thursday target labels were used only to select BENIGN reference rows for the ECDF; they are not detector predictions or alert labels",
+    "rows": 456752,
+    "thresholds_recalibrated": false,
+    "model_retrained": false,
+    "scoring_seconds": 3.9685987999998815
+  },
+  "actual_sample_inference_seconds": 85.48013040000001,
+  "batch_size": 500,
+  "configuration_fingerprint_sha256": "b21df1fe6840be96c4ce7ec24597439ff0061c2b34a2b793f2bac638330561d0",
+  "correlation_metadata_limitations": {
+    "available_export_metadata_columns": [
+      "__source_file",
+      "__source_row_number",
+      "__record_id"
+    ],
+    "ground_truth_columns_present_in_source_export": [
+      "label",
+      "__source_label"
+    ],
+    "ground_truth_columns_loaded_for_detection": [],
+    "available_correlation_fields": [
+      "destination_port"
+    ],
+    "missing_fields_in_phase04_export": [
+      "timestamp",
+      "source_ip",
+      "destination_ip",
+      "source_port",
+      "protocol",
+      "Flow ID"
+    ],
+    "temporal_correlation_used": false,
+    "correlation_is_not_inferred_from_source_row_order": true
+  },
+  "outputs": {
+    "flow_events_jsonl": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T155951Z\\flow_detection_events.jsonl",
+    "correlated_groups_json": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T155951Z\\correlated_event_groups.json",
+    "alerts_json": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T155951Z\\security_alerts.json",
+    "summary_json": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T155951Z\\threat_intelligence_summary.json",
+    "summary_markdown": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T155951Z\\threat_intelligence_report.md",
+    "flow_events_csv": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T155951Z\\flow_detection_events.csv",
+    "alerts_csv": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T155951Z\\security_alerts_summary.csv",
+    "score_distribution_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\intelligence\\20261103T155951Z\\threat_score_distribution.png",
+    "severity_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\intelligence\\20261103T155951Z\\alert_severity_distribution.png",
+    "agreement_figure": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\intelligence\\20261103T155951Z\\detector_agreement.png",
+    "configuration": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\intelligence\\20261103T155951Z\\configuration.json"
+  }
+}

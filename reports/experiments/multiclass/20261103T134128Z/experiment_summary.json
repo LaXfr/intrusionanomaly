@@ -1,0 +1,1100 @@
+{
+  "run_id": "20261103T134128Z",
+  "dataset": "CIC-IDS2017",
+  "dataset_validation": {
+    "file_count": 8,
+    "rows": 2830743,
+    "class_count": 15,
+    "class_labels": [
+      "BENIGN",
+      "Bot",
+      "DDoS",
+      "DoS GoldenEye",
+      "DoS Hulk",
+      "DoS Slowhttptest",
+      "DoS slowloris",
+      "FTP-Patator",
+      "Heartbleed",
+      "Infiltration",
+      "PortScan",
+      "SSH-Patator",
+      "Web Attack � Brute Force",
+      "Web Attack � Sql Injection",
+      "Web Attack � XSS"
+    ],
+    "benign_present": true,
+    "rows_per_source_file": {
+      "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet": 225745,
+      "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet": 286467,
+      "Friday-WorkingHours-Morning.pcap_ISCX.parquet": 191033,
+      "Monday-WorkingHours.pcap_ISCX.parquet": 529918,
+      "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.parquet": 288602,
+      "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.parquet": 170366,
+      "Tuesday-WorkingHours.pcap_ISCX.parquet": 445909,
+      "Wednesday-workingHours.pcap_ISCX.parquet": 692703
+    },
+    "class_distribution": [
+      {
+        "class_id": 0,
+        "label": "BENIGN",
+        "count": 2273097,
+        "percent": 80.30036637024273,
+        "source_group_count": 8
+      },
+      {
+        "class_id": 1,
+        "label": "Bot",
+        "count": 1966,
+        "percent": 0.0694517305173942,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 2,
+        "label": "DDoS",
+        "count": 128027,
+        "percent": 4.522734843820156,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 3,
+        "label": "DoS GoldenEye",
+        "count": 10293,
+        "percent": 0.3636147824087174,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 4,
+        "label": "DoS Hulk",
+        "count": 231073,
+        "percent": 8.162980531966342,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 5,
+        "label": "DoS Slowhttptest",
+        "count": 5499,
+        "percent": 0.19425995224575313,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 6,
+        "label": "DoS slowloris",
+        "count": 5796,
+        "percent": 0.20475189729339613,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 7,
+        "label": "FTP-Patator",
+        "count": 7938,
+        "percent": 0.28042107672791206,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 8,
+        "label": "Heartbleed",
+        "count": 11,
+        "percent": 0.00038859055732010995,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 9,
+        "label": "Infiltration",
+        "count": 36,
+        "percent": 0.0012717509148658145,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 10,
+        "label": "PortScan",
+        "count": 158930,
+        "percent": 5.614427024989553,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 11,
+        "label": "SSH-Patator",
+        "count": 5897,
+        "percent": 0.20831986513788078,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 12,
+        "label": "Web Attack � Brute Force",
+        "count": 1507,
+        "percent": 0.053236906352855065,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 13,
+        "label": "Web Attack � Sql Injection",
+        "count": 21,
+        "percent": 0.0007418547003383918,
+        "source_group_count": 1
+      },
+      {
+        "class_id": 14,
+        "label": "Web Attack � XSS",
+        "count": 652,
+        "percent": 0.023032822124791973,
+        "source_group_count": 1
+      }
+    ],
+    "class_distribution_summary": {
+      "supported_classes": 15,
+      "total_observations": 2830743,
+      "majority_class": "BENIGN",
+      "majority_count": 2273097,
+      "minority_class": "Heartbleed",
+      "minority_count": 11,
+      "majority_to_minority_ratio": 206645.18181818182,
+      "classes_below_100_rows": [
+        "Heartbleed",
+        "Web Attack � Sql Injection",
+        "Infiltration"
+      ],
+      "classes_below_1000_rows": [
+        "Heartbleed",
+        "Web Attack � Sql Injection",
+        "Infiltration",
+        "Web Attack � XSS"
+      ],
+      "imbalance_interpretation": "Accuracy and weighted F1 are dominated by frequent classes; macro F1 and balanced accuracy give minority classes more influence. Per-class recall and support must be reviewed together."
+    }
+  },
+  "split_audit": {
+    "requested_strategy": "group_aware",
+    "used_strategy": "stratified_row_fallback",
+    "group_disjoint": false,
+    "fallback_reason": "Group-disjoint train/validation/test coverage is impossible for every class: these labels occur in fewer than three groups: {'DDoS': 1, 'PortScan': 1, 'Bot': 1, 'Infiltration': 1, 'Web Attack � Brute Force': 1, 'Web Attack � XSS': 1, 'Web Attack � Sql Injection': 1, 'FTP-Patator': 1, 'SSH-Patator': 1, 'DoS slowloris': 1, 'DoS Slowhttptest': 1, 'DoS Hulk': 1, 'DoS GoldenEye': 1, 'Heartbleed': 1}.",
+    "requested_fractions": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "observed_fractions": {
+      "train": 0.6999999646735857,
+      "validation": 0.14999984103113564,
+      "test": 0.15000019429527867
+    },
+    "row_counts": {
+      "train": 1981520,
+      "validation": 424611,
+      "test": 424612
+    },
+    "class_counts": {
+      "train": {
+        "BENIGN": 1591168,
+        "Bot": 1376,
+        "DDoS": 89619,
+        "DoS GoldenEye": 7205,
+        "DoS Hulk": 161751,
+        "DoS Slowhttptest": 3849,
+        "DoS slowloris": 4057,
+        "FTP-Patator": 5557,
+        "Heartbleed": 8,
+        "Infiltration": 25,
+        "PortScan": 111251,
+        "SSH-Patator": 4128,
+        "Web Attack � Brute Force": 1055,
+        "Web Attack � Sql Injection": 15,
+        "Web Attack � XSS": 456
+      },
+      "validation": {
+        "BENIGN": 340964,
+        "Bot": 295,
+        "DDoS": 19204,
+        "DoS GoldenEye": 1544,
+        "DoS Hulk": 34661,
+        "DoS Slowhttptest": 825,
+        "DoS slowloris": 870,
+        "FTP-Patator": 1190,
+        "Heartbleed": 2,
+        "Infiltration": 6,
+        "PortScan": 23839,
+        "SSH-Patator": 884,
+        "Web Attack � Brute Force": 226,
+        "Web Attack � Sql Injection": 3,
+        "Web Attack � XSS": 98
+      },
+      "test": {
+        "BENIGN": 340965,
+        "Bot": 295,
+        "DDoS": 19204,
+        "DoS GoldenEye": 1544,
+        "DoS Hulk": 34661,
+        "DoS Slowhttptest": 825,
+        "DoS slowloris": 869,
+        "FTP-Patator": 1191,
+        "Heartbleed": 1,
+        "Infiltration": 5,
+        "PortScan": 23840,
+        "SSH-Patator": 885,
+        "Web Attack � Brute Force": 226,
+        "Web Attack � Sql Injection": 3,
+        "Web Attack � XSS": 98
+      }
+    },
+    "class_group_counts": {
+      "BENIGN": 8,
+      "DDoS": 1,
+      "PortScan": 1,
+      "Bot": 1,
+      "Infiltration": 1,
+      "Web Attack � Brute Force": 1,
+      "Web Attack � XSS": 1,
+      "Web Attack � Sql Injection": 1,
+      "FTP-Patator": 1,
+      "SSH-Patator": 1,
+      "DoS slowloris": 1,
+      "DoS Slowhttptest": 1,
+      "DoS Hulk": 1,
+      "DoS GoldenEye": 1,
+      "Heartbleed": 1
+    },
+    "groups_per_partition": {
+      "train": 8,
+      "validation": 8,
+      "test": 8
+    },
+    "all_source_groups": [
+      "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet",
+      "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet",
+      "Friday-WorkingHours-Morning.pcap_ISCX.parquet",
+      "Monday-WorkingHours.pcap_ISCX.parquet",
+      "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.parquet",
+      "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.parquet",
+      "Tuesday-WorkingHours.pcap_ISCX.parquet",
+      "Wednesday-workingHours.pcap_ISCX.parquet"
+    ],
+    "group_overlaps": {
+      "train_validation": [
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet",
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet",
+        "Friday-WorkingHours-Morning.pcap_ISCX.parquet",
+        "Monday-WorkingHours.pcap_ISCX.parquet",
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.parquet",
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.parquet",
+        "Tuesday-WorkingHours.pcap_ISCX.parquet",
+        "Wednesday-workingHours.pcap_ISCX.parquet"
+      ],
+      "train_test": [
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet",
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet",
+        "Friday-WorkingHours-Morning.pcap_ISCX.parquet",
+        "Monday-WorkingHours.pcap_ISCX.parquet",
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.parquet",
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.parquet",
+        "Tuesday-WorkingHours.pcap_ISCX.parquet",
+        "Wednesday-workingHours.pcap_ISCX.parquet"
+      ],
+      "validation_test": [
+        "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet",
+        "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet",
+        "Friday-WorkingHours-Morning.pcap_ISCX.parquet",
+        "Monday-WorkingHours.pcap_ISCX.parquet",
+        "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.parquet",
+        "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.parquet",
+        "Tuesday-WorkingHours.pcap_ISCX.parquet",
+        "Wednesday-workingHours.pcap_ISCX.parquet"
+      ]
+    },
+    "unseen_classes": {
+      "train": [],
+      "validation": [],
+      "test": []
+    }
+  },
+  "evaluation_status": "exploratory_stratified_row_baseline_with_source_group_overlap",
+  "models": [
+    {
+      "model": "xgboost",
+      "status": "unavailable",
+      "reason": "XGBoost is not installed in the current environment.",
+      "validation_metrics": null,
+      "held_out_test_metrics": null
+    },
+    {
+      "model": "logistic_regression",
+      "status": "trained",
+      "training_configuration": {
+        "C": 1.0,
+        "solver": "lbfgs",
+        "max_iter": 160,
+        "class_weight": "balanced",
+        "random_state": 42,
+        "class_weight_values_by_class_id": {
+          "0": 0.08302161263507897,
+          "1": 96.00387596899225,
+          "2": 1.4740326642043913,
+          "3": 18.33467499421698,
+          "4": 0.816695620635009,
+          "5": 34.320949164285096,
+          "6": 32.561334319283546,
+          "7": 23.772059264591206,
+          "8": 16512.666666666668,
+          "9": 5284.053333333333,
+          "10": 1.1874170419441923,
+          "11": 32.00129198966408,
+          "12": 125.21453396524487,
+          "13": 8806.755555555555,
+          "14": 289.69590643274853
+        },
+        "multiclass_strategy": "multinomial default for lbfgs under installed Scikit-learn; multi_class parameter omitted"
+      },
+      "training_rows": 80000,
+      "validation_metrics": {
+        "partition": "validation",
+        "observations_total": 424611,
+        "observations_scored": 424611,
+        "observations_in_unseen_training_classes": 0,
+        "unseen_training_classes": [],
+        "metric_scope": "Only observations whose true class was present in training are included.",
+        "accuracy": 0.8468386358337396,
+        "balanced_accuracy": 0.873223759138402,
+        "macro_precision": 0.363006633534562,
+        "macro_recall": 0.873223759138402,
+        "macro_f1": 0.42869585738526367,
+        "weighted_precision": 0.9639663924272048,
+        "weighted_recall": 0.8468386358337396,
+        "weighted_f1": 0.8948772853418929,
+        "multiclass_roc_auc_ovr_macro": 0.9903291254584833,
+        "multiclass_average_precision_macro": 0.48532533925858407
+      },
+      "held_out_test_metrics": null,
+      "preprocessing_fit_seconds": 0.925648700009333,
+      "classifier_fit_seconds": 9.052052800005185,
+      "validation_prediction_seconds": 5.997669900010806,
+      "held_out_test_prediction_seconds": null,
+      "warnings": [
+        "ConvergenceWarning: lbfgs failed to converge after 160 iteration(s) (status=1):\nSTOP: TOTAL NO. OF ITERATIONS REACHED LIMIT\n\nIncrease the number of iterations to improve the convergence (max_iter=160).\nYou might also want to scale the data as shown in:\n    https://scikit-learn.org/stable/modules/preprocessing.html\nPlease also refer to the documentation for alternative solver options:\n    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression",
+        "ConvergenceWarning: Logistic Regression reached max_iter=160; inspect coefficients and increase iterations before relying on this fit."
+      ],
+      "artifact_path": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\supervised\\multiclass\\logistic_regression\\1.0.0"
+    },
+    {
+      "model": "random_forest",
+      "status": "trained",
+      "training_configuration": {
+        "n_estimators": 40,
+        "max_depth": 18,
+        "min_samples_split": 2,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt",
+        "class_weight": "balanced",
+        "random_state": 42,
+        "n_jobs": 4,
+        "class_weight_values_by_class_id": {
+          "0": 0.08302161263507897,
+          "1": 96.00387596899225,
+          "2": 1.4740326642043913,
+          "3": 18.33467499421698,
+          "4": 0.816695620635009,
+          "5": 34.320949164285096,
+          "6": 32.561334319283546,
+          "7": 23.772059264591206,
+          "8": 16512.666666666668,
+          "9": 5284.053333333333,
+          "10": 1.1874170419441923,
+          "11": 32.00129198966408,
+          "12": 125.21453396524487,
+          "13": 8806.755555555555,
+          "14": 289.69590643274853
+        }
+      },
+      "training_rows": 80000,
+      "validation_metrics": {
+        "partition": "validation",
+        "observations_total": 424611,
+        "observations_scored": 424611,
+        "observations_in_unseen_training_classes": 0,
+        "unseen_training_classes": [],
+        "metric_scope": "Only observations whose true class was present in training are included.",
+        "accuracy": 0.9973905527647658,
+        "balanced_accuracy": 0.8251382853400699,
+        "macro_precision": 0.8468932995982261,
+        "macro_recall": 0.8251382853400699,
+        "macro_f1": 0.8349173334568055,
+        "weighted_precision": 0.9973898240909641,
+        "weighted_recall": 0.9973905527647658,
+        "weighted_f1": 0.9973850727025738,
+        "multiclass_roc_auc_ovr_macro": 0.995930012043009,
+        "multiclass_average_precision_macro": 0.8422647693566387
+      },
+      "held_out_test_metrics": {
+        "partition": "held_out_test",
+        "observations_total": 424612,
+        "observations_scored": 424612,
+        "observations_in_unseen_training_classes": 0,
+        "unseen_training_classes": [],
+        "metric_scope": "Only observations whose true class was present in training are included.",
+        "accuracy": 0.9974423709174494,
+        "balanced_accuracy": 0.8803814457024568,
+        "macro_precision": 0.8636354629450366,
+        "macro_recall": 0.8803814457024568,
+        "macro_f1": 0.8548519193081942,
+        "weighted_precision": 0.9974056922140536,
+        "weighted_recall": 0.9974423709174494,
+        "weighted_f1": 0.9974144522217844,
+        "multiclass_roc_auc_ovr_macro": 0.9968734611355324,
+        "multiclass_average_precision_macro": 0.8804114705932258
+      },
+      "preprocessing_fit_seconds": 0.6499907999968855,
+      "classifier_fit_seconds": 1.8079710999882082,
+      "validation_prediction_seconds": 10.078593800004455,
+      "held_out_test_prediction_seconds": 10.371706299993093,
+      "warnings": [],
+      "artifact_path": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\supervised\\multiclass\\random_forest\\1.0.0"
+    }
+  ],
+  "selected_by_validation_macro_f1": "random_forest",
+  "selected_held_out_test_metrics": {
+    "partition": "held_out_test",
+    "observations_total": 424612,
+    "observations_scored": 424612,
+    "observations_in_unseen_training_classes": 0,
+    "unseen_training_classes": [],
+    "metric_scope": "Only observations whose true class was present in training are included.",
+    "accuracy": 0.9974423709174494,
+    "balanced_accuracy": 0.8803814457024568,
+    "macro_precision": 0.8636354629450366,
+    "macro_recall": 0.8803814457024568,
+    "macro_f1": 0.8548519193081942,
+    "weighted_precision": 0.9974056922140536,
+    "weighted_recall": 0.9974423709174494,
+    "weighted_f1": 0.9974144522217844,
+    "multiclass_roc_auc_ovr_macro": 0.9968734611355324,
+    "multiclass_average_precision_macro": 0.8804114705932258
+  },
+  "test_partition_id": "20261103T134128Z-test",
+  "artifacts": {
+    "logistic_regression": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\supervised\\multiclass\\logistic_regression\\1.0.0",
+    "random_forest": "C:\\DataScience\\python(projects)\\intrusionanomaly\\models\\supervised\\multiclass\\random_forest\\1.0.0"
+  },
+  "reports": {
+    "evaluation_directory": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\evaluation\\multiclass\\20261103T134128Z",
+    "figure_directory": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\figures\\multiclass\\20261103T134128Z",
+    "experiment_directory": "C:\\DataScience\\python(projects)\\intrusionanomaly\\reports\\experiments\\multiclass\\20261103T134128Z"
+  },
+  "feature_importance": {
+    "logistic_regression": [
+      {
+        "rank": 1,
+        "feature": "numeric__bwd_packets_s",
+        "importance": 4.844057727935648,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 2,
+        "feature": "numeric__destination_port",
+        "importance": 4.76628618458621,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 3,
+        "feature": "numeric__bwd_iat_total",
+        "importance": 3.9201919897731656,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 4,
+        "feature": "numeric__fwd_iat_std",
+        "importance": 3.156095264158378,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 5,
+        "feature": "numeric__urg_flag_count",
+        "importance": 3.032442072258773,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 6,
+        "feature": "numeric__min_seg_size_forward",
+        "importance": 2.9308533312259355,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 7,
+        "feature": "numeric__fwd_packet_length_max",
+        "importance": 2.770065091442028,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 8,
+        "feature": "numeric__psh_flag_count",
+        "importance": 2.610293665120211,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 9,
+        "feature": "numeric__bwd_iat_std",
+        "importance": 2.606842421866331,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 10,
+        "feature": "numeric__fwd_packet_length_std",
+        "importance": 2.4984179446984074,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 11,
+        "feature": "numeric__ack_flag_count",
+        "importance": 2.400865194747779,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 12,
+        "feature": "numeric__fwd_iat_total",
+        "importance": 2.3908144216588636,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 13,
+        "feature": "numeric__average_packet_size",
+        "importance": 2.3697510122070207,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 14,
+        "feature": "numeric__flow_duration",
+        "importance": 2.296222478206904,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 15,
+        "feature": "numeric__flow_iat_mean",
+        "importance": 2.273961049499228,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 16,
+        "feature": "numeric__fwd_iat_min",
+        "importance": 2.2539973859305795,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 17,
+        "feature": "numeric__bwd_packet_length_std",
+        "importance": 2.22761504758049,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 18,
+        "feature": "numeric__bwd_packet_length_max",
+        "importance": 2.2188257474885122,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 19,
+        "feature": "numeric__flow_iat_std",
+        "importance": 2.0874310725359164,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 20,
+        "feature": "numeric__bwd_packet_length_min",
+        "importance": 1.9735049380080352,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 21,
+        "feature": "numeric__bwd_iat_max",
+        "importance": 1.9504478409468855,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 22,
+        "feature": "numeric__packet_length_mean",
+        "importance": 1.934305375650031,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 23,
+        "feature": "numeric__min_packet_length",
+        "importance": 1.904030970887982,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 24,
+        "feature": "numeric__init_win_bytes_backward",
+        "importance": 1.8662218675465465,
+        "measure": "mean_absolute_coefficient_across_classes"
+      },
+      {
+        "rank": 25,
+        "feature": "numeric__init_win_bytes_forward",
+        "importance": 1.8177840088618067,
+        "measure": "mean_absolute_coefficient_across_classes"
+      }
+    ],
+    "random_forest": [
+      {
+        "rank": 1,
+        "feature": "numeric__max_packet_length",
+        "importance": 0.0827397903045188,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 2,
+        "feature": "numeric__total_length_of_bwd_packets",
+        "importance": 0.08226379485359948,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 3,
+        "feature": "numeric__destination_port",
+        "importance": 0.07784582762289062,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 4,
+        "feature": "numeric__bwd_packet_length_max",
+        "importance": 0.0499353994064414,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 5,
+        "feature": "numeric__avg_bwd_segment_size",
+        "importance": 0.04002916233868085,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 6,
+        "feature": "numeric__min_seg_size_forward",
+        "importance": 0.038062354589386324,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 7,
+        "feature": "numeric__subflow_bwd_bytes",
+        "importance": 0.03347093949950179,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 8,
+        "feature": "numeric__min_packet_length",
+        "importance": 0.028665999584362067,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 9,
+        "feature": "numeric__subflow_bwd_packets",
+        "importance": 0.027260885591570205,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 10,
+        "feature": "numeric__bwd_packet_length_mean",
+        "importance": 0.026939108608947947,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 11,
+        "feature": "numeric__packet_length_variance",
+        "importance": 0.025241300544173128,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 12,
+        "feature": "numeric__fwd_packet_length_mean",
+        "importance": 0.025081904353586596,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 13,
+        "feature": "numeric__fwd_iat_max",
+        "importance": 0.023138008642528997,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 14,
+        "feature": "numeric__packet_length_mean",
+        "importance": 0.02260789996715136,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 15,
+        "feature": "numeric__init_win_bytes_backward",
+        "importance": 0.020184046742650664,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 16,
+        "feature": "numeric__flow_duration",
+        "importance": 0.01929406894419822,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 17,
+        "feature": "numeric__total_backward_packets",
+        "importance": 0.018772620426873655,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 18,
+        "feature": "numeric__bwd_header_length",
+        "importance": 0.018284830913749543,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 19,
+        "feature": "numeric__bwd_packet_length_std",
+        "importance": 0.01678647329888078,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 20,
+        "feature": "numeric__flow_bytes_s",
+        "importance": 0.01665964399300395,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 21,
+        "feature": "numeric__fwd_iat_total",
+        "importance": 0.016464494098316837,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 22,
+        "feature": "numeric__subflow_fwd_packets",
+        "importance": 0.016202703813022638,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 23,
+        "feature": "numeric__bwd_iat_total",
+        "importance": 0.015685225941151876,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 24,
+        "feature": "numeric__fwd_packet_length_max",
+        "importance": 0.014642735953654479,
+        "measure": "mean_decrease_in_impurity"
+      },
+      {
+        "rank": 25,
+        "feature": "numeric__average_packet_size",
+        "importance": 0.014608971976717788,
+        "measure": "mean_decrease_in_impurity"
+      }
+    ]
+  },
+  "selected_test_error_feature_summaries": [
+    {
+      "true_label": "BENIGN",
+      "predicted_label": "DoS Hulk",
+      "count": 230,
+      "percent_of_true_class": 0.0006745560394761926,
+      "sample_method": "deterministic-seed reservoir sample of held-out rows; descriptive only",
+      "misclassified_rows_summarized": 100,
+      "true_class_reference_rows_summarized": 1000,
+      "largest_median_feature_differences": [
+        {
+          "feature": "flow_duration",
+          "misclassified_sample_median": 232.5,
+          "true_class_reference_median": 30578.5
+        },
+        {
+          "feature": "flow_iat_max",
+          "misclassified_sample_median": 232.5,
+          "true_class_reference_median": 29597.5
+        },
+        {
+          "feature": "flow_iat_mean",
+          "misclassified_sample_median": 230.5,
+          "true_class_reference_median": 10091.0
+        },
+        {
+          "feature": "fwd_packets_s",
+          "misclassified_sample_median": 8639.3491565862,
+          "true_class_reference_median": 71.59344815
+        },
+        {
+          "feature": "flow_packets_s",
+          "misclassified_sample_median": 8639.3491565862,
+          "true_class_reference_median": 129.7900646
+        },
+        {
+          "feature": "flow_bytes_s",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 5347.043702
+        },
+        {
+          "feature": "packet_length_variance",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 691.2
+        },
+        {
+          "feature": "fwd_iat_min",
+          "misclassified_sample_median": 230.5,
+          "true_class_reference_median": 3.0
+        },
+        {
+          "feature": "flow_iat_min",
+          "misclassified_sample_median": 230.5,
+          "true_class_reference_median": 4.0
+        },
+        {
+          "feature": "fwd_iat_mean",
+          "misclassified_sample_median": 230.5,
+          "true_class_reference_median": 17.0
+        }
+      ]
+    },
+    {
+      "true_label": "BENIGN",
+      "predicted_label": "PortScan",
+      "count": 145,
+      "percent_of_true_class": 0.0004252635901045562,
+      "sample_method": "deterministic-seed reservoir sample of held-out rows; descriptive only",
+      "misclassified_rows_summarized": 100,
+      "true_class_reference_rows_summarized": 1000,
+      "largest_median_feature_differences": [
+        {
+          "feature": "flow_bytes_s",
+          "misclassified_sample_median": 155354.44945000001,
+          "true_class_reference_median": 5347.043702
+        },
+        {
+          "feature": "flow_packets_s",
+          "misclassified_sample_median": 38838.612365,
+          "true_class_reference_median": 129.7900646
+        },
+        {
+          "feature": "flow_duration",
+          "misclassified_sample_median": 51.5,
+          "true_class_reference_median": 30578.5
+        },
+        {
+          "feature": "flow_iat_max",
+          "misclassified_sample_median": 51.5,
+          "true_class_reference_median": 29597.5
+        },
+        {
+          "feature": "bwd_packets_s",
+          "misclassified_sample_median": 19419.306185,
+          "true_class_reference_median": 23.598100109999997
+        },
+        {
+          "feature": "fwd_packets_s",
+          "misclassified_sample_median": 19419.306185,
+          "true_class_reference_median": 71.59344815
+        },
+        {
+          "feature": "flow_iat_mean",
+          "misclassified_sample_median": 51.5,
+          "true_class_reference_median": 10091.0
+        },
+        {
+          "feature": "destination_port",
+          "misclassified_sample_median": 3287.0,
+          "true_class_reference_median": 80.0
+        },
+        {
+          "feature": "init_win_bytes_forward",
+          "misclassified_sample_median": 1024.0,
+          "true_class_reference_median": 134.0
+        },
+        {
+          "feature": "packet_length_variance",
+          "misclassified_sample_median": 5.333333333,
+          "true_class_reference_median": 691.2
+        }
+      ]
+    },
+    {
+      "true_label": "BENIGN",
+      "predicted_label": "Bot",
+      "count": 133,
+      "percent_of_true_class": 0.0003900693619579722,
+      "sample_method": "deterministic-seed reservoir sample of held-out rows; descriptive only",
+      "misclassified_rows_summarized": 100,
+      "true_class_reference_rows_summarized": 1000,
+      "largest_median_feature_differences": [
+        {
+          "feature": "fwd_iat_total",
+          "misclassified_sample_median": 996536.5,
+          "true_class_reference_median": 33.0
+        },
+        {
+          "feature": "bwd_iat_total",
+          "misclassified_sample_median": 996378.5,
+          "true_class_reference_median": 3.0
+        },
+        {
+          "feature": "flow_duration",
+          "misclassified_sample_median": 996993.0,
+          "true_class_reference_median": 30578.5
+        },
+        {
+          "feature": "fwd_iat_max",
+          "misclassified_sample_median": 499186.0,
+          "true_class_reference_median": 24.0
+        },
+        {
+          "feature": "bwd_iat_max",
+          "misclassified_sample_median": 499062.5,
+          "true_class_reference_median": 3.0
+        },
+        {
+          "feature": "fwd_iat_mean",
+          "misclassified_sample_median": 498268.25,
+          "true_class_reference_median": 17.0
+        },
+        {
+          "feature": "bwd_iat_mean",
+          "misclassified_sample_median": 498189.25,
+          "true_class_reference_median": 3.0
+        },
+        {
+          "feature": "fwd_iat_min",
+          "misclassified_sample_median": 497315.5,
+          "true_class_reference_median": 3.0
+        },
+        {
+          "feature": "bwd_iat_min",
+          "misclassified_sample_median": 497280.0,
+          "true_class_reference_median": 2.0
+        },
+        {
+          "feature": "flow_iat_max",
+          "misclassified_sample_median": 498521.0,
+          "true_class_reference_median": 29597.5
+        }
+      ]
+    },
+    {
+      "true_label": "Bot",
+      "predicted_label": "BENIGN",
+      "count": 133,
+      "percent_of_true_class": 0.45084745762711864,
+      "sample_method": "deterministic-seed reservoir sample of held-out rows; descriptive only",
+      "misclassified_rows_summarized": 100,
+      "true_class_reference_rows_summarized": 295,
+      "largest_median_feature_differences": [
+        {
+          "feature": "flow_bytes_s",
+          "misclassified_sample_median": 275898.52005,
+          "true_class_reference_median": 4835.370523
+        },
+        {
+          "feature": "fwd_iat_total",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 71258.0
+        },
+        {
+          "feature": "flow_duration",
+          "misclassified_sample_median": 46.0,
+          "true_class_reference_median": 71258.0
+        },
+        {
+          "feature": "fwd_iat_max",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 70639.0
+        },
+        {
+          "feature": "bwd_iat_total",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 69764.0
+        },
+        {
+          "feature": "bwd_iat_max",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 69144.0
+        },
+        {
+          "feature": "flow_iat_max",
+          "misclassified_sample_median": 46.0,
+          "true_class_reference_median": 69144.0
+        },
+        {
+          "feature": "destination_port",
+          "misclassified_sample_median": 51600.5,
+          "true_class_reference_median": 8080.0
+        },
+        {
+          "feature": "flow_packets_s",
+          "misclassified_sample_median": 43478.26087,
+          "true_class_reference_median": 98.64434486
+        },
+        {
+          "feature": "bwd_iat_mean",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 34654.5
+        }
+      ]
+    },
+    {
+      "true_label": "DoS Hulk",
+      "predicted_label": "BENIGN",
+      "count": 68,
+      "percent_of_true_class": 0.001961859150053374,
+      "sample_method": "deterministic-seed reservoir sample of held-out rows; descriptive only",
+      "misclassified_rows_summarized": 68,
+      "true_class_reference_rows_summarized": 1000,
+      "largest_median_feature_differences": [
+        {
+          "feature": "flow_duration",
+          "misclassified_sample_median": 1009.0,
+          "true_class_reference_median": 84770866.0
+        },
+        {
+          "feature": "fwd_iat_total",
+          "misclassified_sample_median": 707.0,
+          "true_class_reference_median": 84650000.0
+        },
+        {
+          "feature": "idle_max",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 84550000.0
+        },
+        {
+          "feature": "fwd_iat_max",
+          "misclassified_sample_median": 707.0,
+          "true_class_reference_median": 84550000.0
+        },
+        {
+          "feature": "flow_iat_max",
+          "misclassified_sample_median": 974.0,
+          "true_class_reference_median": 84550000.0
+        },
+        {
+          "feature": "idle_mean",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 84300000.0
+        },
+        {
+          "feature": "idle_min",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 84300000.0
+        },
+        {
+          "feature": "fwd_iat_std",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 33350000.0
+        },
+        {
+          "feature": "flow_iat_std",
+          "misclassified_sample_median": 0.0,
+          "true_class_reference_median": 24100000.0
+        },
+        {
+          "feature": "fwd_iat_mean",
+          "misclassified_sample_median": 707.0,
+          "true_class_reference_median": 12300000.0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Phase 06 binary classification remains not implemented or validated on this dataset.",
+    "Source-file-disjoint three-way evaluation cannot represent all 15 classes because most attack labels occur in only one source file.",
+    "The permitted stratified-row fallback has source-group overlap and likely duplicate-flow overlap; it is exploratory and not evidence of cross-capture generalization.",
+    "Classifiers used a stratified training-only subset of 80,000 rows from a 1,981,520-row training partition.",
+    "The real dataset has severe class imbalance and several classes have very small held-out test support.",
+    "XGBoost is not installed and was not trained."
+  ]
+}

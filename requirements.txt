@@ -1,3 +1,2 @@
-# Dataset ingestion, EDA figures, and test dependencies. Add other stack
-# components through their optional extras when those project phases begin.
--e .[data,dev,eda,parquet,preprocessing]
+# Core project, model inference, API, PostgreSQL driver, migrations, and tests.
+-e .[data,dev,eda,parquet,preprocessing,api,database]

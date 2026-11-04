@@ -1,0 +1,2764 @@
+{
+  "run_id": "20261103T182807Z",
+  "created_at_utc": "2026-11-03T18:29:14.471902+00:00",
+  "execution_seconds": 67.12977870000032,
+  "shap_version": "0.54.1",
+  "scikit_learn_version": "1.8.0",
+  "models": {
+    "binary_random_forest": {
+      "model_id": "binary-random_forest-v1.0.1",
+      "model_version": "1.0.1",
+      "model_family": "binary_random_forest",
+      "output_space": "attack_probability",
+      "background": {
+        "dataset_id": "cic-phase06-08-train-binary_random_forest-seed-42",
+        "partition": "Monday–Wednesday training capture days only",
+        "sampling_strategy": "deterministic binary-class-stratified sample of Monday–Wednesday training rows",
+        "observations": 100,
+        "configured_sample_size": 100,
+        "random_seed": 42,
+        "target_used_for_sampling": "binary target used only for stratified sampling within training capture days",
+        "source_files": [
+          "Monday-WorkingHours.pcap_ISCX.parquet",
+          "Tuesday-WorkingHours.pcap_ISCX.parquet",
+          "Wednesday-workingHours.pcap_ISCX.parquet"
+        ],
+        "target_values_in_features": false
+      },
+      "explainer": "tree",
+      "explainer_selection_reason": "TreeExplainer interventional probabilities are supported for this persisted Random Forest classifier.",
+      "input_representation": "transformed features produced by the matching persisted fitted preprocessor",
+      "feature_mapping": {
+        "mapped_transformed_columns": 78,
+        "unmapped_transformed_columns": [],
+        "grouping_rule": "signed local contributions sum by source; global mean absolute contributions sum by source"
+      },
+      "outputs": [
+        {
+          "name": "ATTACK",
+          "semantic": "attack probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "attack probability",
+            "max_absolute_residual": 3.2666861438102046e-09,
+            "mean_absolute_residual": 1.3780860532580652e-09,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.07752492291582605
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.06494562740450432
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 0.0558268008718649
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.05572027219881577
+            },
+            {
+              "feature": "subflow_bwd_bytes",
+              "mean_absolute_shap": 0.04861568454804247
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 0.04501455674104362
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 0.02983840965500145
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.025305742427731558
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.02375341437882284
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.022243848068781564
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.021593863295682407
+            },
+            {
+              "feature": "init_win_bytes_backward",
+              "mean_absolute_shap": 0.018256140304104284
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 0.015379296207830514
+            },
+            {
+              "feature": "bwd_packet_length_min",
+              "mean_absolute_shap": 0.015022142978479992
+            },
+            {
+              "feature": "avg_fwd_segment_size",
+              "mean_absolute_shap": 0.01249876379232729
+            }
+          ]
+        }
+      ]
+    },
+    "binary_logistic_regression": {
+      "model_id": "binary-logistic_regression-v1.0.2",
+      "model_version": "1.0.2",
+      "model_family": "binary_logistic_regression",
+      "output_space": "attack_log_odds",
+      "background": {
+        "dataset_id": "cic-phase06-08-train-binary_logistic_regression-seed-42",
+        "partition": "Monday–Wednesday training capture days only",
+        "sampling_strategy": "deterministic binary-class-stratified sample of Monday–Wednesday training rows",
+        "observations": 100,
+        "configured_sample_size": 100,
+        "random_seed": 42,
+        "target_used_for_sampling": "binary target used only for stratified sampling within training capture days",
+        "source_files": [
+          "Monday-WorkingHours.pcap_ISCX.parquet",
+          "Tuesday-WorkingHours.pcap_ISCX.parquet",
+          "Wednesday-workingHours.pcap_ISCX.parquet"
+        ],
+        "target_values_in_features": false
+      },
+      "explainer": "linear",
+      "explainer_selection_reason": "LinearExplainer decomposes the persisted Logistic Regression decision margin/logits in its model output space.",
+      "input_representation": "transformed features produced by the matching persisted fitted preprocessor",
+      "feature_mapping": {
+        "mapped_transformed_columns": 78,
+        "unmapped_transformed_columns": [],
+        "grouping_rule": "signed local contributions sum by source; global mean absolute contributions sum by source"
+      },
+      "outputs": [
+        {
+          "name": "ATTACK_LOG_ODDS",
+          "semantic": "ATTACK log-odds margin",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "ATTACK log-odds margin",
+            "max_absolute_residual": 8.526512829121202e-14,
+            "mean_absolute_residual": 2.2315482794965646e-14,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 69.9825637533723
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 23.05767868962083
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 12.884052726638505
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 12.606171249820392
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 10.134979052119494
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 9.248382741501437
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 9.24745569589642
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 8.271319324325068
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 8.271319324320503
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 7.589401667350903
+            },
+            {
+              "feature": "active_mean",
+              "mean_absolute_shap": 6.959334616651356
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 6.740026397744474
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 6.409363589539051
+            },
+            {
+              "feature": "bwd_packet_length_min",
+              "mean_absolute_shap": 6.356238774074897
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 5.4059456341826095
+            }
+          ]
+        }
+      ]
+    },
+    "multiclass_random_forest": {
+      "model_id": "multiclass-random_forest-v1.0.0",
+      "model_version": "1.0.0",
+      "model_family": "multiclass_random_forest",
+      "output_space": "class_probability",
+      "background": {
+        "dataset_id": "cic-phase07-train-stratified_row_fallback-seed-42",
+        "partition": "Phase 07 training rows only",
+        "sampling_strategy": "deterministic stratified sample from recomputed Phase 07 training partition",
+        "observations": 100,
+        "configured_sample_size": 100,
+        "random_seed": 42,
+        "target_used_for_sampling": "original class labels used only to stratify training indices",
+        "source_files": [
+          "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet",
+          "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet",
+          "Friday-WorkingHours-Morning.pcap_ISCX.parquet",
+          "Monday-WorkingHours.pcap_ISCX.parquet",
+          "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.parquet",
+          "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.parquet",
+          "Tuesday-WorkingHours.pcap_ISCX.parquet",
+          "Wednesday-workingHours.pcap_ISCX.parquet"
+        ],
+        "target_values_in_features": false
+      },
+      "explainer": "tree",
+      "explainer_selection_reason": "TreeExplainer interventional probabilities are supported for this persisted Random Forest classifier.",
+      "input_representation": "transformed features produced by the matching persisted fitted preprocessor",
+      "feature_mapping": {
+        "mapped_transformed_columns": 78,
+        "unmapped_transformed_columns": [],
+        "grouping_rule": "signed local contributions sum by source; global mean absolute contributions sum by source"
+      },
+      "outputs": [
+        {
+          "name": "BENIGN",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 2.3218199030061726e-08,
+            "mean_absolute_residual": 2.1425195041346895e-08,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.03916115940087941
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 0.03876384251362691
+            },
+            {
+              "feature": "subflow_bwd_bytes",
+              "mean_absolute_shap": 0.02737205502151842
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.025133330489741465
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.02163015851654279
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.0212073368845255
+            },
+            {
+              "feature": "min_packet_length",
+              "mean_absolute_shap": 0.019150888687296242
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.018632964016480878
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 0.018608329037715903
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.015957390308421193
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.01582393974006788
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 0.015463979283987397
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 0.01448142885108713
+            },
+            {
+              "feature": "init_win_bytes_forward",
+              "mean_absolute_shap": 0.013393351225108117
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.013010716593022342
+            }
+          ]
+        },
+        {
+          "name": "Bot",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 2.484066624272585e-10,
+            "mean_absolute_residual": 1.5518002386013217e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.002568379927726029
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.0017852858895480506
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.0013091897684165592
+            },
+            {
+              "feature": "fwd_iat_mean",
+              "mean_absolute_shap": 0.0009698920238965769
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.0008397436440615286
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.0006391737276106824
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 0.0006220147884798166
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.0005873754634302485
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.000577222867202636
+            },
+            {
+              "feature": "fwd_packet_length_mean",
+              "mean_absolute_shap": 0.0005601666177398101
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 0.0005220247652624723
+            },
+            {
+              "feature": "fwd_packets_s",
+              "mean_absolute_shap": 0.0004817284373899611
+            },
+            {
+              "feature": "flow_bytes_s",
+              "mean_absolute_shap": 0.00046305172931965894
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 0.0004229478492425187
+            },
+            {
+              "feature": "total_fwd_packets",
+              "mean_absolute_shap": 0.00039151132956703803
+            }
+          ]
+        },
+        {
+          "name": "DDoS",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 4.371452999585301e-08,
+            "mean_absolute_residual": 4.023375320232059e-08,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.04939826981783738
+            },
+            {
+              "feature": "subflow_bwd_bytes",
+              "mean_absolute_shap": 0.043716588708084474
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.04220340179409319
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.04010560263245253
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.03972453715701619
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.03960346862175242
+            },
+            {
+              "feature": "avg_fwd_segment_size",
+              "mean_absolute_shap": 0.03871439689281031
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 0.03846674501581162
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 0.036552147143797745
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.035722777772702434
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.03140051900960005
+            },
+            {
+              "feature": "fwd_packet_length_mean",
+              "mean_absolute_shap": 0.031226225901150147
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 0.03085263589717585
+            },
+            {
+              "feature": "init_win_bytes_backward",
+              "mean_absolute_shap": 0.0304551511543643
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.030343923487138647
+            }
+          ]
+        },
+        {
+          "name": "DoS GoldenEye",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 1.0852266689453938e-09,
+            "mean_absolute_residual": 7.808635764904037e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.008990594999887733
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 0.006545144568939441
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.00614622777149431
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.00583790626384685
+            },
+            {
+              "feature": "init_win_bytes_backward",
+              "mean_absolute_shap": 0.005435936652333422
+            },
+            {
+              "feature": "subflow_bwd_bytes",
+              "mean_absolute_shap": 0.005416413065765369
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 0.004391216851233201
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 0.004150614032597773
+            },
+            {
+              "feature": "flow_packets_s",
+              "mean_absolute_shap": 0.0036438566749986104
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.003597252645500363
+            },
+            {
+              "feature": "bwd_iat_std",
+              "mean_absolute_shap": 0.0034849599730748444
+            },
+            {
+              "feature": "fwd_iat_mean",
+              "mean_absolute_shap": 0.003469326636547481
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 0.0033520123897736475
+            },
+            {
+              "feature": "fwd_packet_length_std",
+              "mean_absolute_shap": 0.00305093594818146
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.0028914404850732462
+            }
+          ]
+        },
+        {
+          "name": "DoS Hulk",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 1.050062162222254e-09,
+            "mean_absolute_residual": 5.663248728478287e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "avg_fwd_segment_size",
+              "mean_absolute_shap": 0.021243053850834297
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 0.021116871290242156
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.018795797150211548
+            },
+            {
+              "feature": "fwd_packet_length_mean",
+              "mean_absolute_shap": 0.018070977007970612
+            },
+            {
+              "feature": "fwd_packet_length_std",
+              "mean_absolute_shap": 0.0160627282860392
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.012968093899394795
+            },
+            {
+              "feature": "init_win_bytes_backward",
+              "mean_absolute_shap": 0.012668192348668323
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.011657560548509072
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.011608217860898832
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 0.009549582931016388
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.008171665398076405
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 0.00739135528881192
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.006098915189383263
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.005834290005288888
+            },
+            {
+              "feature": "init_win_bytes_forward",
+              "mean_absolute_shap": 0.005401122570330283
+            }
+          ]
+        },
+        {
+          "name": "DoS Slowhttptest",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 7.044584533766329e-10,
+            "mean_absolute_residual": 5.09866343752479e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 0.005978850533908828
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 0.005937367074851138
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.005588823073981501
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.004568452985050441
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.0036508119511719163
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.0035252106044168837
+            },
+            {
+              "feature": "act_data_pkt_fwd",
+              "mean_absolute_shap": 0.0029308883358021374
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.0028082105794806017
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 0.0027249832826518623
+            },
+            {
+              "feature": "subflow_bwd_bytes",
+              "mean_absolute_shap": 0.0021363433381923623
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 0.002012145520330364
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 0.002000037563339774
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.0017122018734781364
+            },
+            {
+              "feature": "avg_fwd_segment_size",
+              "mean_absolute_shap": 0.001709690356173396
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 0.0014756296938464434
+            }
+          ]
+        },
+        {
+          "name": "DoS slowloris",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 7.327955325875379e-10,
+            "mean_absolute_residual": 5.889029682198781e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.009693819509319397
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.005075930106234025
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.0020087969713505948
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.001719965752384407
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.0016146408104165037
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 0.00143519950575838
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 0.001290642715373167
+            },
+            {
+              "feature": "subflow_bwd_packets",
+              "mean_absolute_shap": 0.0011763108083607675
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.0011123568117636748
+            },
+            {
+              "feature": "fwd_packet_length_mean",
+              "mean_absolute_shap": 0.0011064978985012887
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.0010970725776874698
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.0010289664578533575
+            },
+            {
+              "feature": "fwd_iat_min",
+              "mean_absolute_shap": 0.0008408011732361321
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 0.0008042368907854326
+            },
+            {
+              "feature": "fwd_iat_mean",
+              "mean_absolute_shap": 0.0007984898257454098
+            }
+          ]
+        },
+        {
+          "name": "FTP-Patator",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 7.35861186221265e-10,
+            "mean_absolute_residual": 4.998774362106537e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "subflow_bwd_packets",
+              "mean_absolute_shap": 0.005428576265296671
+            },
+            {
+              "feature": "total_fwd_packets",
+              "mean_absolute_shap": 0.0049064070283748136
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.003959065050947003
+            },
+            {
+              "feature": "total_backward_packets",
+              "mean_absolute_shap": 0.002354302120227203
+            },
+            {
+              "feature": "flow_packets_s",
+              "mean_absolute_shap": 0.0018999032509464085
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.0018789884053700238
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.0018565177446953382
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.001827346582339544
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 0.001517130188997271
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.0014630719285830202
+            },
+            {
+              "feature": "bwd_header_length",
+              "mean_absolute_shap": 0.0014397039982975454
+            },
+            {
+              "feature": "fwd_packet_length_min",
+              "mean_absolute_shap": 0.0014273700776493573
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 0.001391447409810098
+            },
+            {
+              "feature": "flow_iat_mean",
+              "mean_absolute_shap": 0.0011875090424894102
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 0.0011555220786738122
+            }
+          ]
+        },
+        {
+          "name": "Heartbleed",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 1.4499267758649736e-09,
+            "mean_absolute_residual": 1.2948033613173482e-09,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 0.016283203367638638
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.013000000193715082
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.011050781414669458
+            },
+            {
+              "feature": "subflow_bwd_bytes",
+              "mean_absolute_shap": 0.004395831219153478
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.004343750064726916
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.0026718712857109472
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 0.0025729167263489196
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.002515621283382643
+            },
+            {
+              "feature": "subflow_bwd_packets",
+              "mean_absolute_shap": 0.002268228408356662
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 0.0019687500293366607
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 0.0018847656530851975
+            },
+            {
+              "feature": "fwd_header_length__source_col_56",
+              "mean_absolute_shap": 0.0018750000279396791
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.0018749979892163531
+            },
+            {
+              "feature": "bwd_header_length",
+              "mean_absolute_shap": 0.001820312527124772
+            },
+            {
+              "feature": "fwd_header_length__source_col_35",
+              "mean_absolute_shap": 0.0018203069572336984
+            }
+          ]
+        },
+        {
+          "name": "Infiltration",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 1.1070314498429212e-08,
+            "mean_absolute_residual": 1.026369360552018e-08,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.05083025171389181
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.015875074860943812
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.014456709789456568
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.014293856077044184
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.007849849833842768
+            },
+            {
+              "feature": "total_backward_packets",
+              "mean_absolute_shap": 0.007546939884725814
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 0.007528263825818153
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.007371082466638653
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 0.006929574429378251
+            },
+            {
+              "feature": "subflow_bwd_packets",
+              "mean_absolute_shap": 0.006339010763609566
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 0.00602795922888163
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.0057121661811106615
+            },
+            {
+              "feature": "avg_fwd_segment_size",
+              "mean_absolute_shap": 0.00510477718201855
+            },
+            {
+              "feature": "fwd_packet_length_mean",
+              "mean_absolute_shap": 0.00490958216441413
+            },
+            {
+              "feature": "min_packet_length",
+              "mean_absolute_shap": 0.00461400599001067
+            }
+          ]
+        },
+        {
+          "name": "PortScan",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 1.4433393855095566e-09,
+            "mean_absolute_residual": 1.2903307912166123e-09,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.008653996849433595
+            },
+            {
+              "feature": "total_fwd_packets",
+              "mean_absolute_shap": 0.0037705275406286786
+            },
+            {
+              "feature": "subflow_fwd_packets",
+              "mean_absolute_shap": 0.0020817455343789437
+            },
+            {
+              "feature": "fwd_packet_length_std",
+              "mean_absolute_shap": 0.0019435092441162098
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.0019316564109724866
+            },
+            {
+              "feature": "bwd_header_length",
+              "mean_absolute_shap": 0.0019282501764299066
+            },
+            {
+              "feature": "flow_bytes_s",
+              "mean_absolute_shap": 0.0018741578804501232
+            },
+            {
+              "feature": "bwd_packet_length_min",
+              "mean_absolute_shap": 0.001827260207919536
+            },
+            {
+              "feature": "fwd_header_length__source_col_35",
+              "mean_absolute_shap": 0.0016055942260990875
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 0.001555387312075851
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.0014635985550412298
+            },
+            {
+              "feature": "psh_flag_count",
+              "mean_absolute_shap": 0.0014560280640017703
+            },
+            {
+              "feature": "ack_flag_count",
+              "mean_absolute_shap": 0.0013875676546894057
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 0.0013778177888501008
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 0.00134680672311748
+            }
+          ]
+        },
+        {
+          "name": "SSH-Patator",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 6.1527009355411e-10,
+            "mean_absolute_residual": 5.296601395053235e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.001543051842748468
+            },
+            {
+              "feature": "init_win_bytes_backward",
+              "mean_absolute_shap": 0.0012391763219233094
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.0010981393233760175
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.0008908803864267154
+            },
+            {
+              "feature": "flow_packets_s",
+              "mean_absolute_shap": 0.0007088096358958044
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.0006786631724364155
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.0006487254127955566
+            },
+            {
+              "feature": "bwd_packets_s",
+              "mean_absolute_shap": 0.0005335209418484511
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 0.000521708770081659
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 0.0005189721126605207
+            },
+            {
+              "feature": "subflow_bwd_packets",
+              "mean_absolute_shap": 0.0004987804180288433
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 0.000486359578614497
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.00043285924034421443
+            },
+            {
+              "feature": "total_backward_packets",
+              "mean_absolute_shap": 0.0004185430311177637
+            },
+            {
+              "feature": "fwd_packets_s",
+              "mean_absolute_shap": 0.00041114358526144195
+            }
+          ]
+        },
+        {
+          "name": "Web Attack � Brute Force",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 1.0289898273729836e-09,
+            "mean_absolute_residual": 8.73912376221208e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 0.002683230701135448
+            },
+            {
+              "feature": "flow_iat_mean",
+              "mean_absolute_shap": 0.002594802140156953
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.002159123677337702
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 0.002022674693872108
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 0.0017985361296235973
+            },
+            {
+              "feature": "flow_iat_min",
+              "mean_absolute_shap": 0.0015240875590922438
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.0012027656543109365
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.0011872522881199216
+            },
+            {
+              "feature": "fwd_iat_mean",
+              "mean_absolute_shap": 0.0011329004550011585
+            },
+            {
+              "feature": "total_fwd_packets",
+              "mean_absolute_shap": 0.0011272204080614405
+            },
+            {
+              "feature": "init_win_bytes_backward",
+              "mean_absolute_shap": 0.0010296017691530483
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 0.0008334811175242064
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 0.0008012368889520271
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 0.0007844527790216566
+            },
+            {
+              "feature": "flow_bytes_s",
+              "mean_absolute_shap": 0.0007720060861891186
+            }
+          ]
+        },
+        {
+          "name": "Web Attack � Sql Injection",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 4.886455226560393e-09,
+            "mean_absolute_residual": 4.317479316770512e-09,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "flow_bytes_s",
+              "mean_absolute_shap": 0.010213882137322652
+            },
+            {
+              "feature": "init_win_bytes_backward",
+              "mean_absolute_shap": 0.00915444100837021
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.0075483621942807125
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 0.005746277536926672
+            },
+            {
+              "feature": "flow_iat_mean",
+              "mean_absolute_shap": 0.005009193689671321
+            },
+            {
+              "feature": "bwd_packets_s",
+              "mean_absolute_shap": 0.004615556260047099
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 0.004294324136041752
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.004237632676341432
+            },
+            {
+              "feature": "fwd_packets_s",
+              "mean_absolute_shap": 0.003788402854749719
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 0.0035052407186503837
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 0.003154315094224956
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 0.0031465656918405215
+            },
+            {
+              "feature": "fwd_iat_mean",
+              "mean_absolute_shap": 0.0029846754610485964
+            },
+            {
+              "feature": "flow_packets_s",
+              "mean_absolute_shap": 0.002883112368974708
+            },
+            {
+              "feature": "fwd_packet_length_std",
+              "mean_absolute_shap": 0.0028321649285362573
+            }
+          ]
+        },
+        {
+          "name": "Web Attack � XSS",
+          "semantic": "class probability",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class probability",
+            "max_absolute_residual": 2.1273527297388517e-10,
+            "mean_absolute_residual": 1.6391128840505254e-10,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.002,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "fwd_packets_s",
+              "mean_absolute_shap": 0.0020912988893348936
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 0.0012660847944727036
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 0.0012488835381140007
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 0.0009571707740587946
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 0.0009038900173348454
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 0.0008603142250582609
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 0.0007642645718760833
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.0007004802883460572
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 0.0006289799214431467
+            },
+            {
+              "feature": "init_win_bytes_backward",
+              "mean_absolute_shap": 0.0005645118166914642
+            },
+            {
+              "feature": "init_win_bytes_forward",
+              "mean_absolute_shap": 0.0005611600045261865
+            },
+            {
+              "feature": "flow_iat_mean",
+              "mean_absolute_shap": 0.0005204417483691159
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 0.0004912158304271228
+            },
+            {
+              "feature": "bwd_packets_s",
+              "mean_absolute_shap": 0.00040452664012605074
+            },
+            {
+              "feature": "fwd_header_length__source_col_56",
+              "mean_absolute_shap": 0.0004012962968431568
+            }
+          ]
+        }
+      ]
+    },
+    "multiclass_logistic_regression": {
+      "model_id": "multiclass-logistic_regression-v1.0.0",
+      "model_version": "1.0.0",
+      "model_family": "multiclass_logistic_regression",
+      "output_space": "class_logit",
+      "background": {
+        "dataset_id": "cic-phase07-train-stratified_row_fallback-seed-42",
+        "partition": "Phase 07 training rows only",
+        "sampling_strategy": "deterministic stratified sample from recomputed Phase 07 training partition",
+        "observations": 100,
+        "configured_sample_size": 100,
+        "random_seed": 42,
+        "target_used_for_sampling": "original class labels used only to stratify training indices",
+        "source_files": [
+          "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.parquet",
+          "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.parquet",
+          "Friday-WorkingHours-Morning.pcap_ISCX.parquet",
+          "Monday-WorkingHours.pcap_ISCX.parquet",
+          "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.parquet",
+          "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.parquet",
+          "Tuesday-WorkingHours.pcap_ISCX.parquet",
+          "Wednesday-workingHours.pcap_ISCX.parquet"
+        ],
+        "target_values_in_features": false
+      },
+      "explainer": "linear",
+      "explainer_selection_reason": "LinearExplainer decomposes the persisted Logistic Regression decision margin/logits in its model output space.",
+      "input_representation": "transformed features produced by the matching persisted fitted preprocessor",
+      "feature_mapping": {
+        "mapped_transformed_columns": 78,
+        "unmapped_transformed_columns": [],
+        "grouping_rule": "signed local contributions sum by source; global mean absolute contributions sum by source"
+      },
+      "outputs": [
+        {
+          "name": "BENIGN",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 3.552713678800501e-14,
+            "mean_absolute_residual": 8.548717289613705e-15,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 8.156837887356529
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 6.004781221587517
+            },
+            {
+              "feature": "psh_flag_count",
+              "mean_absolute_shap": 5.707996700967383
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 5.416731080770713
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 5.370993901421878
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 4.907573442304775
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 4.859334883946439
+            },
+            {
+              "feature": "active_min",
+              "mean_absolute_shap": 4.139376189246265
+            },
+            {
+              "feature": "idle_mean",
+              "mean_absolute_shap": 3.939398406453949
+            },
+            {
+              "feature": "idle_min",
+              "mean_absolute_shap": 3.8497474903443534
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 3.8303080605666397
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 3.191623350937992
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 2.9783511692523583
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 2.96762272720273
+            },
+            {
+              "feature": "active_max",
+              "mean_absolute_shap": 2.8626895816085627
+            }
+          ]
+        },
+        {
+          "name": "Bot",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 7.105427357601002e-14,
+            "mean_absolute_residual": 2.0539125955565396e-14,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 10.054772657061752
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 8.231572407249566
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 7.127523798895657
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 7.127523798895657
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 6.156172266792899
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 6.156172266792899
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 5.607346449364107
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 5.160187273437533
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 4.914279618198648
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 4.743517306288926
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 4.688609747680192
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 4.009224073520809
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 3.8269816593111248
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 3.77485228640525
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 3.426180365075999
+            }
+          ]
+        },
+        {
+          "name": "DDoS",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 9.947598300641403e-14,
+            "mean_absolute_residual": 2.098321516541546e-14,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 10.657624125588573
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 9.620392692617958
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 8.422757226196401
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 7.018193536967514
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 6.626269651193233
+            },
+            {
+              "feature": "ack_flag_count",
+              "mean_absolute_shap": 6.372847446937914
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 6.1020039078600234
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 6.082269392493792
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 5.922511224554426
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 4.103963717755837
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 4.103963717755837
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 3.873187627492668
+            },
+            {
+              "feature": "psh_flag_count",
+              "mean_absolute_shap": 3.8491262170068294
+            },
+            {
+              "feature": "flow_iat_mean",
+              "mean_absolute_shap": 3.7268601993745767
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 3.3979489064250075
+            }
+          ]
+        },
+        {
+          "name": "DoS GoldenEye",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 4.263256414560601e-14,
+            "mean_absolute_residual": 1.1629586182948515e-14,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 15.657105263142245
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 7.3246404741663085
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 6.881170506541365
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 6.3675040298951116
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 6.361863963152016
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 6.360040699160084
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 6.340777547204883
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 6.340777547204883
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 4.827025908205037
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 4.508720238899612
+            },
+            {
+              "feature": "active_min",
+              "mean_absolute_shap": 4.210136176979324
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 3.6389676026404523
+            },
+            {
+              "feature": "flow_iat_mean",
+              "mean_absolute_shap": 3.36355143868421
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 3.1724475561236156
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 3.1411816985683996
+            }
+          ]
+        },
+        {
+          "name": "DoS Hulk",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 7.105427357601002e-14,
+            "mean_absolute_residual": 2.040034807748725e-14,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 12.363484318929386
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 7.1106220135635105
+            },
+            {
+              "feature": "active_min",
+              "mean_absolute_shap": 6.532154349525414
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 5.679013779495833
+            },
+            {
+              "feature": "active_mean",
+              "mean_absolute_shap": 5.590352102540632
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 5.5559513690593345
+            },
+            {
+              "feature": "idle_max",
+              "mean_absolute_shap": 4.249652581536253
+            },
+            {
+              "feature": "idle_mean",
+              "mean_absolute_shap": 4.131011469278522
+            },
+            {
+              "feature": "psh_flag_count",
+              "mean_absolute_shap": 3.94186980947988
+            },
+            {
+              "feature": "idle_min",
+              "mean_absolute_shap": 3.813644690139938
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 3.494936829654416
+            },
+            {
+              "feature": "ack_flag_count",
+              "mean_absolute_shap": 3.4930891617795083
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 3.419048473256325
+            },
+            {
+              "feature": "active_max",
+              "mean_absolute_shap": 2.889442479372599
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 2.778094218997164
+            }
+          ]
+        },
+        {
+          "name": "DoS Slowhttptest",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 3.552713678800501e-14,
+            "mean_absolute_residual": 8.784639682346551e-15,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 13.130204346485208
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 12.60025640616265
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 10.197474791030647
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 8.073085469545584
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 7.007215875184327
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 6.716801886598768
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 6.716801886598768
+            },
+            {
+              "feature": "active_mean",
+              "mean_absolute_shap": 6.3450632799195095
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 5.254483387186141
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 4.569196795508551
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 4.569196795508551
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 4.343585332452348
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 4.343498139411256
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 4.089688709678303
+            },
+            {
+              "feature": "flow_iat_mean",
+              "mean_absolute_shap": 3.994725608399649
+            }
+          ]
+        },
+        {
+          "name": "DoS slowloris",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 1.5987211554602254e-14,
+            "mean_absolute_residual": 5.349887199912473e-15,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 7.120555776936602
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 6.605840352392665
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 5.723777749599535
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 5.546320027550349
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 4.978217098377428
+            },
+            {
+              "feature": "active_min",
+              "mean_absolute_shap": 4.937454722543517
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 4.268679939334796
+            },
+            {
+              "feature": "psh_flag_count",
+              "mean_absolute_shap": 4.048739877741209
+            },
+            {
+              "feature": "active_mean",
+              "mean_absolute_shap": 3.1739259837456766
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 2.9635570194929515
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 2.71426724688597
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 2.4396407302808543
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 2.397605291071658
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 2.397605291071658
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 2.261419610900034
+            }
+          ]
+        },
+        {
+          "name": "FTP-Patator",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 1.4210854715202004e-14,
+            "mean_absolute_residual": 5.495603971894525e-15,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 7.430908847046304
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 6.33898466126038
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 4.983278018935332
+            },
+            {
+              "feature": "flow_iat_mean",
+              "mean_absolute_shap": 4.695535042154488
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 4.629765012564111
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 4.28598302880186
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 3.6089997320683835
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 3.603024915507711
+            },
+            {
+              "feature": "idle_max",
+              "mean_absolute_shap": 3.447810321535369
+            },
+            {
+              "feature": "idle_mean",
+              "mean_absolute_shap": 3.4440551365028664
+            },
+            {
+              "feature": "act_data_pkt_fwd",
+              "mean_absolute_shap": 3.337938664529127
+            },
+            {
+              "feature": "idle_min",
+              "mean_absolute_shap": 3.327459706780063
+            },
+            {
+              "feature": "fwd_packet_length_std",
+              "mean_absolute_shap": 2.9792547134370424
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 2.9186954017693942
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 2.765475651750835
+            }
+          ]
+        },
+        {
+          "name": "Heartbleed",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 2.1316282072803006e-14,
+            "mean_absolute_residual": 5.773159728050814e-15,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 9.002011671885276
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 7.62954220717692
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 5.6934359016019815
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 5.6934359016019815
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 5.522976217343995
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 4.275820783325022
+            },
+            {
+              "feature": "psh_flag_count",
+              "mean_absolute_shap": 3.362306863622155
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 3.1537152117097866
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 3.0036087163012395
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 3.0036087163012395
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 2.581140709141601
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 2.281584980831589
+            },
+            {
+              "feature": "ack_flag_count",
+              "mean_absolute_shap": 1.3204912144664342
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 1.0314756387114743
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 0.9902199516130897
+            }
+          ]
+        },
+        {
+          "name": "Infiltration",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 1.4210854715202004e-13,
+            "mean_absolute_residual": 3.597122599785507e-14,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 20.15998726803923
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 17.12569827180738
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 17.12569827180738
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 16.749212670789955
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 15.43250263329271
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 12.741545545042959
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 12.741545545042959
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 7.4526401742787955
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 7.344804225512351
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 6.958896547472503
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 6.31901297566715
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 5.644951575038382
+            },
+            {
+              "feature": "bwd_iat_max",
+              "mean_absolute_shap": 4.740489853787694
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 4.728110985933957
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 4.412908106402509
+            }
+          ]
+        },
+        {
+          "name": "PortScan",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 3.197442310920451e-14,
+            "mean_absolute_residual": 9.936496070395151e-15,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "psh_flag_count",
+              "mean_absolute_shap": 11.010575051077053
+            },
+            {
+              "feature": "ack_flag_count",
+              "mean_absolute_shap": 10.380129302840967
+            },
+            {
+              "feature": "idle_mean",
+              "mean_absolute_shap": 8.425996179109342
+            },
+            {
+              "feature": "idle_min",
+              "mean_absolute_shap": 8.289859316049453
+            },
+            {
+              "feature": "idle_max",
+              "mean_absolute_shap": 8.198599004748338
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 6.339853964469922
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 5.60325347221932
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 5.589598466839452
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 4.328156306021556
+            },
+            {
+              "feature": "destination_port",
+              "mean_absolute_shap": 2.878048331125718
+            },
+            {
+              "feature": "urg_flag_count",
+              "mean_absolute_shap": 2.711731538246541
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 2.46514604143945
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 2.46514604143945
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 2.310505240563363
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 2.009747316996645
+            }
+          ]
+        },
+        {
+          "name": "SSH-Patator",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 4.263256414560601e-14,
+            "mean_absolute_residual": 1.1546319456101628e-14,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 19.47988212095199
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 11.367213297677253
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 11.367213297677253
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 10.73642018382081
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 10.675049549412872
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 8.11684241961267
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 6.438812105985966
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 6.1843575935067125
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 5.7432057888057715
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 5.176360842647082
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 4.589735784887761
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 4.152087766760794
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 3.8186253445999054
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 3.5066814680132623
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 3.0256113522027785
+            }
+          ]
+        },
+        {
+          "name": "Web Attack � Brute Force",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 2.4868995751603507e-14,
+            "mean_absolute_residual": 8.76382300063483e-15,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 15.55135084913305
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 15.55135084913305
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 9.077549188333712
+            },
+            {
+              "feature": "idle_max",
+              "mean_absolute_shap": 6.835856813261611
+            },
+            {
+              "feature": "idle_mean",
+              "mean_absolute_shap": 6.834313198910364
+            },
+            {
+              "feature": "idle_min",
+              "mean_absolute_shap": 6.575756346363914
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 6.37582075966383
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 5.21293420066263
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 5.21293420066263
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 3.391729100140256
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 3.1622332885751527
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 3.0206248558511595
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 2.9308985197985016
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 2.8525079348184295
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 2.8411990673002783
+            }
+          ]
+        },
+        {
+          "name": "Web Attack � Sql Injection",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 7.105427357601002e-14,
+            "mean_absolute_residual": 2.2537527399890678e-14,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 32.288396460397905
+            },
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 30.59175737089224
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 30.59175737089224
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 15.981083912791373
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 12.23884001707258
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 12.138578599107309
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 11.493793109243132
+            },
+            {
+              "feature": "flow_iat_std",
+              "mean_absolute_shap": 11.076698083804207
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 10.676475950742336
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 9.893271834186809
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 9.442847133656286
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 9.285133817945454
+            },
+            {
+              "feature": "fwd_iat_max",
+              "mean_absolute_shap": 8.945716547616293
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 8.90468407632066
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 8.41244294861907
+            }
+          ]
+        },
+        {
+          "name": "Web Attack � XSS",
+          "semantic": "class logit",
+          "explained_rows": 64,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "class logit",
+            "max_absolute_residual": 2.3092638912203256e-14,
+            "mean_absolute_residual": 7.244205235679146e-15,
+            "additive_method": "interventional_tree_or_linear",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "subflow_fwd_bytes",
+              "mean_absolute_shap": 15.681274549240651
+            },
+            {
+              "feature": "total_length_of_fwd_packets",
+              "mean_absolute_shap": 15.681274549240651
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 9.155403470713212
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 9.155403470713027
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 8.330035077336712
+            },
+            {
+              "feature": "fwd_iat_total",
+              "mean_absolute_shap": 3.692690546273867
+            },
+            {
+              "feature": "min_seg_size_forward",
+              "mean_absolute_shap": 3.659577433524618
+            },
+            {
+              "feature": "flow_duration",
+              "mean_absolute_shap": 3.191065390652693
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 3.1802339305280825
+            },
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 3.1333550022785985
+            },
+            {
+              "feature": "bwd_iat_total",
+              "mean_absolute_shap": 3.0593802118135542
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 2.924497642911807
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 2.3105044443578784
+            },
+            {
+              "feature": "fwd_packet_length_max",
+              "mean_absolute_shap": 2.0615246482197898
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 1.7019105269120671
+            }
+          ]
+        }
+      ]
+    },
+    "isolation_forest": {
+      "model_id": "isolation-forest-v1.0.0",
+      "model_version": "1.0.0",
+      "model_family": "anomaly",
+      "output_space": "higher_is_more_anomalous_score",
+      "background": {
+        "dataset_id": "cic-phase06-08-train-anomaly-seed-42",
+        "partition": "Monday–Wednesday training capture days only",
+        "sampling_strategy": "deterministic sample of BENIGN Monday–Wednesday training rows",
+        "observations": 100,
+        "configured_sample_size": 100,
+        "random_seed": 42,
+        "target_used_for_sampling": "BENIGN target used only to restrict the Phase 08 training background",
+        "source_files": [
+          "Monday-WorkingHours.pcap_ISCX.parquet",
+          "Tuesday-WorkingHours.pcap_ISCX.parquet",
+          "Wednesday-workingHours.pcap_ISCX.parquet"
+        ],
+        "target_values_in_features": false
+      },
+      "explainer": "permutation",
+      "explainer_selection_reason": "PermutationExplainer wraps the exact persisted Isolation Forest -score_samples function because tree-path attribution is not selected for its anomaly score.",
+      "input_representation": "transformed features produced by the matching persisted fitted preprocessor",
+      "feature_mapping": {
+        "mapped_transformed_columns": 78,
+        "unmapped_transformed_columns": [],
+        "grouping_rule": "signed local contributions sum by source; global mean absolute contributions sum by source"
+      },
+      "outputs": [
+        {
+          "name": "anomaly_score",
+          "semantic": "higher-is-more-anomalous score",
+          "explained_rows": 16,
+          "additivity": {
+            "checked": true,
+            "output_semantics": "higher-is-more-anomalous score",
+            "max_absolute_residual": 1.2212453270876722e-15,
+            "mean_absolute_residual": 7.563394355258879e-16,
+            "additive_method": "permutation_telescoping",
+            "tolerance": 0.0001,
+            "passed": true
+          },
+          "top_features": [
+            {
+              "feature": "bwd_packet_length_max",
+              "mean_absolute_shap": 0.026881325692503358
+            },
+            {
+              "feature": "packet_length_variance",
+              "mean_absolute_shap": 0.02608875005306136
+            },
+            {
+              "feature": "bwd_packet_length_std",
+              "mean_absolute_shap": 0.025124053779637077
+            },
+            {
+              "feature": "max_packet_length",
+              "mean_absolute_shap": 0.01973638267818458
+            },
+            {
+              "feature": "packet_length_std",
+              "mean_absolute_shap": 0.019600817313763747
+            },
+            {
+              "feature": "bwd_packet_length_mean",
+              "mean_absolute_shap": 0.015553726237201042
+            },
+            {
+              "feature": "avg_bwd_segment_size",
+              "mean_absolute_shap": 0.015219580789206367
+            },
+            {
+              "feature": "packet_length_mean",
+              "mean_absolute_shap": 0.010359897241066493
+            },
+            {
+              "feature": "average_packet_size",
+              "mean_absolute_shap": 0.009548090432525774
+            },
+            {
+              "feature": "idle_max",
+              "mean_absolute_shap": 0.007248484071137892
+            },
+            {
+              "feature": "flow_iat_max",
+              "mean_absolute_shap": 0.006992656520921096
+            },
+            {
+              "feature": "idle_mean",
+              "mean_absolute_shap": 0.006715516125844211
+            },
+            {
+              "feature": "fwd_iat_std",
+              "mean_absolute_shap": 0.006519157956707662
+            },
+            {
+              "feature": "total_length_of_bwd_packets",
+              "mean_absolute_shap": 0.006107485898327703
+            },
+            {
+              "feature": "idle_min",
+              "mean_absolute_shap": 0.005962154821898722
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "configuration": {
+    "version": "1.0.0",
+    "random_seed": 42,
+    "dataset": {
+      "parquet_directory": "data/processed/CIC-IDS2017-phase04-v2/cleaned/extracted/MachineLearningCVE",
+      "feature_schema": "configs/feature_schema.json"
+    },
+    "models": {
+      "binary_random_forest": {
+        "model_family": "binary_random_forest",
+        "artifact_directory": "models/supervised/binary/random_forest/1.0.1",
+        "explainer": "tree",
+        "output_space": "attack_probability"
+      },
+      "binary_logistic_regression": {
+        "model_family": "binary_logistic_regression",
+        "artifact_directory": "models/supervised/binary/logistic_regression/1.0.2",
+        "explainer": "linear",
+        "output_space": "attack_log_odds"
+      },
+      "multiclass_random_forest": {
+        "model_family": "multiclass_random_forest",
+        "artifact_directory": "models/supervised/multiclass/random_forest/1.0.0",
+        "explainer": "tree",
+        "output_space": "class_probability"
+      },
+      "multiclass_logistic_regression": {
+        "model_family": "multiclass_logistic_regression",
+        "artifact_directory": "models/supervised/multiclass/logistic_regression/1.0.0",
+        "explainer": "linear",
+        "output_space": "class_logit"
+      },
+      "isolation_forest": {
+        "model_family": "anomaly",
+        "artifact_directory": "models/unsupervised/isolation_forest/1.0.0",
+        "explainer": "permutation",
+        "output_space": "higher_is_more_anomalous_score",
+        "operating_point": "target-fpr-1pct"
+      }
+    },
+    "background": {
+      "sample_size": 100,
+      "sampling_strategy": "deterministic_class_stratified",
+      "anomaly_strategy": "benign_training_capture_days_only",
+      "random_seed": 42,
+      "multiclass_partition_run": "20261103T134128Z",
+      "binary_training_capture_days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday"
+      ]
+    },
+    "explanations": {
+      "global_sample_size": 64,
+      "anomaly_global_sample_size": 16,
+      "local_explanation_count": 8,
+      "permutation_seed": 42,
+      "permutation_max_evaluations": 157,
+      "visualized_multiclass_labels": [
+        "BENIGN",
+        "Bot",
+        "DDoS",
+        "PortScan"
+      ],
+      "top_features": 15
+    },
+    "intelligence": {
+      "source_run_id": "20261103T160444Z"
+    },
+    "reports": {
+      "explanation_directory": "reports/explainability",
+      "figure_directory": "reports/figures/explainability"
+    }
+  },
+  "explanation_records": 264,
+  "global_importance_rows": 2574,
+  "event_enrichment": "sidecar only; original Phase 09 scores, severity and correlation records preserved",
+  "limitations": [
+    "SHAP attribution is model-output explanation, not causal evidence.",
+    "Unselected Phase 09 records have no local explanation.",
+    "XGBoost artifacts were unavailable in this project snapshot."
+  ]
+}

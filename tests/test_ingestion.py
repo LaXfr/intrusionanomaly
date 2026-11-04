@@ -107,6 +107,20 @@ def test_inspection_preserves_headers_and_calculates_streamed_checksum(
     assert result.relative_path == "flows.csv"
 
 
+def test_inspection_can_accept_optional_label_for_feature_only_upload(tmp_path: Path) -> None:
+    path = _write_csv(tmp_path / "features.csv", ["Feature A", "Feature B"], [["1", "2"]])
+
+    required_label = inspect_csv_file(path)
+    optional_label = inspect_csv_file(path, require_label=False)
+
+    assert required_label.status == "invalid"
+    assert any("No label column" in error for error in required_label.errors)
+    assert optional_label.status == "valid"
+    assert optional_label.label_columns == ()
+    assert optional_label.original_columns == ("Feature A", "Feature B")
+    assert any("labels are optional" in warning for warning in optional_label.warnings)
+
+
 def test_inspection_handles_bom_and_utf16_encodings(tmp_path: Path) -> None:
     root = tmp_path / "dataset"
     utf8_path = _write_csv(

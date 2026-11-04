@@ -24,25 +24,28 @@ visualization = [
 ]
 eda = ["matplotlib>=3.8,<4"]
 ml = [
-    "scikit-learn>=1.4,<2",
+    "scikit-learn==1.8.0",
     "xgboost>=2,<4",
     "shap>=0.45,<1",
     "imbalanced-learn>=0.12,<1",
 ]
+explainability = ["shap>=0.45,<1", "matplotlib>=3.8,<4"]
 api = [
     "fastapi>=0.110,<1",
     "uvicorn[standard]>=0.29,<1",
     "pydantic>=2.6,<3",
+    "python-multipart>=0.0.9,<1",
 ]
 database = [
     "sqlalchemy>=2,<3",
     "psycopg[binary]>=3.1,<4",
+    "alembic>=1.13,<2",
 ]
-dashboard = ["streamlit>=1.32,<2"]
+dashboard = ["streamlit>=1.32,<2", "plotly>=5.20,<7", "httpx>=0.27,<1"]
 network = ["scapy>=2.5,<3"]
-dev = ["pytest>=8,<10"]
+dev = ["pytest>=8,<10", "httpx>=0.27,<1"]
 preprocessing = [
-    "scikit-learn>=1.4,<2",
+    "scikit-learn==1.8.0",
     "joblib>=1.3,<2",
 ]
 
@@ -50,6 +53,11 @@ preprocessing = [
 intrusion-ingest = "intrusion_intelligence.ingestion.cli:main"
 intrusion-eda = "intrusion_intelligence.eda.cli:main"
 intrusion-preprocess = "intrusion_intelligence.preprocessing.cli:main"
+intrusion-multiclass = "intrusion_intelligence.multiclass.cli:main"
+intrusion-anomaly = "intrusion_intelligence.anomaly.cli:main"
+intrusion-intelligence = "intrusion_intelligence.intelligence.cli:main"
+intrusion-explainability = "intrusion_intelligence.explainability.cli:main"
+intrusion-evaluate = "intrusion_intelligence.evaluation.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

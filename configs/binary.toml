@@ -1,0 +1,28 @@
+version = "1.0.1"
+random_seed = 42
+
+[dataset]
+parquet_directory = "data/processed/CIC-IDS2017-phase04-v2/cleaned/extracted/MachineLearningCVE"
+feature_schema = "configs/feature_schema.json"
+
+[split]
+train = ["Monday", "Tuesday", "Wednesday"]
+validation = ["Thursday"]
+test = ["Friday"]
+
+[training]
+maximum_rows = 80000
+batch_size = 20000
+preprocessing_profile = "tree"
+estimators = 100
+max_depth = 18
+min_samples_leaf = 2
+max_features = "sqrt"
+n_jobs = 4
+
+[artifacts]
+directory = "models/supervised/binary"
+version = "1.0.1"
+
+[reports]
+directory = "reports/evaluation/binary"
